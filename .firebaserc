@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "books-ec62b",
+    "prod": "books-ec62b"
+  },
+  "targets": {
+    "books-ec62b": {
+      "hosting": {
+        "elevated-tech-ai-dj": [
+          "elevated-tech-ai-dj"
+        ]
+      }
+    }
+  },
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}
