@@ -1,7 +1,7 @@
 {
   "hosting": {
     "target": "elevated-tech-ai-dj",
-    "public": "dist/elevated-tech-ng",
+    "public": "dist/elevated-tech-ng/browser",
     "ignore": [
       "firebase.json",
       "**/.*",

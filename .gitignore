@@ -64,3 +64,12 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+# macOS system files
+.DS_Store
+
+# TypeScript build info
+.angular/cache/*.tsbuildinfo
+
+# Angular metadata files
+.angular/cache/*_metadata.json
