@@ -17,6 +17,7 @@ export class HomePgComponent implements AfterViewInit {
   showQrCode: boolean = false;
   @ViewChild('videoPlayer') videoPlayer!: ElementRef<HTMLVideoElement>;
   websiteUrl: string = 'https://elevated-tech-ai-dj.web.app';
+  corpWebsiteUrl: string = 'https://elevate-tech-ai-corp.web.app';
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
   });
@@ -47,6 +48,10 @@ export class HomePgComponent implements AfterViewInit {
 
 onQrCodeClose() {
   this.showQrCode = false;
+}
+
+openCorpwebsite(){
+  window.open(this.corpWebsiteUrl, '_blank');
 }
 
 }
