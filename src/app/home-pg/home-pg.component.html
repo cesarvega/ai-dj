@@ -1,56 +1,60 @@
+
 <section class="bg-bgColor" *ngIf="img">
   <section
     class="w-full h-screen flex justify-center items-center relative bg-gray"
   >
-    <img
-      [src]="img.img1"
-      alt="img1"
-      width="500"
-      height="450"
-      class="w-96 h-64 object-cover object-top absolute hidden lg:block top-10 left-[12%] xxl:left-1/4 shadow-2xl"
-    />
-    <img
-      [src]="img.img2"
-      alt="img1"
-      width="500"
-      height="450"
-      class="w-96 h-80 object-cover object-top absolute top-80 hidden lg:block left-10 xl:left-[12%] xxl:left-[18%] shadow-2xl"
-    />
-    <img
-      [src]="img.img3"
-      alt="img1"
-      width="500"
-      height="450"
-      class="w-96 h-72 object-cover object-top absolute hidden lg:block bottom-4 left-[13%] xxl:left-[22%] shadow-2xl"
-    />
-    <img
-      [src]="img.img4"
-      alt="img1"
-      width="500"
-      height="450"
-      class="w-96 h-64 object-cover object-top absolute top-5 hidden lg:block right-[12%] xxl:right-[24%] shadow-2xl"
-    />
-    <img
-      [src]="img.img5"
-      alt="img1"
-      width="500"
-      height="450"
-      class="w-96 h-80 object-cover object-top absolute top-80 hidden lg:block right-10 xl:right-[12%] xxl:right-[18%] shadow-2xl"
-    />
-    <img
-      [src]="img.img6"
-      alt="img1"
-      width="500"
-      height="450"
-      class="w-96 h-72 object-cover object-top absolute hidden lg:block bottom-3 right-[13%] xxl:right-1/4 shadow-2xl"
-    />
-    <img
-      [src]="img.logo"
-      alt="Elevated Tech"
-      width="350"
-      height="350"
-      class="w-60 h-60"
-    />
+  <img
+  [src]="img.img1"
+  alt="img1"
+  width="500"
+  height="450"
+  class="w-96 h-64 object-cover object-top absolute hidden lg:block top-10 left-[12%] xxl:left-1/4 shadow-2xl animate-from-left"
+/>
+<img
+  [src]="img.img2"
+  alt="img1"
+  width="500"
+  height="450"
+  class="w-96 h-80 object-cover object-top absolute top-80 hidden lg:block left-10 xl:left-[12%] xxl:left-[18%] shadow-2xl animate-from-left"
+/>
+<img
+  [src]="img.img3"
+  alt="img1"
+  width="500"
+  height="450"
+  class="w-96 h-72 object-cover object-top absolute hidden lg:block bottom-4 left-[13%] xxl:left-[22%] shadow-2xl animate-from-left"
+/>
+<img
+  [src]="img.img4"
+  alt="img1"
+  width="500"
+  height="450"
+  class="w-96 h-64 object-cover object-top absolute top-5 hidden lg:block right-[12%] xxl:right-[24%] shadow-2xl animate-from-right"
+/>
+<img
+  [src]="img.img5"
+  alt="img1"
+  width="500"
+  height="450"
+  class="w-96 h-80 object-cover object-top absolute top-80 hidden lg:block right-10 xl:right-[12%] xxl:right-[18%] shadow-2xl animate-from-right"
+/>
+<img
+  [src]="img.img6"
+  alt="img1"
+  width="500"
+  height="450"
+  class="w-96 h-72 object-cover object-top absolute hidden lg:block bottom-3 right-[13%] xxl:right-1/4 shadow-2xl animate-from-right"
+/>
+  <img
+  [src]="img.logo"
+  alt="Elevated Tech"
+  width="350"
+  height="350"
+  class="w-60 h-60 animate-fade-in"
+  (click)="closeQrCodePopup()"
+/>
+
+    <app-wave-component class="wave-component"></app-wave-component>
   </section>
   <section class="py-36">
     <div class="container mx-auto">
@@ -303,6 +307,9 @@
       class="w-full h-96 object-cover object-center"
       autoPlay
       loop
+      muted
+      playsinline
+      #videoPlayer
     ></video>
     <div class="py-20">
       <h2 class="text-center font-medium text-white text-5xl">
@@ -313,3 +320,6 @@
     </div>
   </section>
 </section>
+  <app-qr-code-popup-component style="width: 60%;" (closePopup)="onQrCodeClose()" *ngIf="showQrCode"
+  [url]="websiteUrl"></app-qr-code-popup-component>
+<app-raw-spinner></app-raw-spinner>

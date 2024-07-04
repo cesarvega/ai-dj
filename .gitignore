@@ -46,6 +46,8 @@ build/Release
 
 # Dependency directories
 node_modules/
+dist/
+vite/
 
 # Optional npm cache directory
 .npm
@@ -72,8 +74,5 @@ node_modules/
 .angular/cache/*.tsbuildinfo
 
 # Angular metadata files
-.angular/cache/*_metadata.json
-.angular/cache/17.3.8/elevated-tech-ng/.tsbuildinfo
-.angular/cache/17.3.8/vite/deps/_metadata.json
-.angular/cache/17.3.8/elevated-tech-ng/.tsbuildinfo
-.angular/cache/17.3.8/vite/deps/_metadata.json
+.angular/
+.angular/cache/17.3.8/vite/*

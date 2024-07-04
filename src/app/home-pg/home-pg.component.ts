@@ -1,22 +1,39 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { RawSpinnerComponent } from '../raw-spinner/raw-spinner.component';
+import { WaveComponentComponent } from '../wave-component/wave-component.component';
+import { QrCodePopupComponentComponent } from '../qr-code-popup-component/qr-code-popup-component.component';
 
 @Component({
   selector: 'app-home-pg',
   standalone: true,
-  imports: [CommonModule],
+  imports: [RawSpinnerComponent, WaveComponentComponent, CommonModule, QrCodePopupComponentComponent ],
   templateUrl: './home-pg.component.html',
   styleUrl: './home-pg.component.scss',
 })
-export class HomePgComponent {
-  constructor(private http: HttpClient) {}
-
+export class HomePgComponent implements AfterViewInit {
+  img: any;
+  showQrCode: boolean = false;
+  @ViewChild('videoPlayer') videoPlayer!: ElementRef<HTMLVideoElement>;
+  websiteUrl: string = 'https://elevated-tech-ai-dj.web.app';
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
   });
+  
+  constructor(private http: HttpClient) {}
 
-  img: any;
+  ngOnInit() {
+    this.getImages();
+  }
+
+  ngAfterViewInit() {
+    if (this.videoPlayer && this.videoPlayer.nativeElement) {
+      this.videoPlayer.nativeElement.play().catch(error => {
+        console.error('Error attempting to play', error);
+      });
+    }
+  }
 
   getImages(): void {
     this.http.get('assets/db/images.json').subscribe((res) => {
@@ -24,7 +41,12 @@ export class HomePgComponent {
     });
   }
 
-  ngOnInit() {
-    this.getImages();
-  }
+  closeQrCodePopup() {
+    this.showQrCode = !this.showQrCode;
+}
+
+onQrCodeClose() {
+  this.showQrCode = false;
+}
+
 }
