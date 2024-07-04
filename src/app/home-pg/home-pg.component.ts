@@ -5,11 +5,12 @@ import { RawSpinnerComponent } from '../raw-spinner/raw-spinner.component';
 import { WaveComponentComponent } from '../wave-component/wave-component.component';
 import { QrCodePopupComponentComponent } from '../qr-code-popup-component/qr-code-popup-component.component';
 import { environment } from '../../../environments/environment';
+import { IframeSoundCloudComponent } from '../iframe-sound-cloud/iframe-sound-cloud.component';
 
 @Component({
   selector: 'app-home-pg',
   standalone: true,
-  imports: [RawSpinnerComponent, WaveComponentComponent, CommonModule, QrCodePopupComponentComponent],
+  imports: [RawSpinnerComponent, WaveComponentComponent, CommonModule, QrCodePopupComponentComponent, IframeSoundCloudComponent],
   templateUrl: './home-pg.component.html',
   styleUrl: './home-pg.component.scss',
 })
@@ -19,7 +20,6 @@ export class HomePgComponent implements AfterViewInit {
   @ViewChild('videoPlayer') videoPlayer!: ElementRef<HTMLVideoElement>;
   websiteUrl: string = environment.websiteUrl;
   corpWebsiteUrl: string = environment.corpWebsiteUrl;
-  paymentUrl: string = environment.paymentUrl;
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
   });
@@ -54,10 +54,6 @@ export class HomePgComponent implements AfterViewInit {
 
   openCorpwebsite() {
     window.open(this.corpWebsiteUrl, '_blank');
-  }
-
-  buyNowButton(): void {
-    window.open(this.paymentUrl, '_blank');
   }
 
 }

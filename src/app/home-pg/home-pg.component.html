@@ -13,7 +13,7 @@
     alt="img2"
     width="500"
     height="450"
-    class="hidden sm:block w-64 h-64 object-cover object-top absolute top-62 left-40 shadow-2xl animate-from-left"
+    class="hidden sm:block w-64 h-64 object-cover object-top absolute top-62 left-60 shadow-2xl animate-from-left"
   />
   <img
     [src]="img.img3"
@@ -34,7 +34,7 @@
     alt="img5"
     width="500"
     height="450"
-    class="hidden sm:block w-64 h-64 object-cover object-top absolute top-62 right-40 shadow-2xl animate-from-right"
+    class="hidden sm:block w-64 h-64 object-cover object-top absolute top-62 right-60 shadow-2xl animate-from-right"
   />
   <img
     [src]="img.img6"
@@ -54,16 +54,7 @@
     <app-wave-component class="wave-component"></app-wave-component>
   </section>
   <section class="py-3">
-    <div class="buttons">
-      <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1846010670&color=%237868ac&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-      <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
-        <a href="https://soundcloud.com/elevate-tech" title="Elevate Tech Agency | Samples Kit Construction" target="_blank" style="color: #cccccc; text-decoration: none;">Elevate Tech Agency | Samples Kit Construction</a> · 
-        <a href="https://soundcloud.com/elevate-tech/elevate-tech-essential-sounds" title="Elevate Tech Essential Sounds (Tech House, Minimal, Deep)" target="_blank" style="color: #cccccc; text-decoration: none;">Elevate Tech Essential Sounds (Tech House, Minimal, Deep)</a></div>
-        <div class="flex  justify-center flex-col text-center items-center">
-          <br>
-          <button (click)="buyNowButton()" class="text-center font-medium text-white text-2xl bg-transparent hover:bg-blue-500 text-blue font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent  max-w-xs  rounded">Buy now</button>
-        </div>
-      </div>
+    <app-iframe-sound-cloud></app-iframe-sound-cloud>
       <br>
     <div class="container mx-auto">
       <div class="flex flex-col md:flex-row">
