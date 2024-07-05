@@ -2,74 +2,80 @@
 <section class="bg-bgColor" *ngIf="img">
   <section class="w-full h-screen flex justify-center items-center relative bg-gray">
     <img
-    [src]="img.img1"
-    alt="img1"
-    width="500"
-    height="450"
-    class="hidden sm:block w-64 h-64 object-cover object-top absolute top-8 left-24 shadow-2xl animate-from-left"
-  />
-  <img
-    [src]="img.img2"
-    alt="img2"
-    width="500"
-    height="450"
-    class="hidden sm:block w-64 h-64 object-cover object-top absolute top-62 left-60 shadow-2xl animate-from-left"
-  />
-  <img
-    [src]="img.img3"
-    alt="img3"
-    width="500"
-    height="450"
-    class="hidden sm:block w-64 h-64 object-cover object-top absolute bottom-16 left-24 shadow-2xl animate-from-left"
-  />
-  <img
-    [src]="img.img4"
-    alt="img4"
-    width="500"
-    height="450"
-    class="hidden sm:block w-64 h-64 object-cover object-top absolute top-8 right-24 shadow-2xl animate-from-right"
-  />
-  <img
-    [src]="img.img5"
-    alt="img5"
-    width="500"
-    height="450"
-    class="hidden sm:block w-64 h-64 object-cover object-top absolute top-62 right-60 shadow-2xl animate-from-right"
-  />
-  <img
-    [src]="img.img6"
-    alt="img6"
-    width="500"
-    height="450"
-    class="hidden sm:block w-64 h-64 object-cover object-top absolute bottom-16 right-24 shadow-2xl animate-from-right"
-  />
-  <img
-  [src]="img.logo"
-  alt="Elevated Tech"
-  width="350"
-  height="350"
-  class="w-60 h-60 animate-fade-in"
-  (click)="closeQrCodePopup()"
-  />
-    <app-wave-component class="wave-component"></app-wave-component>
+      [src]="img.img1"
+      alt="img1"
+      width="500"
+      height="450"
+      class="hidden sm:block w-64 h-64 object-cover object-top absolute top-8 left-24 shadow-2xl animate-from-left"
+    />
+    <img
+      [src]="img.img2"
+      alt="img2"
+      width="500"
+      height="450"
+      class="hidden sm:block w-64 h-64 object-cover object-top absolute top-62 left-60 shadow-2xl animate-from-left"
+    />
+    <img
+      [src]="img.img3"
+      alt="img3"
+      width="500"
+      height="450"
+      class="hidden sm:block w-64 h-64 object-cover object-top absolute bottom-16 left-24 shadow-2xl animate-from-left"
+    />
+    <img
+      [src]="img.img4"
+      alt="img4"
+      width="500"
+      height="450"
+      class="hidden sm:block w-64 h-64 object-cover object-top absolute top-8 right-24 shadow-2xl animate-from-right"
+    />
+    <img
+      [src]="img.img5"
+      alt="img5"
+      width="500"
+      height="450"
+      class="hidden sm:block w-64 h-64 object-cover object-top absolute top-62 right-60 shadow-2xl animate-from-right"
+    />
+    <img
+      [src]="img.img6"
+      alt="img6"
+      width="500"
+      height="450"
+      class="hidden sm:block w-64 h-64 object-cover object-top absolute bottom-16 right-24 shadow-2xl animate-from-right"
+    />
+    <img
+    [src]="img.logo"
+    alt="Elevated Tech"
+    width="350"
+    height="350"
+    class="w-60 h-60 animate-fade-in"
+    (click)="closeQrCodePopup()"
+    />
   </section>
-  <section class="py-3">
-    <app-iframe-sound-cloud></app-iframe-sound-cloud>
-      <br>
+  <app-wave-component class="wave-component-top"></app-wave-component>
+  <section class="py-3" style="    position: relative;
+  top: -140px;">
     <div class="container mx-auto">
       <div class="flex flex-col md:flex-row">
         <aside class="w-full md:w-1/2">
           <div class="px-5">
             <h2 class="text-white font-thin text-4xl">
-              AI-DJ CesarV-Rawtracks
+              AI-DJ Sound Pack
             </h2>
-            <img
+            <!-- <img
+            [src]="img.img3"
+            alt="img3"
+            width="500"
+            height="450"
+            class="w-full h-auto my-10"
+          /> -->
+            <!-- <img
               [src]="img.img1"
               alt="img1"
               width="500"
               height="450"
               class="w-full h-auto my-10"
-            />
+            /> -->
             <img
               [src]="img.img2"
               alt="img2"
@@ -77,31 +83,12 @@
               height="450"
               class="w-full h-auto my-10"
             />
-            <img
-              [src]="img.img6"
-              alt="img4"
-              width="500"
-              height="450"
-              class="w-full h-auto my-10"
-            />
-            <img
-              [src]="img.img7"
-              alt="img4"
-              width="500"
-              height="450"
-              class="w-full h-auto my-10"
-            />
+            
           </div>
         </aside>
         <aside class="w-full md:w-1/2">
           <div class="px-5">
-            <img
-              [src]="img.img3"
-              alt="img3"
-              width="500"
-              height="450"
-              class="w-full h-auto my-10"
-            />
+         
             <img
               [src]="img.img4"
               alt="img4"
@@ -109,19 +96,36 @@
               height="450"
               class="w-full h-auto my-10"
             />
-            <img
+            <!-- <img
               [src]="img.img5"
               alt="img3"
               width="500"
               height="450"
               class="w-full h-auto my-10"
-            />
+            /> -->
+            <!-- <img
+            [src]="img.img6"
+            alt="img4"
+            width="500"
+            height="450"
+            class="w-full h-auto my-10"
+          /> -->
+          <!-- <img
+            [src]="img.img7"
+            alt="img4"
+            width="500"
+            height="450"
+            class="w-full h-auto my-10"
+          /> -->
           </div>
         </aside>
       </div>
     </div>
+    <app-iframe-sound-cloud style="z-index: 99999;"></app-iframe-sound-cloud>
+    <!-- <app-wave-component class="wave-component"></app-wave-component> -->
   </section>
-  <section class="py-24">
+
+  <!-- <section class="py-3">
     <h2 class="text-center text-white text-5xl font-thin mb-10">
       Discography Layouts
       <br />
@@ -164,8 +168,8 @@
         class="w-80 h-60 object-cover object-top"
       />
     </div>
-  </section>
-  <section class="py-10">
+  </section> -->
+  <!-- <section class="py-10">
     <div class="flex flex-col md:flex-row items-center">
       <aside class="w-full md:w-1/2 lg:w-3/5">
         <img
@@ -195,8 +199,9 @@
         </div>
       </aside>
     </div>
-  </section>
-  <section class="py-24">
+  </section> -->
+  <section class="py-3" style="    position: relative;
+  top: -123px;" >
     <h2 class="text-center text-white text-5xl font-thin mb-10">
       Embed Your Music
       <br />
@@ -240,7 +245,7 @@
       />
     </div>
   </section>
-  <section class="py-10">
+  <!-- <section class="py-10">
     <div class="flex flex-col md:flex-row items-center">
       <aside class="w-full md:w-1/2 lg:w-2/5">
         <div class="px-10 mb-10 md:mb-0">
@@ -268,8 +273,8 @@
         />
       </aside>
     </div>
-  </section>
-  <section class="py-10">
+  </section> -->
+  <section class="py-3" >
     <div class="flex flex-col md:flex-row items-center">
       <aside class="w-full md:w-1/2 lg:w-3/5">
         <img
@@ -300,7 +305,17 @@
       </aside>
     </div>
   </section>
-  <section class="py-8">
+  <section>
+    <h2 class="text-center text-white text-5xl font-thin mb-10">
+      Discography
+      <br />
+      <small class="text-xl">AI-DJ Albums</small>
+    </h2>
+    <app-discography></app-discography>
+  </section>
+  <app-wave-component class="wave-component-bottom"></app-wave-component>
+
+  <section class="py-3" >
     <video
       [src]="img.vid"
       class="w-full h-96 object-cover object-center"
@@ -313,14 +328,14 @@
     <br>
     <div class="flex  justify-center flex-col text-center items-center" (click)="openCorpwebsite()">
       <button class="text-center font-medium text-white text-2xl bg-transparent hover:bg-blue-500 text-blue font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent  max-w-xs  rounded">
-        elevate-tech-ai
+        go-elevate-tech-ai
       </button>
      <div>
       <small class="text-base font-thin text-white"> &copy; 2024 - Copyrights </small>
      </div>
     </div>
+    <!-- <app-wave-component class="wave-component" style="padding-top: 100px;"></app-wave-component> -->
   </section>
 </section>
-  <app-qr-code-popup-component style="width: 60%;" (closePopup)="onQrCodeClose()" *ngIf="showQrCode"
-  [url]="websiteUrl"></app-qr-code-popup-component>
-<app-raw-spinner></app-raw-spinner>
+  <app-qr-code-popup-component style="width: 60%;" (closePopup)="onQrCodeClose()" *ngIf="showQrCode" [url]="websiteUrl"></app-qr-code-popup-component>
+<!-- <app-raw-spinner></app-raw-spinner> -->

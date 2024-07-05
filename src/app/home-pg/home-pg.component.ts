@@ -6,11 +6,18 @@ import { WaveComponentComponent } from '../wave-component/wave-component.compone
 import { QrCodePopupComponentComponent } from '../qr-code-popup-component/qr-code-popup-component.component';
 import { environment } from '../../../environments/environment';
 import { IframeSoundCloudComponent } from '../iframe-sound-cloud/iframe-sound-cloud.component';
+import { DiscographyComponent } from '../discography/discography.component';
 
 @Component({
   selector: 'app-home-pg',
   standalone: true,
-  imports: [RawSpinnerComponent, WaveComponentComponent, CommonModule, QrCodePopupComponentComponent, IframeSoundCloudComponent],
+  imports: [RawSpinnerComponent,
+     WaveComponentComponent,
+     CommonModule,
+     QrCodePopupComponentComponent,
+     IframeSoundCloudComponent,
+     DiscographyComponent
+    ],
   templateUrl: './home-pg.component.html',
   styleUrl: './home-pg.component.scss',
 })

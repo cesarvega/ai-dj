@@ -1,13 +1,24 @@
 {
   "projects": {
     "default": "books-ec62b",
-    "prod": "books-ec62b"
+    "prod": "books-ec62b",
+    "ai-sound": "ai-sound-60a1a"
   },
   "targets": {
     "books-ec62b": {
       "hosting": {
         "elevated-tech-ai-dj": [
           "elevated-tech-ai-dj"
+        ],
+        "raw-tracks": [
+          "raw-tracks"
+        ]
+      }
+    },
+    "ai-sound-60a1a": {
+      "hosting": {
+        "raw-tracks": [
+          "raw-tracks"
         ]
       }
     }
