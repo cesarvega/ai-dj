@@ -17,11 +17,11 @@ export class DiscographyComponent {
       title: 'AI-DJ',
       artist: 'Cvega',
       tracks: [
-        { name: 'Synced Rhythms v1', url: 'assets/tracks/Synced Rhythms v1.mp3' },
-        { name: 'Influencers Gonna Cry', url: 'assets/tracks/track2.mp3' },
-        { name: 'Disruption', url: 'assets/tracks/track3.mp3' },
-        { name: 'Intense Dreams', url: 'assets/tracks/track4.mp3' },
-        { name: 'Powerave', url: 'assets/tracks/track5.mp3' },
+        { name: 'Synced Rhythms v1', url: 'assets/tracks/Synced Rhythms v1.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Influencers Gonna Cry', url: 'assets/tracks/track2.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Disruption', url: 'assets/tracks/track3.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Intense Dreams', url: 'assets/tracks/track4.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Powerave', url: 'assets/tracks/track5.mp3',cover: 'assets/albums/synced1.png' },
       ]
     },
     {
@@ -30,11 +30,11 @@ export class DiscographyComponent {
       title: 'AI-DJ 1',
       artist: 'Luifersound',
       tracks: [
-        { name: 'Synced Rhythms v2', url: 'assets/tracks/Synced Rhythms v2.mp3' },
-        { name: 'Influencers Gonna Cry', url: 'assets/tracks/track2.mp3' },
-        { name: 'Disruption', url: 'assets/tracks/track3.mp3' },
-        { name: 'Intense Dreams', url: 'assets/tracks/track4.mp3' },
-        { name: 'Powerave', url: 'assets/tracks/track5.mp3' },
+        { name: 'Synced Rhythms v2', url: 'assets/tracks/Synced Rhythms v2.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Influencers Gonna Cry', url: 'assets/tracks/track2.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Disruption', url: 'assets/tracks/track3.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Intense Dreams', url: 'assets/tracks/track4.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Powerave', url: 'assets/tracks/track5.mp3',cover: 'assets/albums/synced1.png' },
       ]
     },
     {
@@ -43,11 +43,11 @@ export class DiscographyComponent {
       title: 'AI-DJ',
       artist: 'Cvega',
       tracks: [
-        { name: 'Synced Rhythms v1', url: 'assets/tracks/Synced Rhythms v1.mp3' },
-        { name: 'Influencers Gonna Cry', url: 'assets/tracks/track2.mp3' },
-        { name: 'Disruption', url: 'assets/tracks/track3.mp3' },
-        { name: 'Intense Dreams', url: 'assets/tracks/track4.mp3' },
-        { name: 'Powerave', url: 'assets/tracks/track5.mp3' },
+        { name: 'Synced Rhythms v1', url: 'assets/tracks/Synced Rhythms v1.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Influencers Gonna Cry', url: 'assets/tracks/track2.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Disruption', url: 'assets/tracks/track3.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Intense Dreams', url: 'assets/tracks/track4.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Powerave', url: 'assets/tracks/track5.mp3',cover: 'assets/albums/synced1.png' },
       ]
     },
     {
@@ -56,11 +56,11 @@ export class DiscographyComponent {
       title: 'AI-DJ 1',
       artist: 'Luifersound',
       tracks: [
-        { name: 'Synced Rhythms v2', url: 'assets/tracks/Synced Rhythms v2.mp3' },
-        { name: 'Influencers Gonna Cry', url: 'assets/tracks/track2.mp3' },
-        { name: 'Disruption', url: 'assets/tracks/track3.mp3' },
-        { name: 'Intense Dreams', url: 'assets/tracks/track4.mp3' },
-        { name: 'Powerave', url: 'assets/tracks/track5.mp3' },
+        { name: 'Synced Rhythms v2', url: 'assets/tracks/Synced Rhythms v2.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Influencers Gonna Cry', url: 'assets/tracks/track2.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Disruption', url: 'assets/tracks/track3.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Intense Dreams', url: 'assets/tracks/track4.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Powerave', url: 'assets/tracks/track5.mp3',cover: 'assets/albums/synced1.png' },
       ]
     },
     {
@@ -69,11 +69,11 @@ export class DiscographyComponent {
       title: 'AI-DJ',
       artist: 'Cvega',
       tracks: [
-        { name: 'Synced Rhythms v1', url: 'assets/tracks/Synced Rhythms v1.mp3' },
-        { name: 'Influencers Gonna Cry', url: 'assets/tracks/track2.mp3' },
-        { name: 'Disruption', url: 'assets/tracks/track3.mp3' },
-        { name: 'Intense Dreams', url: 'assets/tracks/track4.mp3' },
-        { name: 'Powerave', url: 'assets/tracks/track5.mp3' },
+        { name: 'Synced Rhythms v1', url: 'assets/tracks/Synced Rhythms v1.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Influencers Gonna Cry', url: 'assets/tracks/track2.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Disruption', url: 'assets/tracks/track3.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Intense Dreams', url: 'assets/tracks/track4.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Powerave', url: 'assets/tracks/track5.mp3',cover: 'assets/albums/synced1.png' },
       ]
     },
     {
@@ -82,11 +82,11 @@ export class DiscographyComponent {
       title: 'AI-DJ 1',
       artist: 'Luifersound',
       tracks: [
-        { name: 'Synced Rhythms v2', url: 'assets/tracks/Synced Rhythms v2.mp3' },
-        { name: 'Influencers Gonna Cry', url: 'assets/tracks/track2.mp3' },
-        { name: 'Disruption', url: 'assets/tracks/track3.mp3' },
-        { name: 'Intense Dreams', url: 'assets/tracks/track4.mp3' },
-        { name: 'Powerave', url: 'assets/tracks/track5.mp3' },
+        { name: 'Synced Rhythms v2', url: 'assets/tracks/Synced Rhythms v2.mp3',cover: 'assets/albums/synced1.png', },
+        { name: 'Influencers Gonna Cry', url: 'assets/tracks/track2.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Disruption', url: 'assets/tracks/track3.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Intense Dreams', url: 'assets/tracks/track4.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Powerave', url: 'assets/tracks/track5.mp3',cover: 'assets/albums/synced1.png' },
       ]
     },
     // Add more albums as needed

@@ -10,9 +10,13 @@ import { environment } from '../../../environments/environment';
 })
 export class IframeSoundCloudComponent {
   paymentUrl: string = environment.paymentUrl;
+  soundPackOfficalSiteUrl: string = environment.soundPackOfficalSiteUrl;
 
   buyNowButton(): void {
     window.open(this.paymentUrl, '_blank');
+  }
+  visitOfficiaWebsite(): void {
+    window.open(this.soundPackOfficalSiteUrl, '_blank');
   }
 
 }

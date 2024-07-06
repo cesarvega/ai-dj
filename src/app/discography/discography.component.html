@@ -19,7 +19,7 @@
     <ul>
       <li *ngFor="let track of selectedAlbum.tracks">
         <div class="track-container">
-          <img [src]="selectedAlbum.cover" alt="Track Cover" class="track-cover">
+          <img [src]="track.cover" alt="Track Cover" class="track-cover">
           <div class="track-info">
             <span>{{ track.name }}</span>
             <audio controls>
