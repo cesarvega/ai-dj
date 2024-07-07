@@ -36,19 +36,15 @@ export class DiscographyComponent {
         { name: 'Synced Rhythms v3', url: '/assets/tracks/Synced Rhythms v3.mp3', cover: 'assets/albums/synced3.png' },
       ]
     },
-    // {
-    //   id: 3,
-    //   cover: 'assets/albums/synced1.png',
-    //   title: 'AI-DJ',
-    //   artist: 'Cvega',
-    //   tracks: [
-    //     { name: 'Synced Rhythms v1', url: 'assets/tracks/Synced Rhythms v1.mp3', cover: 'assets/albums/synced1.png' },
-    //     { name: 'Influencers Gonna Cry', url: 'assets/tracks/track2.mp3', cover: 'assets/albums/synced1.png' },
-    //     { name: 'Disruption', url: 'assets/tracks/track3.mp3', cover: 'assets/albums/synced1.png' },
-    //     { name: 'Intense Dreams', url: 'assets/tracks/track4.mp3', cover: 'assets/albums/synced1.png' },
-    //     { name: 'Powerave', url: 'assets/tracks/track5.mp3', cover: 'assets/albums/synced1.png' },
-    //   ]
-    // },
+    {
+      id: 3,
+      cover: 'assets/albums/puertorican-pulse.png',
+      title: 'AI-DJ',
+      artist: 'Diego-DJ',
+      tracks: [
+        { name: 'Puertorican Pulse', url: 'assets/tracks/PuertoricanPulse.mp3', cover: 'assets/albums/puertorican-pulse-song.png' },
+      ]
+    },
     // Add more albums as needed
   ];
 
