@@ -13,82 +13,42 @@ export class DiscographyComponent {
   albums = [
     {
       id: 1,
-      cover: 'assets/albums/synced1.png',
-      title: 'AI-DJ',
-      artist: 'Cvega',
+      cover: 'assets/albums/Album.png',
+      title: 'Good Feeling',
+      artist: 'Cesar Vega',
       tracks: [
-        { name: 'Synced Rhythms v1', url: 'assets/tracks/Synced Rhythms v1.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Influencers Gonna Cry', url: 'assets/tracks/track2.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Disruption', url: 'assets/tracks/track3.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Intense Dreams', url: 'assets/tracks/track4.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Powerave', url: 'assets/tracks/track5.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Astronaut Depths', url: '/assets/tracks/Astronaut On The Depths.mp3', cover: 'assets/albums/astro.png' },
+        { name: 'Good Feeling', url: '/assets/tracks/Good Feeling.mp3', cover: 'assets/albums/good feeling.png' },
+        { name: 'Night Seekers v1', url: '/assets/tracks/Night Seekers v1.mp3', cover: 'assets/albums/nightSeek1.png' },
+        { name: 'Synced Rhythms v1', url: '/assets/tracks/Synced Rhythms v1.mp3', cover: 'assets/albums/synced1.png' },
+        
       ]
     },
     {
       id: 2,
-      cover: 'assets/albums/synced2.png',
-      title: 'AI-DJ 1',
-      artist: 'Luifersound',
+      cover: 'assets/albums/Album1.png',
+      title: 'Synced Rhythms',
+      artist: 'Cesar Vega',
       tracks: [
-        { name: 'Synced Rhythms v2', url: 'assets/tracks/Synced Rhythms v2.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Influencers Gonna Cry', url: 'assets/tracks/track2.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Disruption', url: 'assets/tracks/track3.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Intense Dreams', url: 'assets/tracks/track4.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Powerave', url: 'assets/tracks/track5.mp3',cover: 'assets/albums/synced1.png' },
+        { name: 'Love 4 U & Me', url: '/assets/tracks/love-4-u-&-me.mp3', cover: 'assets/albums/love-4-u-&-me.png' },
+        { name: 'Night Seekers v2', url: '/assets/tracks/Night Seekers v2.mp3', cover: 'assets/albums/nightSee2.png' },
+        { name: 'Synced Rhythms v2', url: '/assets/tracks/Synced Rhythms v2.mp3', cover: 'assets/albums/synced2.png' },
+        { name: 'Synced Rhythms v3', url: '/assets/tracks/Synced Rhythms v3.mp3', cover: 'assets/albums/synced3.png' },
       ]
     },
-    {
-      id: 3,
-      cover: 'assets/albums/synced1.png',
-      title: 'AI-DJ',
-      artist: 'Cvega',
-      tracks: [
-        { name: 'Synced Rhythms v1', url: 'assets/tracks/Synced Rhythms v1.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Influencers Gonna Cry', url: 'assets/tracks/track2.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Disruption', url: 'assets/tracks/track3.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Intense Dreams', url: 'assets/tracks/track4.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Powerave', url: 'assets/tracks/track5.mp3',cover: 'assets/albums/synced1.png' },
-      ]
-    },
-    {
-      id: 4,
-      cover: 'assets/albums/synced2.png',
-      title: 'AI-DJ 1',
-      artist: 'Luifersound',
-      tracks: [
-        { name: 'Synced Rhythms v2', url: 'assets/tracks/Synced Rhythms v2.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Influencers Gonna Cry', url: 'assets/tracks/track2.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Disruption', url: 'assets/tracks/track3.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Intense Dreams', url: 'assets/tracks/track4.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Powerave', url: 'assets/tracks/track5.mp3',cover: 'assets/albums/synced1.png' },
-      ]
-    },
-    {
-      id: 5,
-      cover: 'assets/albums/synced1.png',
-      title: 'AI-DJ',
-      artist: 'Cvega',
-      tracks: [
-        { name: 'Synced Rhythms v1', url: 'assets/tracks/Synced Rhythms v1.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Influencers Gonna Cry', url: 'assets/tracks/track2.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Disruption', url: 'assets/tracks/track3.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Intense Dreams', url: 'assets/tracks/track4.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Powerave', url: 'assets/tracks/track5.mp3',cover: 'assets/albums/synced1.png' },
-      ]
-    },
-    {
-      id: 6,
-      cover: 'assets/albums/synced2.png',
-      title: 'AI-DJ 1',
-      artist: 'Luifersound',
-      tracks: [
-        { name: 'Synced Rhythms v2', url: 'assets/tracks/Synced Rhythms v2.mp3',cover: 'assets/albums/synced1.png', },
-        { name: 'Influencers Gonna Cry', url: 'assets/tracks/track2.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Disruption', url: 'assets/tracks/track3.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Intense Dreams', url: 'assets/tracks/track4.mp3',cover: 'assets/albums/synced1.png' },
-        { name: 'Powerave', url: 'assets/tracks/track5.mp3',cover: 'assets/albums/synced1.png' },
-      ]
-    },
+    // {
+    //   id: 3,
+    //   cover: 'assets/albums/synced1.png',
+    //   title: 'AI-DJ',
+    //   artist: 'Cvega',
+    //   tracks: [
+    //     { name: 'Synced Rhythms v1', url: 'assets/tracks/Synced Rhythms v1.mp3', cover: 'assets/albums/synced1.png' },
+    //     { name: 'Influencers Gonna Cry', url: 'assets/tracks/track2.mp3', cover: 'assets/albums/synced1.png' },
+    //     { name: 'Disruption', url: 'assets/tracks/track3.mp3', cover: 'assets/albums/synced1.png' },
+    //     { name: 'Intense Dreams', url: 'assets/tracks/track4.mp3', cover: 'assets/albums/synced1.png' },
+    //     { name: 'Powerave', url: 'assets/tracks/track5.mp3', cover: 'assets/albums/synced1.png' },
+    //   ]
+    // },
     // Add more albums as needed
   ];
 
@@ -111,7 +71,7 @@ export class DiscographyComponent {
   ngOnInit(): void {
   }
 
-  
+
   toggleDetails(albumId: number) {
     if (this.selectedAlbum && this.selectedAlbum.id === albumId) {
       this.selectedAlbum = null;
