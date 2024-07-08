@@ -39,7 +39,7 @@ export class DiscographyComponent {
     {
       id: 3,
       cover: 'assets/albums/puertorican-pulse.png',
-      title: 'AI-DJ',
+      title: 'Puertorican Vibes',
       artist: 'Diego-DJ',
       tracks: [
         { name: 'Puertorican Pulse', url: 'assets/tracks/PuertoricanPulse.mp3', cover: 'assets/albums/puertorican-pulse-song.png' },

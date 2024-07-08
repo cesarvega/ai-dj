@@ -7,6 +7,7 @@ import { QrCodePopupComponentComponent } from '../qr-code-popup-component/qr-cod
 import { environment } from '../../../environments/environment';
 import { IframeSoundCloudComponent } from '../iframe-sound-cloud/iframe-sound-cloud.component';
 import { DiscographyComponent } from '../discography/discography.component';
+import { AudioPlayerComponent } from '../audio-player/audio-player.component';
 
 @Component({
   selector: 'app-home-pg',
@@ -16,7 +17,8 @@ import { DiscographyComponent } from '../discography/discography.component';
      CommonModule,
      QrCodePopupComponentComponent,
      IframeSoundCloudComponent,
-     DiscographyComponent
+     DiscographyComponent,
+     AudioPlayerComponent
     ],
   templateUrl: './home-pg.component.html',
   styleUrl: './home-pg.component.scss',
