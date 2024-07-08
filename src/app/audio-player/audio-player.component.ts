@@ -15,11 +15,13 @@ export class AudioPlayerComponent implements OnInit {
   private initialY = 0;
   private initialVolume = 1;
 
+  public isHidden = false;
+
   constructor() {}
 
   ngOnInit(): void {
     if (typeof window !== 'undefined') {
-      this.audio = new window.Audio('assets/tracks/PuertoricanPulse.mp3'); // Ensure the path is correct
+      this.audio = new window.Audio('../../assets/tracks/good vibes.mp3'); // Ensure the path is correct
       this.audio.volume = this.volume;
       this.audio.addEventListener('ended', () => {
         this.isPlaying = false;
@@ -38,16 +40,19 @@ export class AudioPlayerComponent implements OnInit {
     }
   }
 
-  startVolumeAdjustment(event: MouseEvent): void {
+  startVolumeAdjustment(event: MouseEvent | TouchEvent): void {
     this.isAdjustingVolume = true;
-    this.initialY = event.clientY;
+    this.initialY = this.getY(event);
     this.initialVolume = this.volume;
+    event.preventDefault(); // Prevent default touch behavior
   }
 
   @HostListener('window:mousemove', ['$event'])
-  onMouseMove(event: MouseEvent): void {
+  @HostListener('window:touchmove', ['$event'])
+  onMove(event: MouseEvent | TouchEvent): void {
     if (this.isAdjustingVolume) {
-      const deltaY = this.initialY - event.clientY;
+      const currentY = this.getY(event);
+      const deltaY = this.initialY - currentY;
       let newVolume = this.initialVolume + deltaY / 100;
       newVolume = Math.min(1, Math.max(0, newVolume));
       this.volume = newVolume;
@@ -59,7 +64,20 @@ export class AudioPlayerComponent implements OnInit {
   }
 
   @HostListener('window:mouseup')
-  onMouseUp(): void {
+  @HostListener('window:touchend')
+  onEnd(): void {
     this.isAdjustingVolume = false;
+  }
+
+  toggleVisibility(): void {
+    this.isHidden = !this.isHidden;
+  }
+
+  private getY(event: MouseEvent | TouchEvent): number {
+    if (event instanceof MouseEvent) {
+      return event.clientY;
+    } else {
+      return event.touches[0].clientY;
+    }
   }
 }

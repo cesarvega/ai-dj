@@ -1,9 +1,9 @@
-<div class="audio-player-container">
+<div class="audio-player-container" [class.hidden]="isHidden">
   <div class="audio-player">
     <div class="outer-knob">
-      <div class="inner-knob" (mousedown)="startVolumeAdjustment($event)" [style.transform]="volumeKnobStyle">
-        <button class="play-button" (click)="togglePlay()">{{ isPlaying ? 'Pause' : 'Play' }}</button>
+      <div class="inner-knob" (mousedown)="startVolumeAdjustment($event)" (touchstart)="startVolumeAdjustment($event)" [style.transform]="volumeKnobStyle">
       </div>
     </div>
   </div>
+  <button class="play-button" (click)="togglePlay()">{{ isPlaying ? 'Pause' : 'Play' }}</button>
 </div>

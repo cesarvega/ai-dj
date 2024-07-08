@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "target": "raw-tracks",
+    "target": "elevated-tech-ai-dj",
     "public": "dist/elevated-tech-ng/browser",
     "ignore": [
       "firebase.json",
