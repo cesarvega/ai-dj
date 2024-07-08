@@ -17,11 +17,18 @@ export class AudioPlayerComponent implements OnInit {
 
   public isHidden = false;
 
+  private audioContext: AudioContext | undefined;
+  private gainNode: GainNode | undefined;
+
   constructor() {}
 
   ngOnInit(): void {
     if (typeof window !== 'undefined') {
       this.audio = new window.Audio('../../assets/tracks/good vibes.mp3'); // Ensure the path is correct
+      this.audioContext = new AudioContext();
+      const track = this.audioContext.createMediaElementSource(this.audio);
+      this.gainNode = this.audioContext.createGain();
+      track.connect(this.gainNode).connect(this.audioContext.destination);
       this.audio.volume = this.volume;
       this.audio.addEventListener('ended', () => {
         this.isPlaying = false;
@@ -35,6 +42,7 @@ export class AudioPlayerComponent implements OnInit {
         this.audio.pause();
       } else {
         this.audio.play();
+        this.audioContext?.resume(); // Ensure AudioContext is resumed after user interaction
       }
       this.isPlaying = !this.isPlaying;
     }
@@ -57,9 +65,10 @@ export class AudioPlayerComponent implements OnInit {
       newVolume = Math.min(1, Math.max(0, newVolume));
       this.volume = newVolume;
       this.volumeKnobStyle = `rotate(${newVolume * 270 - 135}deg)`;
-      if (this.audio) {
-        this.audio.volume = newVolume;
+      if (this.gainNode) {
+        this.gainNode.gain.value = newVolume;
       }
+      event.preventDefault(); // Prevent default touch behavior
     }
   }
 
