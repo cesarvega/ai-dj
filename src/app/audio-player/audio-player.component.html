@@ -1,7 +1,19 @@
 <div class="audio-player-container" [class.hidden]="isHidden">
   <div class="audio-player">
     <div class="outer-knob">
-      <div class="inner-knob" (mousedown)="startVolumeAdjustment($event)" (touchstart)="startVolumeAdjustment($event)" [style.transform]="volumeKnobStyle">
+      <div class="inner-knob" (mousedown)="startAdjustment($event, 'high')" (touchstart)="startAdjustment($event, 'high')" [style.transform]="highKnobStyle">
+      </div>
+    </div>
+    <div class="outer-knob">
+      <div class="inner-knob" (mousedown)="startAdjustment($event, 'mid')" (touchstart)="startAdjustment($event, 'mid')" [style.transform]="midKnobStyle">
+      </div>
+    </div>
+    <div class="outer-knob">
+      <div class="inner-knob" (mousedown)="startAdjustment($event, 'low')" (touchstart)="startAdjustment($event, 'low')" [style.transform]="lowKnobStyle">
+      </div>
+    </div>
+    <div class="outer-knob">
+      <div class="inner-knob" (mousedown)="startAdjustment($event, 'volume')" (touchstart)="startAdjustment($event, 'volume')" [style.transform]="volumeKnobStyle">
       </div>
     </div>
   </div>
