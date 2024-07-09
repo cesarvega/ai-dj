@@ -19,7 +19,7 @@
   position: relative;
   width: 100px;
   height: 100px;
-  background: url('../../assets/images/knob_outer.png') no-repeat center center;
+  // background: url('../../assets/images/knob_outer.png') no-repeat center center;
   background-size: cover;
 }
 
@@ -38,16 +38,16 @@
 
 .play-button {
   position: absolute;
-  top: 98%;
+  top: 95%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
   border: none;
   padding: 3px 6px;
-  font-size: 5px;
+  font-size: 12px;
   cursor: pointer;
-  border-radius: 50%;
+  // border-radius: 50%;
   z-index: 10;
 }
 

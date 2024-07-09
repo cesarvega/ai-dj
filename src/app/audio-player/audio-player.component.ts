@@ -9,7 +9,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 export class AudioPlayerComponent implements OnInit {
   private audio: HTMLAudioElement | undefined;
   public isPlaying = false;
-  public volume = 1;
+  public volume = 0.5;
   public volumeKnobStyle = 'rotate(0deg)';
   public lowKnobStyle = 'rotate(0deg)';
   public midKnobStyle = 'rotate(0deg)';
@@ -19,7 +19,7 @@ export class AudioPlayerComponent implements OnInit {
   private isAdjustingMid = false;
   private isAdjustingHigh = false;
   private initialY = 0;
-  private initialVolume = 1;
+  private initialVolume = 0.5;
   private initialGain = 0;
 
   public isHidden = false;

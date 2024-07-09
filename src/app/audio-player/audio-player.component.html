@@ -3,18 +3,30 @@
     <div class="outer-knob">
       <div class="inner-knob" (mousedown)="startAdjustment($event, 'high')" (touchstart)="startAdjustment($event, 'high')" [style.transform]="highKnobStyle">
       </div>
+     <div style="display: flex;justify-content: center;color: white;">
+      <p>HI</p>
+     </div>
     </div>
     <div class="outer-knob">
       <div class="inner-knob" (mousedown)="startAdjustment($event, 'mid')" (touchstart)="startAdjustment($event, 'mid')" [style.transform]="midKnobStyle">
       </div>
+      <div style="display: flex;justify-content: center;color: white;">
+        <p>MID</p>
+       </div>
     </div>
     <div class="outer-knob">
       <div class="inner-knob" (mousedown)="startAdjustment($event, 'low')" (touchstart)="startAdjustment($event, 'low')" [style.transform]="lowKnobStyle">
       </div>
+      <div style="display: flex;justify-content: center;color: white;">
+        <p>LOW</p>
+       </div>
     </div>
     <div class="outer-knob">
       <div class="inner-knob" (mousedown)="startAdjustment($event, 'volume')" (touchstart)="startAdjustment($event, 'volume')" [style.transform]="volumeKnobStyle">
       </div>
+      <div style="display: flex;justify-content: center;color: white;">
+        <p>VOL</p>
+       </div>
     </div>
   </div>
   <button class="play-button" (click)="togglePlay()">{{ isPlaying ? 'Pause' : 'Play' }}</button>
