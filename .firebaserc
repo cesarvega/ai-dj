@@ -3,7 +3,8 @@
     "default": "books-ec62b",
     "prod": "books-ec62b",
     "ai-sound": "ai-sound-60a1a",
-    "book": "books-ec62b"
+    "book": "books-ec62b",
+    "audio": "ai-sound-60a1a"
   },
   "targets": {
     "books-ec62b": {

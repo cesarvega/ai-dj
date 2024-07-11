@@ -23,7 +23,7 @@
           <div class="track-info">
             <span>{{ track.name }}</span>
             <audio controls>
-              <source [src]="track.url" type="audio/mpeg">
+              <source [src]="track.url" type="audio/mpeg" (click)="playSong(track.name)">
               Your browser does not support the audio element.
             </audio>
           </div>

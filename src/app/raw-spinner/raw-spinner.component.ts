@@ -10,7 +10,7 @@ import { WaveComponentComponent } from '../wave-component/wave-component.compone
 })
 export class RawSpinnerComponent implements OnInit {
   speed: number = 0.5; // Time interval in seconds for toggling the class
-  displayTime: number = 4; // Time in seconds before hiding the spinner
+  displayTime: number = 3; // Time in seconds before hiding the spinner
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 

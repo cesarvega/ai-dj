@@ -15,7 +15,7 @@ export class DiscographyComponent {
       id: 1,
       cover: 'assets/albums/Album.png',
       title: 'Good Feeling',
-      artist: 'Cesar Vega',
+      artist: 'cesar-ai-dj',
       tracks: [
         { name: 'Astronaut Depths', url: '/assets/tracks/Astronaut On The Depths.mp3', cover: 'assets/albums/astro.png' },
         { name: 'Good Feeling', url: '/assets/tracks/Good Feeling.mp3', cover: 'assets/albums/good feeling.png' },
@@ -28,7 +28,7 @@ export class DiscographyComponent {
       id: 2,
       cover: 'assets/albums/Album1.png',
       title: 'Synced Rhythms',
-      artist: 'Cesar Vega',
+      artist: 'cesar-ai-dj',
       tracks: [
         { name: 'Love 4 U & Me', url: '/assets/tracks/love-4-u-&-me.mp3', cover: 'assets/albums/love-4-u-&-me.png' },
         { name: 'Night Seekers v2', url: '/assets/tracks/Night Seekers v2.mp3', cover: 'assets/albums/nightSee2.png' },
@@ -78,5 +78,9 @@ export class DiscographyComponent {
 
   closeDetails() {
     this.selectedAlbum = null;
+  }
+
+  playSong(song:string){
+
   }
 }

@@ -1,4 +1,4 @@
-<div class="audio-player-container" [class.hidden]="isHidden">
+<div [ngClass]="{'hide-audio-player-container': showOrHideControls, 'show-audio-player-container': !showOrHideControls}" class="audio-player-container" [class.hidden]="isHidden">
   <div class="audio-player">
     <div class="outer-knob">
       <div class="inner-knob" (mousedown)="startAdjustment($event, 'high')" (touchstart)="startAdjustment($event, 'high')" [style.transform]="highKnobStyle">
@@ -29,5 +29,6 @@
        </div>
     </div>
   </div>
-  <button class="play-button" (click)="togglePlay()">{{ isPlaying ? 'Pause' : 'Play' }}</button>
+  <button (click)="togglePlay()" class="play-button">{{ isPlaying ? 'Pause' : 'Play' }}</button>
+  <button (click)="toggleHideOrShowControls()" [ngClass]="{'hidden-arrow-button': showOrHideControls, 'playing-arrow-button': !showOrHideControls}">{{ showOrHideControls ? '<' : '>' }}</button>
 </div>

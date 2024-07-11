@@ -1,14 +1,17 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-audio-player',
   templateUrl: './audio-player.component.html',
   styleUrls: ['./audio-player.component.scss'],
+  imports: [CommonModule],
   standalone: true
 })
 export class AudioPlayerComponent implements OnInit {
   private audio: HTMLAudioElement | undefined;
   public isPlaying = false;
+  public showOrHideControls = true;
   public volume = 0.5;
   public volumeKnobStyle = 'rotate(0deg)';
   public lowKnobStyle = 'rotate(0deg)';
@@ -139,6 +142,10 @@ export class AudioPlayerComponent implements OnInit {
 
   toggleVisibility(): void {
     this.isHidden = !this.isHidden;
+  }
+
+  toggleHideOrShowControls(): void {
+    this.showOrHideControls = !this.showOrHideControls;
   }
 
   private getY(event: MouseEvent | TouchEvent): number {
