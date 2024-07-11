@@ -45,6 +45,27 @@ export class DiscographyComponent {
         { name: 'Puertorican Pulse', url: 'assets/tracks/PuertoricanPulse.mp3', cover: 'assets/albums/puertorican-pulse-song.png' },
       ]
     },
+    {
+      id: 4,
+      cover: 'assets/albums/lf new5.jpg',
+      title: 'Fresh Music',
+      artist: 'Luifer-Dj',
+      tracks: [
+        { name: 'Loofy - Last Night (Luifer Remix) ', url: 'assets/tracks/Loofy - Last Night (Luifer Dj Bootleg) 2024.wav', cover: 'assets/albums/lf new3.jpg' },
+        { name: 'Fireboy DML, Peace Control - Peru (Luifer Dj Bootleg)', url: 'assets/tracks/Fireboy DML, Peace Control - Peru (Luifer Dj Bootleg).wav', cover: 'assets/albums/lf new4.jpg' },
+      ]
+    },
+  //{
+   // id: 5,
+   // cover: 'assets/albums/lf new2.jpg',
+   // title: 'Fresh Music II',
+   // artist: 'Luifer-Dj',
+   // tracks: [
+   //   { name: 'Loofy - Last Night (Luifer Remix) ', url: 'assets/tracks/Loofy - Last Night (Luifer Dj Bootleg) 2024.wav', cover: 'assets/albums/puertorican-pulse-song.png' },
+   // ]
+ // },
+
+
     // Add more albums as needed
   ];
 

@@ -7,51 +7,51 @@
     bottom: -12px;
 }
 
-@keyframes fromLeft {
-    0% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes fromRight {
-    0% {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  .animate-from-left {
-    opacity: 0; /* Initially hidden */
-    animation: fromLeft 1s ease-out forwards;
-    animation-delay: 3s;
-  }
-  
-  .animate-from-right {
-    opacity: 0; /* Initially hidden */
-    animation: fromRight 1s ease-out forwards;
-    animation-delay: 3s;
-  }
-  
-  .animate-fade-in {
-    opacity: 0; /* Initially hidden */
-    animation: fadeIn 1s ease-out forwards;
-    animation-delay: 3s;
-  }
+// @keyframes fromLeft {
+//     0% {
+//       transform: translateX(-100%);
+//       opacity: 0;
+//     }
+//     100% {
+//       transform: translateX(0);
+//       opacity: 1;
+//     }
+//   }
+
+//   @keyframes fromRight {
+//     0% {
+//       transform: translateX(100%);
+//       opacity: 0;
+//     }
+//     100% {
+//       transform: translateX(0);
+//       opacity: 1;
+//     }// como hago code fold en vscode cuaes son las teclas 
+//   }
+
+//   @keyframes fadeIn {
+//     0% {
+//       opacity: 0;
+//     }
+//     100% {
+//       opacity: 1;
+//     }
+//   }
+
+//   .animate-from-left {
+//     opacity: 0; /* Initially hidden */
+//     animation: fromLeft 1s ease-out forwards;
+//     animation-delay: 3s;
+//   }
+
+//   .animate-from-right {
+//     opacity: 0; /* Initially hidden */
+//     animation: fromRight 1s ease-out forwards;
+//     animation-delay: 3s;
+//   }
+
+//   .animate-fade-in {
+//     opacity: 0; /* Initially hidden */
+//     animation: fadeIn 1s ease-out forwards;
+//     animation-delay: 3s;
+//   }

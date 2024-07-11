@@ -1,0 +1,25 @@
+.sound-waves-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  audio {
+    margin-bottom: 10px;
+  }
+  
+  canvas {
+    border: 1px solid #000;
+  }
+
+  .low-frequency {
+    background-color: red;
+  }
+  
+  .mid-frequency {
+    background-color: green;
+  }
+  
+  .high-frequency {
+    background-color: yellow;
+  }

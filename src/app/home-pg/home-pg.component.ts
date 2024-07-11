@@ -9,6 +9,7 @@ import { IframeSoundCloudComponent } from '../iframe-sound-cloud/iframe-sound-cl
 import { DiscographyComponent } from '../discography/discography.component';
 import { AudioPlayerComponent } from '../audio-player/audio-player.component';
 import { AudioLowComponent } from '../audio-low/audio-low.component';
+import { SoundWavesComponent } from '../sound-waves/sound-waves.component';
 
 @Component({
   selector: 'app-home-pg',
@@ -20,7 +21,8 @@ import { AudioLowComponent } from '../audio-low/audio-low.component';
      IframeSoundCloudComponent,
      DiscographyComponent,
      AudioPlayerComponent,
-     AudioLowComponent
+     AudioLowComponent,
+     SoundWavesComponent,
     ],
   templateUrl: './home-pg.component.html',
   styleUrl: './home-pg.component.scss',
