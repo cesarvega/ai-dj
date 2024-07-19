@@ -12,14 +12,22 @@
     border: 1px solid #000;
   }
 
+  .wave {
+    width: 5px;
+    height: 100px;
+    display: inline-block;
+    margin-right: 2px;
+  }
+  
   .low-frequency {
-    background-color: red;
+    background-color: blue;
   }
   
   .mid-frequency {
     background-color: green;
+  
   }
   
   .high-frequency {
-    background-color: yellow;
+    background-color: red;
   }

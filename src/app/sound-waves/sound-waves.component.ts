@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, Inject, PLATFORM_ID, AfterViewInit } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
@@ -7,19 +7,85 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrls: ['./sound-waves.component.scss'],
   standalone: true,
 })
-export class SoundWavesComponent implements OnInit, OnDestroy {
+export class SoundWavesComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('audioElement', { static: true }) audioElement!: ElementRef<HTMLAudioElement>;
   private audioContext!: AudioContext;
   private analyser!: AnalyserNode;
-  private dataArray!: Uint8Array;
   private animationFrameId!: number;
-
+  private dataArray!: Uint8Array;
+  audioSrc = 'assets/tracks/love-4-u-&-me.mp3';
+  private canvas!: HTMLCanvasElement;
+  private canvasCtx!: CanvasRenderingContext2D;
   constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit(): void {
+   
+  }
+
+  ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
-      this.initAudioVisualizer();
+      this.setupAudioVisualization();
     }
+  }
+
+  setupAudioVisualization() {
+    const audio = this.audioElement.nativeElement;
+    this.canvas = document.getElementById('soundWaveCanvas') as HTMLCanvasElement;
+    this.canvasCtx = this.canvas.getContext('2d') as CanvasRenderingContext2D;
+
+    if (!this.canvasCtx) {
+      console.error('Failed to get 2D context');
+      return;
+    }
+
+    audio.addEventListener('play', () => {
+      this.initAudioVisualizer(audio);
+      this.animateSoundWave();
+    });
+  }
+
+  initAudioVisualizer(audio: HTMLAudioElement) {
+    this.audioContext = new AudioContext();
+    const source = this.audioContext.createMediaElementSource(audio);
+    this.analyser = this.audioContext.createAnalyser();
+    source.connect(this.analyser);
+    this.analyser.connect(this.audioContext.destination);
+    this.analyser.fftSize = 2048;
+    const bufferLength = this.analyser.frequencyBinCount;
+    this.dataArray = new Uint8Array(bufferLength);
+  }
+
+  animateSoundWave() {
+    requestAnimationFrame(() => this.animateSoundWave());
+
+    this.analyser.getByteTimeDomainData(this.dataArray);
+
+    this.canvasCtx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    this.canvasCtx.lineWidth = 2;
+
+    this.canvasCtx.beginPath();
+
+    const sliceWidth = this.canvas.width * 1.0 / this.dataArray.length;
+    let x = 0;
+
+    for (let i = 0; i < this.dataArray.length; i++) {
+      const v = this.dataArray[i] / 128.0;
+      const y = v * this.canvas.height / 2;
+
+      this.drawSoundWave(this.dataArray[i]);  // Call drawSoundWave with the frequency
+
+      if (i === 0) {
+        this.canvasCtx.moveTo(x, y);
+      } else {
+        this.canvasCtx.lineTo(x, y);
+      }
+
+      x += sliceWidth;
+    }
+
+    this.canvasCtx.lineTo(this.canvas.width, this.canvas.height / 2);
+    this.canvasCtx.stroke();
   }
 
 
@@ -30,26 +96,6 @@ export class SoundWavesComponent implements OnInit, OnDestroy {
     if (this.audioContext) {
       this.audioContext.close();
     }
-  }
-
-  private initAudioVisualizer(): void {
-    // Asegúrate de que AudioContext está definido en el navegador
-    const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
-    if (!AudioContext) {
-      console.error('AudioContext is not supported in this browser.');
-      return;
-    }
-
-    this.audioContext = new AudioContext();
-    const audioElement = this.audioElement.nativeElement;
-    const audioSource = this.audioContext.createMediaElementSource(audioElement);
-    this.analyser = this.audioContext.createAnalyser();
-    audioSource.connect(this.analyser);
-    this.analyser.connect(this.audioContext.destination);
-    this.analyser.fftSize = 256;
-    const bufferLength = this.analyser.frequencyBinCount;
-    this.dataArray = new Uint8Array(bufferLength);
-    this.animate();
   }
 
   private animate(): void {
@@ -79,14 +125,13 @@ export class SoundWavesComponent implements OnInit, OnDestroy {
     }
   }
 
- 
   drawSoundWave(frequency: number) {
     const waveElement = document.createElement('div');
     waveElement.classList.add('wave');
 
-    if (frequency < 200) {
+    if (frequency < 128) {
       waveElement.classList.add('low-frequency');
-    } else if (frequency >= 200 && frequency < 1000) {
+    } else if (frequency >= 128 && frequency < 192) {
       waveElement.classList.add('mid-frequency');
     } else {
       waveElement.classList.add('high-frequency');
@@ -99,5 +144,5 @@ export class SoundWavesComponent implements OnInit, OnDestroy {
       console.error('wave-container element not found');
     }
   }
-
 }
+

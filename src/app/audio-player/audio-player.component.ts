@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, HostListener } from '@angular/core';
+import { AudioService } from '../services/audio.service';
 
 @Component({
   selector: 'app-audio-player',
@@ -9,7 +10,6 @@ import { Component, OnInit, HostListener } from '@angular/core';
   standalone: true
 })
 export class AudioPlayerComponent implements OnInit {
-  private audio: HTMLAudioElement | undefined;
   public isPlaying = false;
   public showOrHideControls = true;
   public volume = 0.5;
@@ -26,109 +26,78 @@ export class AudioPlayerComponent implements OnInit {
   private initialGain = 0;
 
   public isHidden = false;
+  public tracks = [
+    'assets/tracks/Astronaut On The Depths.mp3',
+    'assets/tracks/Feeling Good Remix Tech House.wav',
+    'assets/tracks/Fireboy DML, Peace Control - Peru (Luifer Dj Bootleg).mp3',
+    'assets/tracks/Good Feeling.mp3',
+    'assets/tracks/good vibes.mp3',
+    'assets/tracks/Loofy - Last Night (Luifer Dj Bootleg) 2024.wav',
+    'assets/tracks/love-4-u-&-me.mp3',
+    'assets/tracks/Night Seekers v1.mp3',
+    'assets/tracks/Night Seekers v2.mp3',
+    'assets/tracks/PuertoricanPulse.mp3',
+    'assets/tracks/Synced Rhythms v1.mp3',
+    'assets/tracks/Synced Rhythms v2.mp3',
+    'assets/tracks/Synced Rhythms v3.mp3'
+  ];
 
-  private audioContext: AudioContext | undefined;
-  private gainNode: GainNode | undefined;
-  private lowFilter: BiquadFilterNode | undefined;
-  private midFilter: BiquadFilterNode | undefined;
-  private highFilter: BiquadFilterNode | undefined;
-
-  constructor() {}
+  constructor(private audioService: AudioService) { }
 
   ngOnInit(): void {
-    if (typeof window !== 'undefined') {
-      this.audio = new window.Audio('../../assets/tracks/good vibes.mp3'); // Ensure the path is correct
-      this.audioContext = new AudioContext();
-      const track = this.audioContext.createMediaElementSource(this.audio);
-
-      this.gainNode = this.audioContext.createGain();
-      this.lowFilter = this.audioContext.createBiquadFilter();
-      this.lowFilter.type = 'lowshelf';
-      this.lowFilter.frequency.setValueAtTime(200, this.audioContext.currentTime);
-
-      this.midFilter = this.audioContext.createBiquadFilter();
-      this.midFilter.type = 'peaking';
-      this.midFilter.frequency.setValueAtTime(1000, this.audioContext.currentTime);
-      this.midFilter.Q.setValueAtTime(1, this.audioContext.currentTime);
-
-      this.highFilter = this.audioContext.createBiquadFilter();
-      this.highFilter.type = 'highshelf';
-      this.highFilter.frequency.setValueAtTime(2000, this.audioContext.currentTime);
-
-      track.connect(this.lowFilter).connect(this.midFilter).connect(this.highFilter).connect(this.gainNode).connect(this.audioContext.destination);
-      this.audio.volume = this.volume;
-      this.audio.addEventListener('ended', () => {
-        this.isPlaying = false;
-      });
-    }
+    this.audioService.initializeAudioContext();
   }
 
   togglePlay(): void {
-    if (this.audio) {
-      if (this.isPlaying) {
-        this.audio.pause();
-      } else {
-        this.audio.play();
-        this.audioContext?.resume(); // Ensure AudioContext is resumed after user interaction
-      }
-      this.isPlaying = !this.isPlaying;
+    if (this.isPlaying) {
+      this.audioService.pause();
+    } else {
+      this.audioService.play();
     }
+    this.isPlaying = !this.isPlaying;
   }
 
-  startAdjustment(event: MouseEvent | TouchEvent, type: 'volume' | 'low' | 'mid' | 'high'): void {
-    switch (type) {
-      case 'volume':
-        this.isAdjustingVolume = true;
-        this.initialVolume = this.volume;
-        break;
-      case 'low':
-        this.isAdjustingLow = true;
-        this.initialGain = this.lowFilter?.gain.value ?? 0;
-        break;
-      case 'mid':
-        this.isAdjustingMid = true;
-        this.initialGain = this.midFilter?.gain.value ?? 0;
-        break;
-      case 'high':
-        this.isAdjustingHigh = true;
-        this.initialGain = this.highFilter?.gain.value ?? 0;
-        break;
-    }
+  startAdjustment(event: MouseEvent | TouchEvent, control: string): void {
     this.initialY = this.getY(event);
-    event.preventDefault(); // Prevent default touch behavior
+    if (control === 'volume') {
+      this.isAdjustingVolume = true;
+      this.initialVolume = this.volume;
+    } else if (control === 'low') {
+      this.isAdjustingLow = true;
+      this.initialGain = this.audioService.getLowFilterGain();
+    } else if (control === 'mid') {
+      this.isAdjustingMid = true;
+      this.initialGain = this.audioService.getMidFilterGain();
+    } else if (control === 'high') {
+      this.isAdjustingHigh = true;
+      this.initialGain = this.audioService.getHighFilterGain();
+    }
+    event.preventDefault();
   }
 
   @HostListener('window:mousemove', ['$event'])
   @HostListener('window:touchmove', ['$event'])
   onMove(event: MouseEvent | TouchEvent): void {
-    if (this.isAdjustingVolume || this.isAdjustingLow || this.isAdjustingMid || this.isAdjustingHigh) {
-      const currentY = this.getY(event);
-      const deltaY = this.initialY - currentY;
-      
-      let newValue = this.initialGain + deltaY / 5;  // Adjust sensitivity if needed
-      newValue = Math.min(40, Math.max(-40, newValue));  // Adjust gain range
+    const currentY = this.getY(event);
+    const deltaY = this.initialY - currentY;
+    const newVolume = Math.min(Math.max(this.initialVolume + deltaY / 300, 0), 1);
+    const newValue = Math.min(Math.max(this.initialGain + deltaY / 3, -100), 100);
 
-      let newVolume = this.initialVolume + deltaY / 100;
-      newVolume = Math.min(1, Math.max(0, newVolume)); 
-
-      if (this.isAdjustingVolume) {
-        this.volume = newVolume;
-        this.volumeKnobStyle = `rotate(${newVolume * 270 - 135}deg)`;
-        if (this.gainNode) {
-          this.gainNode.gain.value = newVolume;
-        }
-      } else if (this.isAdjustingLow && this.lowFilter) {
-        this.lowFilter.gain.value = newValue;
-        this.lowKnobStyle = `rotate(${newValue * 4}deg)`;
-      } else if (this.isAdjustingMid && this.midFilter) {
-        this.midFilter.gain.value = newValue;
-        this.midKnobStyle = `rotate(${newValue * 4}deg)`;
-      } else if (this.isAdjustingHigh && this.highFilter) {
-        this.highFilter.gain.value = newValue;
-        this.highKnobStyle = `rotate(${newValue * 4}deg)`;
-      }
-      event.preventDefault(); // Prevent default touch behavior
+    if (this.isAdjustingVolume) {
+      this.volume = newVolume;
+      this.volumeKnobStyle = `rotate(${newVolume * 270 - 135}deg)`;
+      this.audioService.setGain(newVolume);
+    } else if (this.isAdjustingLow) {
+      this.audioService.setLowFilter(newValue);
+      this.lowKnobStyle = `rotate(${newValue * 4}deg)`;
+    } else if (this.isAdjustingMid) {
+      this.audioService.setMidFilter(newValue);
+      this.midKnobStyle = `rotate(${newValue * 4}deg)`;
+    } else if (this.isAdjustingHigh) {
+      this.audioService.setHighFilter(newValue);
+      this.highKnobStyle = `rotate(${newValue * 4}deg)`;
     }
+    event.preventDefault();
   }
 
   @HostListener('window:mouseup')
@@ -153,6 +122,29 @@ export class AudioPlayerComponent implements OnInit {
       return event.clientY;
     } else {
       return event.touches[0].clientY;
+    }
+  }
+
+  selectTrack(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    const selectedTrack = selectElement.value;
+    this.audioService.setAudioSource(selectedTrack);
+  }
+
+  resetKnob(control: string): void {
+    if (control === 'volume') {
+      this.volume = 0.5;
+      this.volumeKnobStyle = 'rotate(0deg)';
+      this.audioService.setGain(0.5);
+    } else if (control === 'low') {
+      this.lowKnobStyle = 'rotate(0deg)';
+      this.audioService.setLowFilter(0);
+    } else if (control === 'mid') {
+      this.midKnobStyle = 'rotate(0deg)';
+      this.audioService.setMidFilter(0);
+    } else if (control === 'high') {
+      this.highKnobStyle = 'rotate(0deg)';
+      this.audioService.setHighFilter(0);
     }
   }
 }
