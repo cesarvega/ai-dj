@@ -1,8 +1,9 @@
+<select (change)="selectTrack($event)">
+  <option *ngFor="let track of tracks" [value]="track">{{ track.split('/').pop() }}</option>
+</select>
 <div [ngClass]="{'hide-audio-player-container': showOrHideControls, 'show-audio-player-container': !showOrHideControls}" class="audio-player-container" [class.hidden]="isHidden">
   <div class="audio-player">
-    <select (change)="selectTrack($event)">
-      <option *ngFor="let track of tracks" [value]="track">{{ track.split('/').pop() }}</option>
-    </select>
+   
     <div class="outer-knob">
       <div class="inner-knob"
            (mousedown)="startAdjustment($event, 'high')"
