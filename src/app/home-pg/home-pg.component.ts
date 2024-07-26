@@ -30,8 +30,8 @@ import { SoundWavesComponent } from '../sound-waves/sound-waves.component';
 export class HomePgComponent implements AfterViewInit {
   img: any;
   showQrCode: boolean = false;
-  @ViewChild('videoPlayer') videoPlayer!: ElementRef<HTMLVideoElement>;
   websiteUrl: string = environment.websiteUrl;
+  @ViewChild('videoPlayer') videoPlayer!: ElementRef<HTMLVideoElement>;
   corpWebsiteUrl: string = environment.corpWebsiteUrl;
   headers = new HttpHeaders({
     'Content-Type': 'application/json',

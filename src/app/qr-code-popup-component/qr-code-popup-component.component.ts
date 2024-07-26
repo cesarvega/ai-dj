@@ -37,3 +37,20 @@ export class QrCodePopupComponentComponent {
     this.closePopup.emit();
   }
 }
+
+/**
+ * Implementation of the QR code popup component
+ *  <app-qr-code-popup-component style="width: 60%;" (closePopup)="onQrCodeClose()" *ngIf="showQrCode" [url]="websiteUrl"></app-qr-code-popup-component>
+ *   
+ * showQrCode: boolean = false;
+   websiteUrl: string = environment.websiteUrl;
+   // on environment.ts websiteUrl: 'https://raw-sample.web.app/',
+   closeQrCodePopup() {
+    this.showQrCode = !this.showQrCode;
+  }
+
+  onQrCodeClose() {
+    this.showQrCode = false;
+  }
+ * 
+ */
