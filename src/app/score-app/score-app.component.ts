@@ -10,6 +10,7 @@ import { DiscographyComponent } from '../discography/discography.component';
 import { AudioPlayerComponent } from '../audio-player/audio-player.component';
 import { AudioLowComponent } from '../audio-low/audio-low.component';
 import { SoundWavesComponent } from '../sound-waves/sound-waves.component';
+import { ScoreCardComponent } from './components/score-card/score-card.component';
 
 @Component({
   selector: 'app-score-app',
@@ -23,6 +24,7 @@ import { SoundWavesComponent } from '../sound-waves/sound-waves.component';
     AudioPlayerComponent,
     AudioLowComponent,
     SoundWavesComponent,
+    ScoreCardComponent
   ],
   templateUrl: './score-app.component.html',
   styleUrl: './score-app.component.scss'
