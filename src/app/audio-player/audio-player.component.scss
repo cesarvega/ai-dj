@@ -125,3 +125,11 @@
 .floating-button:hover {
   cursor: grab;
 }
+
+.track-selection {
+  position: absolute;
+  top: 440px;
+  background: black;
+  font-size: 7px;
+  border-radius: 5px;
+}

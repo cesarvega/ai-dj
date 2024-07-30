@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef, Inject, PLATFORM_ID, AfterViewInit } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-
+import { AudioService } from '../services/audio.service';
 @Component({
   selector: 'app-sound-waves',
   templateUrl: './sound-waves.component.html',
@@ -16,7 +16,10 @@ export class SoundWavesComponent implements OnInit, OnDestroy, AfterViewInit {
   audioSrc = 'assets/tracks/love-4-u-&-me.mp3';
   private canvas!: HTMLCanvasElement;
   private canvasCtx!: CanvasRenderingContext2D;
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, audioService: AudioService) {
+    // let src:any= audioService.getAudioElement();
+    // this.audioSrc = src.src;
+   }
 
   ngOnInit(): void {
    

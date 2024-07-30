@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, HostListener } from '@angular/core';
 import { AudioService } from '../services/audio.service';
+import { TrackSelectorComponent } from './track-selector/track-selector.component';
 
 @Component({
   selector: 'app-audio-player',
   templateUrl: './audio-player.component.html',
   styleUrls: ['./audio-player.component.scss'],
-  imports: [CommonModule],
+  imports: [CommonModule, TrackSelectorComponent],
   standalone: true
 })
 export class AudioPlayerComponent implements OnInit {
@@ -26,22 +27,7 @@ export class AudioPlayerComponent implements OnInit {
   private initialGain = 0;
 
   public isHidden = false;
-  public tracks = [
-    'assets/tracks/Astronaut On The Depths.mp3',
-    'assets/tracks/Feeling Good Remix Tech House.wav',
-    'assets/tracks/Fireboy DML, Peace Control - Peru (Luifer Dj Bootleg).mp3',
-    'assets/tracks/Good Feeling.mp3',
-    'assets/tracks/good vibes.mp3',
-    'assets/tracks/Loofy - Last Night (Luifer Dj Bootleg) 2024.wav',
-    'assets/tracks/love-4-u-&-me.mp3',
-    'assets/tracks/Night Seekers v1.mp3',
-    'assets/tracks/Night Seekers v2.mp3',
-    'assets/tracks/PuertoricanPulse.mp3',
-    'assets/tracks/Synced Rhythms v1.mp3',
-    'assets/tracks/Synced Rhythms v2.mp3',
-    'assets/tracks/Synced Rhythms v3.mp3'
-  ];
-
+ 
   constructor(private audioService: AudioService) { }
 
   ngOnInit(): void {
@@ -125,11 +111,7 @@ export class AudioPlayerComponent implements OnInit {
     }
   }
 
-  selectTrack(event: Event): void {
-    const selectElement = event.target as HTMLSelectElement;
-    const selectedTrack = selectElement.value;
-    this.audioService.setAudioSource(selectedTrack);
-  }
+  
 
   resetKnob(control: string): void {
     if (control === 'volume') {
