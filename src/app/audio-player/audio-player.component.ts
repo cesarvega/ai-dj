@@ -25,7 +25,7 @@ export class AudioPlayerComponent implements OnInit {
   private initialY = 0;
   private initialVolume = 0.5;
   private initialGain = 0;
-
+  lastTap: number = 0;
   public isHidden = false;
  
   constructor(private audioService: AudioService) { }
@@ -83,7 +83,7 @@ export class AudioPlayerComponent implements OnInit {
       this.audioService.setHighFilter(newValue);
       this.highKnobStyle = `rotate(${newValue * 4}deg)`;
     }
-    event.preventDefault();
+    // event.preventDefault();
   }
 
   @HostListener('window:mouseup')
@@ -111,7 +111,14 @@ export class AudioPlayerComponent implements OnInit {
     }
   }
 
-  
+  onDoubleTap(event: MouseEvent): void {
+    const currentTime = new Date().getTime();
+    const tapLength = currentTime - this.lastTap;
+    if (tapLength < 500 && tapLength > 0) {
+      this.resetKnob('volume');
+    }
+    this.lastTap = currentTime;
+  }
 
   resetKnob(control: string): void {
     if (control === 'volume') {

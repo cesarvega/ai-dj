@@ -52,7 +52,7 @@ export class DiscographyComponent {
       artist: 'Luifer-Dj',
       tracks: [
         { name: 'Loofy - Last Night (Luifer Remix) ', url: 'assets/tracks/Loofy - Last Night (Luifer Dj Bootleg) 2024.wav', cover: 'assets/albums/lf new3.jpg' },
-        { name: 'Fireboy DML, Peace Control - Peru (Luifer Dj Bootleg)', url: 'assets/tracks/Fireboy DML, Peace Control - Peru (Luifer Dj Bootleg).wav', cover: 'assets/albums/lf new4.jpg' },
+        { name: 'Fireboy DML, Peace Control - Peru (Luifer Dj Bootleg)', url: 'assets/tracks/Fireboy.wav', cover: 'assets/albums/lf new4.jpg' },
       ]
     },
   //{
