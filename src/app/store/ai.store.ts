@@ -10,7 +10,7 @@ const initialState: AppState = {
   albums: albums
 }
 
-export const aiStore = signalStore(
+export const AiStore = signalStore(
   { providedIn: 'root' },
   withStorageSync({
     key: 'ai'
