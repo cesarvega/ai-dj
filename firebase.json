@@ -1,5 +1,5 @@
 {
-  "hosting": {
+  "hosting":[ {
     "target": "raw-tracks",
     "public": "dist/elevated-tech-ng/browser",
     "ignore": [
@@ -13,5 +13,20 @@
         "destination": "/index.html"
       }
     ]
-  }
+  },
+  {
+    "target": "raw-tracks-v2",
+    "public": "dist/elevated-tech-ng/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }]
 }

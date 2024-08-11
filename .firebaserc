@@ -14,6 +14,9 @@
         ],
         "raw-tracks": [
           "raw-tracks"
+        ],
+        "raw-tracks-v2": [
+          "raw-tracks-v2"
         ]
       }
     },

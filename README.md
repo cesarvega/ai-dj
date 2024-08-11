@@ -14,3 +14,7 @@ firebase deploy --only hosting:raw-tracks
 firebase use --add // to change the project
 
 ng build --configuration=production
+
+firebase target:apply hosting flagler-glasses flagler-glasses
+
+firebase deploy --only hosting:flagler-glasses  
