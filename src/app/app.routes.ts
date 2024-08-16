@@ -6,6 +6,7 @@ import { AudioBookLibraryComponent } from './book-store/audio-book-library/audio
 import { LoginUniversalComponent } from './book-store/login-universal/login-universal.component';
 import { HomeComponent } from './book-store/books/home/home.component';
 import { HomeDetailedComponent } from './book-store/books/home-detailed/home-detailed.component';
+import { AudioBookSubscribtionComponent } from './book-store/audio-book-subscribtion/audio-book-subscribtion.component'
 
 export const routes: Routes = [
   {
@@ -23,6 +24,11 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginUniversalComponent
+  },
+  {
+    path: 'subscribtion',
+    component: AudioBookSubscribtionComponent
+
   },
   { path: 'book-sales', component: HomeComponent },
   { path: 'study', component: HomeDetailedComponent },
