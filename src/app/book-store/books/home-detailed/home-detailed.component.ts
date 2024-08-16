@@ -2,8 +2,9 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AudioOption, SelectedAudio } from '../../../app/interfaces/interfaces'; // Importar las interfaces
+// import { AudioOption, SelectedAudio } from '../../../app/interfaces/interfaces'; // Importar las interfaces
 import { MatButtonModule } from '@angular/material/button';
+import { AudioOption, SelectedAudio } from '@app/interfaces/interfaces';
 
 @Component({
   selector: 'app-home-detailed',
