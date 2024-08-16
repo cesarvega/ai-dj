@@ -22,7 +22,7 @@ export class AudioBookCardComponent {
   }
   viewDetails(){
     this.aiStore.updateSelectedBookDetailStatus(true);
-  // //  this.aiStore.updateSelectedBookDetail(this.bookInfo);
+   this.aiStore.updateSelectedBookDetail(this.bookInfo);
    }
 
 
