@@ -1,13 +1,15 @@
 import { signalStore, withState, patchState, withMethods, withComputed } from '@ngrx/signals';
-import { Album,albums, Track } from '../models/albums';
+import { Album, albums, books, BookStore } from '../models/albums';
 import { withStorageSync } from './storage-ai-sync';
 
 type AppState = {
-  albums: Album[]
+  albums: Album[],
+  books: BookStore
 }
 
 const initialState: AppState = {
-  albums: albums
+  albums: albums,
+  books: books
 }
 
 export const AiStore = signalStore(
@@ -22,6 +24,9 @@ export const AiStore = signalStore(
     },
     updateAlbums(albums: Album[]): void {
       patchState(store, {albums: albums});
+    },
+    updateBooks(books: BookStore): void {
+      patchState(store, {books: books});
     },
     // updateOrder(order: 'asc' | 'desc'): void {
     //   patchState(store, (state) => ({ filter: { ...state.filter, order } }));
