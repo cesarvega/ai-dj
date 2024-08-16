@@ -4,12 +4,17 @@ import { withStorageSync } from './storage-ai-sync';
 
 type AppState = {
   albums: Album[],
-  books: BookStore
+  books: BookStore,
+  selectedBookDetailStatus: boolean | null,
+  selectedBookDetail: BookStore | null
 }
 
 const initialState: AppState = {
   albums: albums,
-  books: books
+  books: books,
+  selectedBookDetail: null,
+  selectedBookDetailStatus: null,
+
 }
 
 export const AiStore = signalStore(
@@ -28,6 +33,13 @@ export const AiStore = signalStore(
     updateBooks(books: BookStore): void {
       patchState(store, {books: books});
     },
+    updateSelectedBookDetail(books: BookStore): void{
+      patchState(store, {books: books})
+    },
+    updateSelectedBookDetailStatus(boolean: boolean): void{
+      patchState(store, {selectedBookDetailStatus: boolean})
+    }
+    //)
     // updateOrder(order: 'asc' | 'desc'): void {
     //   patchState(store, (state) => ({ filter: { ...state.filter, order } }));
     // },

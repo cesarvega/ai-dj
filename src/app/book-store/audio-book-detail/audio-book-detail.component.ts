@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Input } from '@angular/core';
+
 
 @Component({
   selector: 'app-audio-book-detail',
@@ -8,5 +10,5 @@ import { Component } from '@angular/core';
   styleUrl: './audio-book-detail.component.scss'
 })
 export class AudioBookDetailComponent {
-
+@Input() bookInfoDetails: any;
 }
