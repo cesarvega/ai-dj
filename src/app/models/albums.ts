@@ -91,7 +91,7 @@ export type BookStore = {
 export const books: BookStore = {
   books: [ {
     bookId: "1",
-    bookImagePath: "assets/images/book1.jpg",
+    bookImagePath: "assets/albums/synced3.png",
     bookAudioPathUrl: "assets/audio/book1-full.mp3",
     bookChaptersAndAudioPaths: [
       { name: "Chapter Intro", "src": "assets/sound/wav/intro.wav" },
@@ -115,7 +115,7 @@ export const books: BookStore = {
   },
   {
     bookId: "2",
-    bookImagePath: "assets/images/book2.jpg",
+    bookImagePath: "assets/albums/synced3.png",
     bookAudioPathUrl: "assets/audio/book2-full.mp3",
     bookChaptersAndAudioPaths: [
       { name: "Chapter Intro", "src": "assets/sound/wav/intro.wav" },
@@ -135,7 +135,7 @@ export const books: BookStore = {
   },
   {
     bookId: "3",
-    bookImagePath: "assets/images/book3.jpg",
+    bookImagePath: "assets/albums/synced3.png",
     bookAudioPathUrl: "assets/audio/book3-full.mp3",
     bookChaptersAndAudioPaths: [
       { name: "Chapter Intro", "src": "assets/sound/wav/intro.wav" },
@@ -155,7 +155,7 @@ export const books: BookStore = {
   },
   {
     bookId: "4",
-    bookImagePath: "assets/images/book4.jpg",
+    bookImagePath: "assets/albums/synced3.png",
     bookAudioPathUrl: "assets/audio/book4-full.mp3",
     bookChaptersAndAudioPaths: [
       { name: "Chapter Intro", "src": "assets/sound/wav/intro.wav" },
@@ -175,7 +175,7 @@ export const books: BookStore = {
   },
   {
     bookId: "5",
-    bookImagePath: "assets/images/book5.jpg",
+    bookImagePath: "assets/albums/synced3.png",
     bookAudioPathUrl: "assets/audio/book5-full.mp3",
     bookChaptersAndAudioPaths: [
       { name: "Chapter Intro", "src": "assets/sound/wav/intro.wav" },
@@ -195,7 +195,7 @@ export const books: BookStore = {
   },
   {
     bookId: "6",
-    bookImagePath: "assets/images/book6.jpg",
+    bookImagePath: "assets/albums/synced3.png",
     bookAudioPathUrl: "assets/audio/book6-full.mp3",
     bookChaptersAndAudioPaths: [
       { name: "Chapter Intro", "src": "assets/sound/wav/intro.wav" },
