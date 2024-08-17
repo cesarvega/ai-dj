@@ -77,6 +77,9 @@ export type Book = {
   bookTitle: string;
   bookDescription: string;
   bookPrice: number;
+  bookPromoPrice: number;
+  rating: 5,
+  useerReviews: [{userId: string, rating: number, review: string}],
   bookPromotion: string;
 };
 
@@ -105,6 +108,9 @@ export const books: BookStore = {
     bookTitle: "Real Estate Mastery",
     bookDescription: "A comprehensive guide to mastering real estate principles and passing your exams with confidence.",
     bookPrice: 49.99,
+    bookPromoPrice: 49.99,
+    rating: 5,
+    useerReviews: [{userId: 'string', rating: 5, review: 'string'}],
     bookPromotion: "10% off for a limited time"
   },
   {
@@ -122,6 +128,9 @@ export const books: BookStore = {
     bookTitle: "Advanced Real Estate Strategies",
     bookDescription: "Take your real estate knowledge to the next level with advanced strategies and techniques.",
     bookPrice: 59.99,
+    bookPromoPrice: 59.99,
+    rating: 5,
+    useerReviews: [{userId: 'string', rating: 5, review: 'string'}],
     bookPromotion: "15% off for early buyers"
   },
   {
@@ -139,6 +148,9 @@ export const books: BookStore = {
     bookTitle: "Real Estate Finance & Law",
     bookDescription: "Understanding the financial and legal aspects of real estate is crucial for success in the industry.",
     bookPrice: 39.99,
+    bookPromoPrice: 39.99,
+    rating: 5,
+    useerReviews: [{userId: 'string', rating: 5, review: 'string'}],
     bookPromotion: "Free chapter with purchase"
   },
   {
@@ -156,6 +168,9 @@ export const books: BookStore = {
     bookTitle: "Property Management Essentials",
     bookDescription: "Master the art of property management with this detailed guide covering all essential aspects.",
     bookPrice: 44.99,
+    bookPromoPrice: 44.99,
+    rating: 5,
+    useerReviews: [{userId: 'string', rating: 5, review: 'string'}],
     bookPromotion: "Buy 2, get 1 free"
   },
   {
@@ -173,6 +188,9 @@ export const books: BookStore = {
     bookTitle: "Real Estate Marketing Mastery",
     bookDescription: "Learn how to effectively market real estate and generate high-quality leads with modern techniques.",
     bookPrice: 54.99,
+    bookPromoPrice: 54.99,
+    rating: 5,
+    useerReviews: [{userId: 'string', rating: 5, review: 'string'}],
     bookPromotion: "Limited time offer: 20% off"
   },
   {
@@ -190,6 +208,9 @@ export const books: BookStore = {
     bookTitle: "Rental Property Investing",
     bookDescription: "A complete guide to successfully investing in rental properties and building long-term wealth.",
     bookPrice: 64.99,
+    bookPromoPrice: 64.99,
+    rating: 5,
+    useerReviews: [{userId: 'string', rating: 5, review: 'string'}],
     bookPromotion: "Get a free consultation with purchase"
   }
 ]
