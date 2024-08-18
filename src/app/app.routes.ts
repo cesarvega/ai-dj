@@ -4,8 +4,8 @@ import { ScoreAppComponent } from './score-app/score-app.component';
 import { AudioBookCardComponent } from './book-store/audio-book-card/audio-book-card.component';
 import { AudioBookLibraryComponent } from './book-store/audio-book-library/audio-book-library.component';
 import { LoginUniversalComponent } from './book-store/login-universal/login-universal.component';
-import { HomeComponent } from './book-store/books/home/home.component';
-import { HomeDetailedComponent } from './book-store/books/home-detailed/home-detailed.component';
+import { AudioBookSalesComponent } from './book-store/books/home/audio-book-sales.component';
+import { AudioBookPlayerComponent } from './book-store/books/home-detailed/audio-book-player.component';
 import { AudioBookSubscribtionComponent } from './book-store/audio-book-subscribtion/audio-book-subscribtion.component'
 
 export const routes: Routes = [
@@ -30,6 +30,6 @@ export const routes: Routes = [
     component: AudioBookSubscribtionComponent
 
   },
-  { path: 'book-sales', component: HomeComponent },
-  { path: 'study', component: HomeDetailedComponent },
+  { path: 'book-sales', component: AudioBookSalesComponent },
+  { path: 'study', component: AudioBookPlayerComponent },
 ];

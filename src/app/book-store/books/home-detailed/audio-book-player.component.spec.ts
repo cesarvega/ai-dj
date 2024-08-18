@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeDetailedComponent } from './home-detailed.component';
+import { AudioBookPlayerComponent } from './audio-book-player.component';
 
-describe('HomeComponent', () => {
-  let component: HomeDetailedComponent;
-  let fixture: ComponentFixture<HomeDetailedComponent>;
+describe('AudioBookSalesComponent', () => {
+  let component: AudioBookPlayerComponent;
+  let fixture: ComponentFixture<AudioBookPlayerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomeDetailedComponent]
+      imports: [AudioBookPlayerComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(HomeDetailedComponent);
+    fixture = TestBed.createComponent(AudioBookPlayerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

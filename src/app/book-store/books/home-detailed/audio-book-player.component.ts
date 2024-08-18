@@ -7,13 +7,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { AudioOption, SelectedAudio } from '@app/interfaces/interfaces';
 
 @Component({
-  selector: 'app-home-detailed',
-  templateUrl: './home-detailed.component.html',
-  styleUrls: ['./home-detailed.component.scss'],
+  selector: 'app-audio-book-player',
+  templateUrl: './audio-book-player.component.html',
+  styleUrls: ['./audio-book-player.component.scss'],
   imports: [CommonModule, FormsModule,  MatButtonModule],
   standalone: true,
 })
-export class HomeDetailedComponent implements OnInit, AfterViewInit {
+export class AudioBookPlayerComponent implements OnInit, AfterViewInit {
   isPlaying = false;
   playbackRate = 1.0;
   isLoading = false;

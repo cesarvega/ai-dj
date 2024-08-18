@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
 export class AudioBookCardComponent {
   readonly aiStore = inject(AiStore)
   @Input() bookInfo: any;
-  private audio = new Audio('/assets/tracks/Astronaut On The Depths.mp3');
+  private audio:any = ''
   isPlaying: boolean = false;
   
   

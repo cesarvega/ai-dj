@@ -7,13 +7,13 @@ interface AudioOption {
   src: string;
 }
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'app-audio-book-sales',
+  templateUrl: './audio-book-sales.component.html',
+  styleUrls: ['./audio-book-sales.component.scss'],
   imports: [MatButtonModule],
   standalone: true,
 })
-export class HomeComponent {
+export class AudioBookSalesComponent {
   isPlaying = false;
   playbackRate = 1.0;
   @ViewChild('audioPlayer') audioPlayer!: ElementRef<HTMLAudioElement>;
