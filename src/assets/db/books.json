@@ -20,7 +20,9 @@
     "bookPrice": 49.99,
     "bookPromoPrice": 49.99,
     "rating": 5,
-    "userReviews": [{ "userId": "string", "rating": 5, "review": "string" }],
+    "userReviews": [
+        {"userId": "string", "rating": 5, "review": "string" }, 
+        {"userId": "string", "rating": 5, "review": "string" }],  
     "bookPromotion": "10% off for a limited time"
   },
   {
