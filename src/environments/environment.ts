@@ -11,6 +11,8 @@ export const environment = {
   goToPamperedpawsbycharlie: 'https://pamperedpawsbycharlie.com/',//$1 dollar
   bookRealStatePaymentUrl: 'https://buy.stripe.com/cN27t89m89nt88wdQR',//$5000 pesos
   provider: 'ai',
+  booksActionsUrl: 'assets/db/books.json',
+  imagesActionsUrl: 'assets/db/images.json',
 };
 
 /*

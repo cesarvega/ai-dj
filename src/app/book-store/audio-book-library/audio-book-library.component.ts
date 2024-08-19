@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { AudioBookDetailComponent } from '../audio-book-detail/audio-book-detail.component';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-audio-book-library',
@@ -21,23 +22,23 @@ import { Observable } from 'rxjs';
 })
 export class AudioBookLibraryComponent {
   readonly aiStore = inject(AiStore);
-  bookStore: any[] = [];
-  private booksUrl = 'assets/db/books.json'; // Ruta del archivo JSON
+  bookStore: any;
+  private booksUrl = environment.booksActionsUrl; // Ruta del archivo JSON
 
 constructor(private http: HttpClient) {
 }
 
-getBooks(): Observable<any> {
-  return this.http.get<any>(this.booksUrl);
+getBooks(): void {
+  this.http.get(this.booksUrl).subscribe((res) => {
+    this.bookStore = res;
+    this.aiStore.updateBooks(this.bookStore);
+  });
 }
 ngOnInit(): void {
   //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
   //Add 'implements OnInit' to the class.
-  this.getBooks().subscribe(data => {
-    this.bookStore = data;
-  });
+  this.getBooks()
 }
   
-
 }
 

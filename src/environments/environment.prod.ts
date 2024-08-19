@@ -6,4 +6,6 @@ export const environment = {
   pamperedPawsPaymentUrl: 'https://buy.stripe.com/7sI9BgdCo6bh4WkeV3',//$1 dollar
   goToPamperedpawsbycharlie: 'https://pamperedpawsbycharlie.com/',//$1 dollar
   bookRealStatePaymentUrl: 'https://buy.stripe.com/cN27t89m89nt88wdQR',//$5000 pesos
+  booksActionsUrl: 'assets/db/books.json',
+  imagesActionsUrl: 'assets/db/images.json',
 };

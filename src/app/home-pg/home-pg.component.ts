@@ -4,13 +4,12 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { RawSpinnerComponent } from '../raw-spinner/raw-spinner.component';
 import { WaveComponentComponent } from '../wave-component/wave-component.component';
 import { QrCodePopupComponentComponent } from '../qr-code-popup-component/qr-code-popup-component.component';
-import { environment } from '../../../environments/environment';
 import { IframeSoundCloudComponent } from '../iframe-sound-cloud/iframe-sound-cloud.component';
 import { DiscographyComponent } from '../discography/discography.component';
 import { AudioPlayerComponent } from '../audio-player/audio-player.component';
 import { AudioLowComponent } from '../audio-low/audio-low.component';
 import { SoundWavesComponent } from '../sound-waves/sound-waves.component';
-
+import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-home-pg',
   standalone: true,
@@ -36,7 +35,7 @@ export class HomePgComponent implements AfterViewInit {
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
   });
-
+  private imagesUrl = environment.imagesActionsUrl;
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -52,7 +51,7 @@ export class HomePgComponent implements AfterViewInit {
   }
 
   getImages(): void {
-    this.http.get('assets/db/images.json').subscribe((res) => {
+    this.http.get(this.imagesUrl).subscribe((res) => {
       this.img = res;
     });
   }

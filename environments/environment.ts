@@ -9,6 +9,8 @@ export const environment = {
   paymentUrl: 'https://buy.stripe.com/5kA4gWgOA9nt1K828d',//$10
   soundPackOfficalSiteUrl: 'https://elevate-tech-ai-essential-sounds-pro.web.app',//$10
   // paymentUrl: 'https://buy.stripe.com/00g14KdCo6bh3Sg8ww',//$1
+  booksActionsUrl: 'assets/db/books.json',
+  imagesActionsUrl: 'assets/db/images.json',
 };
 
 /*

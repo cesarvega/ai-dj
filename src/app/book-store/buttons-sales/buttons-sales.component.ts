@@ -1,6 +1,8 @@
-import { Component , HostListener } from '@angular/core';
+import { Component , inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AiStore } from '../../store/ai.store';
+
 @Component({
   selector: 'app-buttons-sales',
   standalone: true,
@@ -9,9 +11,16 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './buttons-sales.component.scss'
 })
 export class ButtonsSalesComponent {
-  isDonateMenuOpen = false;
-  isConfirmationModalOpen = false;
-  donationAmount = 0;
+  readonly aiStore = inject(AiStore);
+  isDonateMenuOpen: boolean;
+  isConfirmationModalOpen: boolean;
+  donationAmount: number;
+  constructor() { 
+    this.isDonateMenuOpen = false;
+    this.isConfirmationModalOpen = false;
+    this.donationAmount = this.aiStore.donateValue(); 
+
+  } 
 
 
   toggleDonateMenu() {
@@ -26,7 +35,7 @@ export class ButtonsSalesComponent {
     this.isConfirmationModalOpen = false;
   }
   confirmDonation() {
-    // Lógica para confirmar la donación
+    this.aiStore.updateDonateValue(this.donationAmount);
     alert('Donación confirmada');
     this.closeConfirmationModal();
     this.isDonateMenuOpen = false; // Cerrar el menú desplegable después de la confirmación
