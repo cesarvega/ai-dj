@@ -76,3 +76,5 @@ vite/
 # Angular metadata files
 .angular/
 .angular/cache/17.3.8/vite/*
+.src/assets/tracks/*
+.src/assets/files/StudyMaterial.zip

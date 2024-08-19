@@ -1,6 +1,15 @@
 import { Routes } from '@angular/router';
 import { HomePgComponent } from './home-pg/home-pg.component';
 import { ScoreAppComponent } from './score-app/score-app.component';
+import { AudioBookCardComponent } from './book-store/audio-book-card/audio-book-card.component';
+import { AudioBookLibraryComponent } from './book-store/audio-book-library/audio-book-library.component';
+import { LoginUniversalComponent } from './book-store/login-universal/login-universal.component';
+import { HomeComponent } from './book-store/books/home/home.component';
+import { HomeDetailedComponent } from './book-store/books/home-detailed/home-detailed.component';
+import { AudioBookSubscribtionComponent } from './book-store/audio-book-subscribtion/audio-book-subscribtion.component'
+import { LinkSelectorComponent } from './link-selector/link-selector.component';
+import { AudioBookDetailComponent } from './book-store/audio-book-detail/audio-book-detail.component';
+
 
 export const routes: Routes = [
   {
@@ -11,4 +20,27 @@ export const routes: Routes = [
     path: 'score',
     component: ScoreAppComponent,
   },
+  {
+    path: 'book', 
+    component: AudioBookLibraryComponent,
+  },
+  {
+    path: 'details-book',
+    component: AudioBookDetailComponent,
+  },
+  {
+    path: 'login',
+    component: LoginUniversalComponent
+  },
+  {
+    path: 'subscribtion',
+    component: AudioBookSubscribtionComponent
+
+  },
+  { path: 'book-sales', component: HomeComponent },
+  { path: 'study', component: HomeDetailedComponent },
+
+  { path: 'link', component: LinkSelectorComponent },
+  // { path: '**', redirectTo: '/link' }
+
 ];

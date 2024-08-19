@@ -30,6 +30,7 @@ export class DiscographyComponent {
     variableWidth: true
   };
 
+  
   constructor() {
     this.albums = this.aiStore.albums();    
    }
