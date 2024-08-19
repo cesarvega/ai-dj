@@ -1,6 +1,6 @@
 <header class="header">
   <div class="container">
-    <img src="assets/images/elevated-tech1.png" alt="Logo" class="logo">
+    <img src="assets/img/logo.png" alt="Logo" class="logo">
   </div>
 </header>
 
@@ -8,18 +8,13 @@
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-6 col-md-12">
-        <div class="main-banner-content">
-          <h1>Unlock Your Real Estate Potential</h1>
-          <ul>
-            <li><b>Comprehensive Coverage:</b> Over 400 practice questions specifically designed for the Florida real
-              estate exam.</li>
-            <li><b>Expert Guidance:</b> Insights and tips from industry professionals to help you succeed.</li>
-          </ul>
+        <div class="main-banner-content" *ngIf="data" [innerHTML]="data?.html">
+        
         </div>
       </div>
       <div class="col-lg-6 col-md-12">
         <div class="banner-image">
-          <img src="assets/img/book_3d.jpg" alt="Book Image" class="book-image animate__animated animate__fadeIn">
+          <img [src]="data?.image" alt="Book Image" class="book-image animate__animated animate__fadeIn">
         </div>
       </div>
     </div>
@@ -49,7 +44,7 @@
           Select Audio
         </button>
         <div class="dropdown-menu" *ngIf="isDropdownOpen">
-          <a class="dropdown-item" *ngFor="let audio of audioOptions" (click)="setAudioSource(audio)">
+          <a class="dropdown-item" *ngFor="let audio of data?.audios" (click)="setAudioSource(audio)">
             {{ audio.name }}
           </a>
         </div>

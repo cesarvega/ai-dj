@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 // import { AudioOption, SelectedAudio } from '../../../app/interfaces/interfaces'; // Importar las interfaces
 import { MatButtonModule } from '@angular/material/button';
 import { AudioOption, SelectedAudio } from '@app/interfaces/interfaces';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-audio-book-player',
@@ -39,19 +40,20 @@ export class AudioBookPlayerComponent implements OnInit, AfterViewInit {
     { name: 'Short Answer/Case Study Questions (50 questions)', src: 'assets/sound/wav/real-state-book/07-Audio.wav' },
     { name: 'TRUE AND FALSE (150 Questions)', src: 'assets/sound/wav/real-state-book/08-Audio.wav' },
   ];
+  data:any
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
     this.studyMaterialUrl = 'assets/files/StudyMaterial.zip';
-    this.loadProgress();
+   
+    this.http.get('assets/db/book.json').subscribe(data => {
+      this.data = data;
+    });
 
-    this.saveProgressInterval = setInterval(() => {
-      this.saveProgress();
-    }, 30000);
   }
 
   ngOnDestroy() {
     // Save progress when component is destroyed
-    this.saveProgress();
     // Clear the interval
     if (this.saveProgressInterval) {
       clearInterval(this.saveProgressInterval);
@@ -130,7 +132,6 @@ export class AudioBookPlayerComponent implements OnInit, AfterViewInit {
       this.isLoading = false;
       console.error('Error loading audio');
     };
-    this.loadProgress();
   }
 
   toggleDropdown(): void {
@@ -165,22 +166,5 @@ export class AudioBookPlayerComponent implements OnInit, AfterViewInit {
     return value < 10 ? '0' + value : value.toString();
   }
 
-  saveProgress() {
-    if (this.selectedAudio && this.currentTime > 0) {
-      const key = this.selectedAudio.name;
-      localStorage.setItem(key, this.currentTime.toString());
-    }
-  }
-
-  loadProgress() {
-    if (this.selectedAudio) {
-      const key = this.selectedAudio.name;
-      const savedTime = localStorage.getItem(key);
-      if (savedTime) {
-        this.audioPlayer.nativeElement.currentTime = parseFloat(savedTime);
-        this.updateProgress();
-      }
-    }
-  }
 
 }

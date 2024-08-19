@@ -8,3 +8,21 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.main-banner-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.main-banner-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.main-banner-content ul li {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}

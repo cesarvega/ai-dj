@@ -2,6 +2,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { environment } from '@environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+
 interface AudioOption {
   name: string;
   src: string;
@@ -10,15 +13,27 @@ interface AudioOption {
   selector: 'app-audio-book-sales',
   templateUrl: './audio-book-sales.component.html',
   styleUrls: ['./audio-book-sales.component.scss'],
-  imports: [MatButtonModule],
+  imports: [MatButtonModule,CommonModule],
   standalone: true,
 })
 export class AudioBookSalesComponent {
   isPlaying = false;
   playbackRate = 1.0;
+  data: any;
+
   @ViewChild('audioPlayer') audioPlayer!: ElementRef<HTMLAudioElement>;
   @ViewChild('timeline', { static: true }) timeline!: ElementRef<HTMLDivElement>;
   @ViewChild('progress', { static: true }) progress!: ElementRef<HTMLDivElement>;
+
+  constructor(private http: HttpClient) {}
+
+
+  ngOnInit(): void {
+    this.http.get('assets/db/book.json').subscribe(data => {
+      this.data = data;
+    });
+  }
+
 
   buyNowButton(): void {
     window.location.href = environment.bookRealStatePaymentUrl;

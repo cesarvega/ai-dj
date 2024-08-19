@@ -1,7 +1,7 @@
 {
   "projects": {
     "default": "books-ec62b",
-    "prod": "books-ec62b",
+    "prod": "ai-sound-60a1a",
     "ai-sound": "ai-sound-60a1a",
     "book": "books-ec62b",
     "audio": "ai-sound-60a1a"
@@ -27,6 +27,9 @@
         ],
         "elevated-tech-ai-dj": [
           "elevated-tech-ai-dj"
+        ],
+        "qr-code-linq": [
+          "qr-code-linq"
         ]
       }
     }
