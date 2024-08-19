@@ -10,6 +10,8 @@ import { AudioBookSubscribtionComponent } from './book-store/audio-book-subscrib
 import { LinkSelectorComponent } from './link-selector/link-selector.component';
 import { AudioBookDetailComponent } from './book-store/audio-book-detail/audio-book-detail.component';
 
+import { AudioBookSalesComponent } from './book-store/books/home/audio-book-sales.component';
+import { AudioBookPlayerComponent } from './book-store/books/home-detailed/audio-book-player.component';
 
 export const routes: Routes = [
   {
@@ -28,6 +30,7 @@ export const routes: Routes = [
     path: 'details-book',
     component: AudioBookDetailComponent,
   },
+  
   {
     path: 'login',
     component: LoginUniversalComponent
@@ -37,10 +40,11 @@ export const routes: Routes = [
     component: AudioBookSubscribtionComponent
 
   },
-  { path: 'book-sales', component: HomeComponent },
-  { path: 'study', component: HomeDetailedComponent },
+  
+  { path: 'book-sales', component: AudioBookSalesComponent },
+  { path: 'study', component: AudioBookPlayerComponent },
 
   { path: 'link', component: LinkSelectorComponent },
-  // { path: '**', redirectTo: '/link' }
+  { path: '**', redirectTo: '/link' }
 
 ];

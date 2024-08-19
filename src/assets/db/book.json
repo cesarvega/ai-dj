@@ -1,0 +1,11 @@
+{
+  "image": "assets/icons/icon-512x512.png",
+  "html": "<h1 style='font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2;'>Unlock Your Real Estate Potential</h1><ul style='  font-size: 1.5rem;margin-bottom: 10px;line-height: 1.5;'><li style=''><b>Comprehensive Coverage:</b> Over 400 practice questions specifically designed for the Florida real estate exam.</li><li><b>Expert Guidance:</b> Insights and tips from industry professionals to help you succeed.</li></ul>",
+  "sample": "",
+  "audios": [
+    {
+      "name": "test",
+      "src": ""
+    }
+  ]
+}

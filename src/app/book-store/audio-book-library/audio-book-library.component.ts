@@ -16,7 +16,6 @@ import { environment } from '../../../environments/environment';
     CommonModule,
     AudioBookDetailComponent
   ],
-
   templateUrl: './audio-book-library.component.html',
   styleUrl: './audio-book-library.component.scss'
 })
