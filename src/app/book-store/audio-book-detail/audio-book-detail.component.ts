@@ -18,6 +18,8 @@ import { AudioBookReviewsComponent } from '../audio-book-reviews/audio-book-revi
 export class AudioBookDetailComponent {
   readonly aiStore = inject(AiStore)
   bookInfoDetails: any;
+  averageRating: number = 0;
+
 
   constructor() { 
     this.bookInfoDetails = this.aiStore.selectedBookDetail;
@@ -28,6 +30,11 @@ export class AudioBookDetailComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.bookInfoDetails = this.aiStore.selectedBookDetail();
+    if (this.bookInfoDetails && this.bookInfoDetails.userReviews) {
+      const totalReviews = this.bookInfoDetails.userReviews.length;
+      const sumRatings = this.bookInfoDetails.userReviews.reduce((sum: number, review: any) => sum + review.rating, 0);
+      this.averageRating = totalReviews > 0 ? sumRatings / totalReviews : 0;
+    }
   }
 
 
