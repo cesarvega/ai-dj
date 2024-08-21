@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { AiStore } from '../store/ai.store';
-import { Album, albums } from '../models/albums';
+import { Album } from '@app/data-models';
 
 @Component({
   selector: 'app-discography',
@@ -14,7 +14,7 @@ import { Album, albums } from '../models/albums';
 })
 export class DiscographyComponent {
   readonly aiStore = inject(AiStore)
-  albums: Album[];
+  albums: Album[] | null;
 
   selectedAlbum: any;
 
@@ -29,7 +29,6 @@ export class DiscographyComponent {
     centerMode: true,
     variableWidth: true
   };
-
   
   constructor() {
     this.albums = this.aiStore.albums();    
@@ -42,7 +41,7 @@ export class DiscographyComponent {
     if (this.selectedAlbum && this.selectedAlbum.id === albumId) {
       this.selectedAlbum = null;
     } else {
-      this.selectedAlbum = this.albums.find(album => album.id === albumId);
+      this.selectedAlbum = this.albums?.find(album => album.id === albumId);
     }
   }
 
