@@ -4,6 +4,19 @@
   </div>
   <div class="lg:w-1/2 pl-4">
     <h2 class="text-2xl font-bold mb-2">{{ bookInfoDetails.bookTitle }}</h2>
+    <div class="flex items-center mb-2">
+      <div class="flex text-yellow-400">
+        <!-- Mostrar estrellas basadas en el promedio ponderado -->
+        <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
+          <svg *ngIf="i <= averageRating" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d="M12 17.27l6.18 3.73-1.64-7.03 5.46-4.73-7.1-.61L12 2.5 8.1 8.63l-7.1.61 5.46 4.73-1.64 7.03L12 17.27z"/>
+          </svg>
+          <svg *ngIf="i > averageRating" class="w-5 h-5 fill-current text-gray-300" viewBox="0 0 24 24">
+            <path d="M12 17.27l6.18 3.73-1.64-7.03 5.46-4.73-7.1-.61L12 2.5 8.1 8.63l-7.1.61 5.46 4.73-1.64 7.03L12 17.27z"/>
+          </svg>
+        </ng-container>
+      </div>
+    </div>
     <p class="text-gray-600 mb-4">{{ bookInfoDetails.bookDescription }}</p>
     <ul class="list-disc pl-4 mb-4">
       <li *ngFor="let chapter of bookInfoDetails.bookChaptersAndAudioPaths">
