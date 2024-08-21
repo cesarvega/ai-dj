@@ -1,10 +1,11 @@
 import { signalStore, withState, patchState, withMethods, withComputed } from '@ngrx/signals';
-import { Album, albums, books, BookStore, Book } from '../models/albums';
+import { Album, Book} from '@app/data-models';
 import { withStorageSync } from './storage-ai-sync';
+import { albums,books } from '@app/data';
 
 type AppState = {
-  albums: Album[],
-  books: BookStore | null,
+  albums: Album[] | null,
+  books: Book[] | null,
   selectedBookDetailStatus: boolean | null,
   selectedBookDetail: Book | null
   donateValue: number
@@ -12,11 +13,10 @@ type AppState = {
 
 const initialState: AppState = {
   albums: albums,
-  books: null,
+  books: books,
   selectedBookDetail: null,
   selectedBookDetailStatus: null,
   donateValue: 0
-
 }
 
 export const AiStore = signalStore(
@@ -32,7 +32,7 @@ export const AiStore = signalStore(
     updateAlbums(albums: Album[]): void {
       patchState(store, {albums: albums});
     },
-    updateBooks(books: BookStore): void {
+    updateBooks(books: Book[]): void {
       patchState(store, {books: books});
     },
     updateSelectedBookDetail(books: Book): void{

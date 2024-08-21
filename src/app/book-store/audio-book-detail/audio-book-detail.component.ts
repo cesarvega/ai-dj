@@ -10,8 +10,7 @@ import { AudioBookReviewsComponent } from '../audio-book-reviews/audio-book-revi
   imports: [
     CommonModule,
     ButtonsSalesComponent,
-    AudioBookReviewsComponent
-    
+    AudioBookReviewsComponent    
   ],
   templateUrl: './audio-book-detail.component.html',
   styleUrl: './audio-book-detail.component.scss'
@@ -22,16 +21,14 @@ export class AudioBookDetailComponent {
 
   constructor() { 
     this.bookInfoDetails = this.aiStore.selectedBookDetail;
-
   }
 
 
-ngOnInit(){
-  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-  //Add 'implements OnInit' to the class.
-  this.bookInfoDetails = this.aiStore.selectedBookDetail();
-  console.log(this.bookInfoDetails)
-}
+  ngOnInit(){
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.bookInfoDetails = this.aiStore.selectedBookDetail();
+  }
 
 
 }
