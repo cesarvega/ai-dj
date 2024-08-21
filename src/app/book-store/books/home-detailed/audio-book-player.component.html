@@ -44,7 +44,7 @@
           Select Audio
         </button>
         <div class="dropdown-menu" *ngIf="isDropdownOpen">
-          <a class="dropdown-item" *ngFor="let audio of data?.audios" (click)="setAudioSource(audio)">
+          <a class="dropdown-item" *ngFor="let audio of data?.audioOptions" (click)="setAudioSource(audio)">
             {{ audio.name }}
           </a>
         </div>

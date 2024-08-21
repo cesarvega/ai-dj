@@ -27,19 +27,12 @@ export class AudioBookPlayerComponent implements OnInit, AfterViewInit {
   saveProgressInterval: any;
   @ViewChild('timeline', { static: true }) timeline!: ElementRef<HTMLDivElement>;
   @ViewChild('progress', { static: true }) progress!: ElementRef<HTMLDivElement>;
-  audioSrc = 'assets/sound/wav/intro.wav';
+  audioSrc = '';
   studyMaterialUrl: string = '';
   audioOptions: AudioOption[] = [
-    { name: 'Chapter Intro', src: 'assets/sound/wav/intro.wav' },
-    { name: 'Chapter 1: Basic Real Estate Concepts (20 questions)', src: 'assets/sound/wav/real-state-book/01-Audio.wav' },
-    { name: 'Chapter 2: Property Ownership and Transfer (20 questions)', src: 'assets/sound/wav/real-state-book/02-Audio.wav' },
-    { name: 'Chapter 3: Agency Relationships (20 questions)', src: 'assets/sound/wav/real-state-book/03-Audio.wav' },
-    { name: 'Chapter 4: Real Estate Financing (20 questions)', src: 'assets/sound/wav/real-state-book/04-Audio.wav' },
-    { name: 'Chapter 5: Real Estate Appraisal (20 questions)', src: 'assets/sound/wav/real-state-book/05-Audio.wav' },
-    { name: 'Chapter 6: Real Estate Contracts (20 questions)', src: 'assets/sound/wav/real-state-book/06-Audio.wav' },
-    { name: 'Short Answer/Case Study Questions (50 questions)', src: 'assets/sound/wav/real-state-book/07-Audio.wav' },
-    { name: 'TRUE AND FALSE (150 Questions)', src: 'assets/sound/wav/real-state-book/08-Audio.wav' },
+    { name: '', src: '' }
   ];
+  selectedAudio: SelectedAudio = { name: '', src: '' };
   data:any
   constructor(private http: HttpClient) {}
 
@@ -48,6 +41,9 @@ export class AudioBookPlayerComponent implements OnInit, AfterViewInit {
    
     this.http.get('assets/db/book.json').subscribe(data => {
       this.data = data;
+      this.audioOptions = this.data.audioOptions;
+      this.selectedAudio= this.data.audioOptions[0];
+      this.audioSrc =  this.data.audioOptions[0].src;
     });
 
   }
@@ -64,7 +60,7 @@ export class AudioBookPlayerComponent implements OnInit, AfterViewInit {
     this.audioPlayer.nativeElement.playbackRate = this.playbackRate;
   }
 
-  selectedAudio: SelectedAudio = this.audioOptions[0];
+  
 
   buyNowButton(): void {
     window.location.href = 'https://buy.stripe.com/00g14KdCo6bh3Sg8ww';

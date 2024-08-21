@@ -1,11 +1,23 @@
 {
-  "image": "assets/icons/icon-512x512.png",
+  "image": "assets/images/book-covers/what-is-meditation-boys.png",
   "html": "<h1 style='font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2;'>Unlock Your Real Estate Potential</h1><ul style='  font-size: 1.5rem;margin-bottom: 10px;line-height: 1.5;'><li style=''><b>Comprehensive Coverage:</b> Over 400 practice questions specifically designed for the Florida real estate exam.</li><li><b>Expert Guidance:</b> Insights and tips from industry professionals to help you succeed.</li></ul>",
   "sample": "",
-  "audios": [
+  "audioOptions": [
+    {  
+      "name":"que-es-meditar",
+      "src":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/Meditation%2FQue%20es%20Meditar%3F.mp3?alt=media&token=9bdc12cd-2f1b-40be-bd10-d7172c38aa3a"
+    },
     {
-      "name": "test",
-      "src": ""
+      "name":"ejercicios-meditacion",
+      "src":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/Meditation%2FEjercicios%20de%20meditacion.mp3?alt=media&token=31be75e5-e6f4-4c74-a759-e333c0670dc3"
+    },
+    {  
+    "name":"bosque-magico",
+      "src":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/Meditation%2FEl%20Bosque%20Magico.mp3?alt=media&token=5617c872-7361-493b-bd22-a03336de9338"
+    },
+    { 
+      "name":"historia-meditacion",
+      "src":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/Meditation%2FHistoria%20de%20la%20meditacion%3F.mp3?alt=media&token=1a0bc522-455b-4536-a6b7-d1c3c046b522"
     }
   ]
 }
