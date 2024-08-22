@@ -8,13 +8,16 @@
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-6 col-md-12">
-        <div class="main-banner-content" *ngIf="data" [innerHTML]="data?.html">
-        
+        <div class="main-banner-content" >
+          <h1 class="text-4xl mb-5 leading-tight">{{data?.bookTittle}}</h1>
+          <ul class="text-xl mb-2.5 leading-relaxed">
+            <li><b>Comprehensive Coverage:</b> {{data?.bookDescription}}</li>
+          </ul>
         </div>
       </div>
       <div class="col-lg-6 col-md-12">
         <div class="banner-image">
-          <img [src]="data?.image" alt="Book Image" class="book-image animate__animated animate__fadeIn">
+          <img [src]="data?.bookImagePath" alt="Book Image" class="book-image animate__animated animate__fadeIn">
         </div>
       </div>
     </div>
@@ -44,7 +47,7 @@
           Select Audio
         </button>
         <div class="dropdown-menu" *ngIf="isDropdownOpen">
-          <a class="dropdown-item" *ngFor="let audio of data?.audioOptions" (click)="setAudioSource(audio)">
+          <a class="dropdown-item" *ngFor="let audio of data?.bookChaptersAndAudioPaths" (click)="setAudioSource(audio)">
             {{ audio.name }}
           </a>
         </div>
