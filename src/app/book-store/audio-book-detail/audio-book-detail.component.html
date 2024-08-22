@@ -1,9 +1,9 @@
 <div class="lg:max-w-screem h-fill mx-auto p-4 bg-white rounded-lg shadow-md lg:flex lg:flex-wrap">
   <div class="lg:w-1/2 pr-4">
-    <img class="w-full h-96 object-cover rounded-lg" [src]="bookInfoDetails.bookImagePath" alt="Book Image">
+    <img class="w-full h-96 object-cover rounded-lg" [src]="bookInfoDetails?.bookImagePath" alt="Book Image">
   </div>
   <div class="lg:w-1/2 pl-4">
-    <h2 class="text-2xl font-bold mb-2">{{ bookInfoDetails.bookTitle }}</h2>
+    <h2 class="text-2xl font-bold mb-2">{{ bookInfoDetails?.bookTitle }}</h2>
     <div class="flex items-center mb-2">
       <div class="flex text-yellow-400">
         <!-- Mostrar estrellas basadas en el promedio ponderado -->
@@ -17,22 +17,19 @@
         </ng-container>
       </div>
     </div>
-    <p class="text-gray-600 mb-4">{{ bookInfoDetails.bookDescription }}</p>
+    <p class="text-gray-600 mb-4">{{ bookInfoDetails?.bookDescription }}</p>
     <ul class="list-disc pl-4 mb-4">
-      <li *ngFor="let chapter of bookInfoDetails.bookChaptersAndAudioPaths">
+      <li *ngFor="let chapter of bookInfoDetails?.bookChaptersAndAudioPaths">
         {{ chapter.name }}
       </li>
     </ul>
-    <p class="text-gray-600 mb-2">Precio: {{ bookInfoDetails.bookPrice }}</p>
-    <p class="text-green-500 mb-2">Promocion {{ bookInfoDetails.bookPromoPrice }}</p>
-    <p class="text-gray-600 mb-2" *ngIf="bookInfoDetails.bookPromotion">{{ bookInfoDetails.bookPromotion }}</p>
-   
-    
-   
-    
+    <p class="text-gray-600 mb-2">Precio: {{ bookInfoDetails?.bookPrice }}</p>
+    <p class="text-green-500 mb-2">Promocion {{ bookInfoDetails?.bookPromoPrice }}</p>
+    <p class="text-gray-600 mb-2" *ngIf="bookInfoDetails?.bookPromotion">{{ bookInfoDetails?.bookPromotion }}</p>
   </div>
   <div class=" w-full">
     <app-buttons-sales></app-buttons-sales>
+    <button (click)="openBookPlayer()">Open Book</button>
   </div>
   
 </div>

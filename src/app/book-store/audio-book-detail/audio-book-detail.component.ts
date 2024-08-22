@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AiStore } from '../../store/ai.store';
 import { ButtonsSalesComponent } from '../buttons-sales/buttons-sales.component';
 import { AudioBookReviewsComponent } from '../audio-book-reviews/audio-book-reviews.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-audio-book-detail',
   standalone: true,
@@ -15,20 +16,16 @@ import { AudioBookReviewsComponent } from '../audio-book-reviews/audio-book-revi
   templateUrl: './audio-book-detail.component.html',
   styleUrl: './audio-book-detail.component.scss'
 })
+
 export class AudioBookDetailComponent {
   readonly aiStore = inject(AiStore)
   bookInfoDetails: any;
   averageRating: number = 0;
-
-
-  constructor() { 
+  constructor(private router: Router) { 
     this.bookInfoDetails = this.aiStore.selectedBookDetail;
   }
 
-
   ngOnInit(){
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this.bookInfoDetails = this.aiStore.selectedBookDetail();
     if (this.bookInfoDetails && this.bookInfoDetails.userReviews) {
       const totalReviews = this.bookInfoDetails.userReviews.length;
@@ -37,6 +34,10 @@ export class AudioBookDetailComponent {
     }
   }
 
-
+  openBookPlayer() {
+    // this.aiStore.updateBookPlayerStatus(true);
+    // I want to open a a new route and pass an parameter
+    this.router.navigate(['/study', this.bookInfoDetails.bookId]);
+  }
 }
 

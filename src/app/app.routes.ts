@@ -10,6 +10,7 @@ import { AudioBookDetailComponent } from './book-store/audio-book-detail/audio-b
 
 import { AudioBookSalesComponent } from './book-store/books/home/audio-book-sales.component';
 import { AudioBookPlayerComponent } from './book-store/books/home-detailed/audio-book-player.component';
+import { LandingPgComponent } from './book-store/books/book-store-ui/landing-pg/landing-pg.component';
 
 export const routes: Routes = [
   {
@@ -40,9 +41,13 @@ export const routes: Routes = [
   },
   
   { path: 'book-sales', component: AudioBookSalesComponent },
-  { path: 'study', component: AudioBookPlayerComponent },
+  
+  { path: 'study/:id', component: AudioBookPlayerComponent },
 
   { path: 'link', component: LinkSelectorComponent },
-  { path: '**', redirectTo: '/link' }
+
+  { path: 'store', component: LandingPgComponent },
+
+  { path: '**', redirectTo: '/store' }
 
 ];

@@ -30,6 +30,9 @@
         ],
         "qr-code-linq": [
           "qr-code-linq"
+        ],
+        "raw-tracks-v2": [
+          "raw-tracks-v2"
         ]
       }
     }
