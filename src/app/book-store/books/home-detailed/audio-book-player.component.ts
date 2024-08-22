@@ -6,6 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { AudioOption, SelectedAudio } from '@app/interfaces/interfaces';
 import { HttpClient } from '@angular/common/http';
+// read route parameter
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-audio-book-player',
@@ -34,9 +37,15 @@ export class AudioBookPlayerComponent implements OnInit, AfterViewInit {
   ];
   selectedAudio: SelectedAudio = { name: '', src: '' };
   data:any
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
+    // Get the route parameter
+    this.route.params.subscribe(params => {
+      console.log('param : ' + params);
+    });
     this.studyMaterialUrl = 'assets/files/StudyMaterial.zip';
    
     this.http.get('assets/db/book.json').subscribe(data => {

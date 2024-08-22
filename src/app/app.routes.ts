@@ -40,7 +40,8 @@ export const routes: Routes = [
   },
   
   { path: 'book-sales', component: AudioBookSalesComponent },
-  { path: 'study', component: AudioBookPlayerComponent },
+  
+  { path: 'study/:id', component: AudioBookPlayerComponent },
 
   { path: 'link', component: LinkSelectorComponent },
   { path: '**', redirectTo: '/link' }

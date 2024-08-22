@@ -1,6 +1,6 @@
-import { Component, Input, inject, OnInit } from '@angular/core';
+import { Component, Input, inject, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import { AiStore } from '../../store/ai.store';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,15 +15,21 @@ import { Router } from '@angular/router';
 export class AudioBookCardComponent implements OnInit {
   readonly aiStore = inject(AiStore);
   @Input() bookInfo: any;
-  private audio = new Audio('/assets/tracks/Astronaut On The Depths.mp3');
+  // private audio = new Audio('/assets/tracks/Astronaut On The Depths.mp3');
+  private audio: HTMLAudioElement|undefined;
   isPlaying: boolean = false;
   averageRating: number = 0;
 
-  constructor(private router: Router) {
-    this.audio.load();
-  }
-
+  constructor(
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
   ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.audio = new Audio('/assets/tracks/Astronaut On The Depths.mp3');
+      this.audio.load();
+    }
+
     if (this.bookInfo && this.bookInfo.userReviews) {
       const totalReviews = this.bookInfo.userReviews.length;
       const sumRatings = this.bookInfo.userReviews.reduce((sum: number, review: any) => sum + review.rating, 0);
@@ -46,9 +52,9 @@ export class AudioBookCardComponent implements OnInit {
   }
 
   togglePlay() {
-    if (this.isPlaying) {
+    if (this.isPlaying && this.audio) {
       this.audio.pause();
-    } else {
+    } else if (this.audio) {
       this.audio.play();
     }
     this.isPlaying = !this.isPlaying;
