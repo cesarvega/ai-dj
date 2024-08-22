@@ -1,4 +1,4 @@
-<div class="max-w-xs rounded-lg overflow-hidden shadow-lg bg-white">
+<!-- <div class="max-w-xs rounded-lg overflow-hidden shadow-lg bg-white">
   <div class="relative">
     <img class="w-full h-48 object-cover" [src]="bookInfo.bookImagePath" alt="{{ bookInfo.bookTitle }}">
     <div class="absolute inset-0 flex items-center justify-center">
@@ -33,7 +33,6 @@
   <div class="p-4">
     <div class="flex items-center mb-2">
       <div class="flex text-yellow">
-        <!-- Mostrar estrellas basadas en el promedio ponderado -->
         <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
           <svg *ngIf="i <= averageRating" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
             <path d="M12 17.27l6.18 3.73-1.64-7.03 5.46-4.73-7.1-.61L12 2.5 8.1 8.63l-7.1.61 5.46 4.73-1.64 7.03L12 17.27z"/>
@@ -47,12 +46,47 @@
     <h3 class="text-xl font-semibold mb-1">{{ bookInfo.bookTitle }}</h3>
 
     <p class="text-lg font-bold text-blue-600">{{ bookInfo.bookPromotion }}</p>
-    <!-- Botón de Detalles -->
     <div class="mt-4">
       <a (click)="viewDetails()" class="inline-block text-black px-4 py-2 bg-blue font-semibold rounded-lg shadow-md hover:bg-blue-700">Details</a>
     </div>
   </div>
-</div>
+</div> -->
+
+<aside class="scale-100 hover:scale-105 transition-all delay-200">
+  <img
+    [src]="bookInfo.bookImagePath"
+    alt="book images"
+    class="w-56 h-48 mb-3 rounded-md object-cover"
+  />
+  <h3 class=" font-abel text-xl">{{bookInfo.bookTitle}}</h3>
+  <div class="flex justify-between items-center mt-5">
+    <h4 class="font-semibold text-xl">
+      $749.00
+      <del class="font-normal text-black text-opacity-50 text-sm">$850.00</del>
+    </h4>
+    <button (click)="viewDetails()" >
+      <svg
+        width="328"
+        height="328"
+        viewBox="0 0 328 328"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-6 h-6 fill-black"
+      >
+        <g clip-path="url(#clip0_765_22)">
+          <path
+            d="M98.4 262.4C80.36 262.4 65.6 277.16 65.6 295.2C65.6 313.24 80.36 328 98.4 328C116.44 328 131.2 313.24 131.2 295.2C131.2 277.16 116.44 262.4 98.4 262.4ZM0 0V32.8H32.8L91.84 157.44L68.88 196.8C67.24 201.72 65.6 208.28 65.6 213.2C65.6 231.24 80.36 246 98.4 246H295.2V213.2H104.96C103.32 213.2 101.68 211.56 101.68 209.92V208.279L116.44 180.399H237.8C250.92 180.399 260.76 173.839 265.68 163.999L324.72 57.4C328 54.12 328 52.48 328 49.2C328 39.36 321.44 32.8 311.6 32.8H68.88L54.12 0H0ZM262.4 262.4C244.36 262.4 229.6 277.16 229.6 295.2C229.6 313.24 244.36 328 262.4 328C280.44 328 295.2 313.24 295.2 295.2C295.2 277.16 280.44 262.4 262.4 262.4Z"
+          />
+        </g>
+        <defs>
+          <clipPath id="clip0_765_22">
+            <rect width="328" height="328" fill="white" />
+          </clipPath>
+        </defs>
+      </svg>
+    </button>
+  </div>
+</aside>
 
 
 
