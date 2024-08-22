@@ -4,6 +4,8 @@ import { FooterComponent } from '../footer/footer.component';
 import { BlogTabComponent } from '../blog-tab/blog-tab.component';
 import { ProductTabComponent } from '../product-tab/product-tab.component';
 import { ProductListComponent } from '../product-list/product-list.component';
+import { AudioBookLibraryComponent } from '@app/book-store/audio-book-library/audio-book-library.component';
+
 
 @Component({
   selector: 'app-landing-pg',
@@ -14,6 +16,7 @@ import { ProductListComponent } from '../product-list/product-list.component';
     BlogTabComponent,
     ProductTabComponent,
     ProductListComponent,
+    AudioBookLibraryComponent
   ],
   templateUrl: './landing-pg.component.html',
   styleUrl: './landing-pg.component.scss',
