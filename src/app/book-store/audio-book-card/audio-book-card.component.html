@@ -32,7 +32,7 @@
   </div>
   <div class="p-4">
     <div class="flex items-center mb-2">
-      <div class="flex text-yellow-400">
+      <div class="flex text-yellow">
         <!-- Mostrar estrellas basadas en el promedio ponderado -->
         <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
           <svg *ngIf="i <= averageRating" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -45,16 +45,11 @@
       </div>
     </div>
     <h3 class="text-xl font-semibold mb-1">{{ bookInfo.bookTitle }}</h3>
-    <p class="text-gray-600 text-sm">{{ bookInfo.bookDescription }}</p>
-    <p class="text-gray-500 text-sm mt-2">11 hr 18 min</p>
-    <p class="text-red-500 line-through mt-2">{{ bookInfo.bookPrice }}</p>
-    <p class="text-green-500 mb-2">{{ bookInfo.bookPromoPrice }}</p>
 
     <p class="text-lg font-bold text-blue-600">{{ bookInfo.bookPromotion }}</p>
-    <p class="text-sm text-gray-600">or 1 credit</p>
     <!-- Botón de Detalles -->
     <div class="mt-4">
-      <a (click)="viewDetails()" class="inline-block text-white px-4 py-2 bg-blue-600 font-semibold rounded-lg shadow-md hover:bg-blue-700">Details</a>
+      <a (click)="viewDetails()" class="inline-block text-black px-4 py-2 bg-blue font-semibold rounded-lg shadow-md hover:bg-blue-700">Details</a>
     </div>
   </div>
 </div>
