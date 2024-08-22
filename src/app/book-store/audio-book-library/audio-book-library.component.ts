@@ -7,14 +7,13 @@ import { AudioBookDetailComponent } from '../audio-book-detail/audio-book-detail
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
-
 @Component({
   selector: 'app-audio-book-library',
   standalone: true,
   imports: [
     AudioBookCardComponent,
     CommonModule,
-    AudioBookDetailComponent
+    AudioBookDetailComponent,
   ],
   templateUrl: './audio-book-library.component.html',
   styleUrl: './audio-book-library.component.scss'

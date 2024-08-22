@@ -1,11 +1,15 @@
 // Importar Angular Core y otras dependencias necesarias
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 // import { AudioOption, SelectedAudio } from '../../../app/interfaces/interfaces'; // Importar las interfaces
 import { MatButtonModule } from '@angular/material/button';
 import { AudioOption, SelectedAudio } from '@app/interfaces/interfaces';
 import { HttpClient } from '@angular/common/http';
+// read route parameter
+import { ActivatedRoute } from '@angular/router';
+import { AiStore } from '@app/store/ai.store';
+
 
 @Component({
   selector: 'app-audio-book-player',
@@ -15,6 +19,7 @@ import { HttpClient } from '@angular/common/http';
   standalone: true,
 })
 export class AudioBookPlayerComponent implements OnInit, AfterViewInit {
+  readonly aiStore = inject(AiStore);
   isPlaying = false;
   playbackRate = 1.0;
   isLoading = false;
@@ -34,16 +39,25 @@ export class AudioBookPlayerComponent implements OnInit, AfterViewInit {
   ];
   selectedAudio: SelectedAudio = { name: '', src: '' };
   data:any
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+    private route: ActivatedRoute
+  ) { 
+    
+    
+   }
 
   ngOnInit() {
+    // Get the route parameter
+    this.route.params.subscribe(params => {
+      console.log('param : ' + params);
+    });
     this.studyMaterialUrl = 'assets/files/StudyMaterial.zip';
    
-    this.http.get('assets/db/book.json').subscribe(data => {
+    this.http.get(`assets/db/book${this.aiStore.selectedBookDetail()?.bookId}.json`).subscribe(data => {
       this.data = data;
-      this.audioOptions = this.data.audioOptions;
-      this.selectedAudio= this.data.audioOptions[0];
-      this.audioSrc =  this.data.audioOptions[0].src;
+      this.audioOptions = this.data.bookChaptersAndAudioPaths;
+      this.selectedAudio= this.data.bookChaptersAndAudioPaths[0];
+      this.audioSrc =  this.data.bookChaptersAndAudioPaths[0].src;
     });
 
   }
