@@ -21,10 +21,7 @@ export const routes: Routes = [
     path: 'score',
     component: ScoreAppComponent,
   },
-  {
-    path: 'book', 
-    component: AudioBookLibraryComponent,
-  },
+ 
   {
     path: 'details-book',
     component: AudioBookDetailComponent,
