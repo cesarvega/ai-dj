@@ -30,5 +30,5 @@ module.exports = {
     },
     // No necesitas duplicar colores como `black`, `white`, `yellow`, etc.
   },
-  plugins: [],
+  plugins: [require('daisyui'),],
 };

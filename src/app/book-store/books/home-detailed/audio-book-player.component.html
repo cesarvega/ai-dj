@@ -1,14 +1,14 @@
-<header class="header">
+<header class="header" [ngStyle]="{'background-color': predominantColor}">
   <div class="container">
     <img src="assets/img/logo.png" alt="Logo" class="logo">
   </div>
 </header>
 
-<div class="main-banner-area">
+<div class="main-banner-area" [ngStyle]="{'background-color': predominantColor}">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-6 col-md-12">
-        <div class="main-banner-content" >
+        <div class="main-banner-content">
           <h1 class="text-4xl mb-5 leading-tight">{{data?.bookTittle}}</h1>
           <ul class="text-xl mb-2.5 leading-relaxed">
             <li><b>Comprehensive Coverage:</b> {{data?.bookDescription}}</li>
@@ -22,28 +22,28 @@
       </div>
     </div>
     <div class="buttons">
-      <div *ngIf="studyMaterial" class="speed-button">
+      <div *ngIf="studyMaterial" class="speed-button" [ngStyle]="{'background-color': predominantColor}">
         <a [href]="studyMaterialUrl" download="StudyMaterial.zip">
-          <button mat-raised-button color="primary">
+          <button mat-raised-button color="primary" [ngStyle]="{'background-color': predominantColor}">
             <span class="study-material">STUDY MATERIAL</span>
           </button>
         </a>
       </div>
       <div class="speed-controls">
-       
-        <div class="speed-button">
-          <span>Speed </span><span class="speed-display">{{playbackRate | number:'1.1-1'}}x</span>
+        <div class="speed-button" >
+          <span>Speed </span><span  class="speed-display">{{playbackRate | number:'1.1-1'}}x</span>
         </div>
-        <div class="control-buttons">
+        <div class="control-buttons" [ngStyle]="{'background-color': predominantColor}">
           <button class="control-button" (click)="decreaseSpeed()">-</button>
-          <input type="range" min="0.5" max="2.0" step="0.1" [(ngModel)]="playbackRate" (change)="updateSpeed()">
-
-          <button class="control-button" (click)="increaseSpeed()">+</button>
+          <input 
+          class="range range-xs"
+          type="range" min="0.5" max="2.0" step="0.1" [(ngModel)]="playbackRate" (change)="updateSpeed()" [ngStyle]="{'background-color': predominantColor}">
+          <button class="control-button" (click)="increaseSpeed()" [ngStyle]="{'background-color': predominantColor}">+</button>
         </div>
       </div>
 
       <div class="dropdown" [class.open]="isDropdownOpen">
-        <button class="dropdown-toggle buy" type="button" (click)="toggleDropdown()">
+        <button class="dropdown-toggle buy" type="button" (click)="toggleDropdown()" [ngStyle]="{'background-color': predominantColor}">
           Select Audio
         </button>
         <div class="dropdown-menu" *ngIf="isDropdownOpen">
@@ -52,20 +52,18 @@
           </a>
         </div>
       </div>
-      <button (click)="togglePlayPause()" id="listen-sample" class="buy listen">
+      <button (click)="togglePlayPause()" id="listen-sample" class="buy listen" [ngStyle]="{'background-color': predominantColor}">
         <span class="material-icons">{{ isPlaying ? 'pause' : 'play_arrow' }}</span> {{selectedAudio.name}}
-
       </button>
       <audio #audioPlayer (timeupdate)="updateProgress()" (loadedmetadata)="setDuration()" [src]="audioSrc"></audio>
 
       <div class="progress-container">
         <span class="current-time">{{ formatTime(currentTime) }}</span> 
         <div #timeline class="timeline" (click)="seek($event)">
-          <div #progress class="progress"></div>
+          <div #progress class="progress" [ngStyle]="{'background-color': predominantColor}"></div>
         </div>
         <span class="remaining-time">{{ formatTime(remainingTime) }}</span> 
       </div>
-
     </div>
   </div>
 </div>
