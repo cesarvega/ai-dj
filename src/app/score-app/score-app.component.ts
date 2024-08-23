@@ -11,6 +11,7 @@ import { AudioPlayerComponent } from '../audio-player/audio-player.component';
 import { AudioLowComponent } from '../audio-low/audio-low.component';
 import { SoundWavesComponent } from '../sound-waves/sound-waves.component';
 import { ScoreCardComponent } from './components/score-card/score-card.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-score-app',
@@ -32,6 +33,7 @@ import { ScoreCardComponent } from './components/score-card/score-card.component
 export class ScoreAppComponent {
   img: any;
   showQrCode: boolean = false;
+  subscriptions: Subscription[] = [];
   websiteUrl: string = environment.websiteUrl;
   @ViewChild('videoPlayer') videoPlayer!: ElementRef<HTMLVideoElement>;
   corpWebsiteUrl: string = environment.corpWebsiteUrl;
@@ -54,9 +56,12 @@ export class ScoreAppComponent {
   }
 
   getImages(): void {
-    this.http.get('assets/db/images.json').subscribe((res) => {
-      this.img = res;
-    });
+    const imagesSubscribe = this.http.get('assets/db/images.json').subscribe({
+      next: res => {this.img = res;},
+      error: err => console.error(err),
+      complete: () => console.log('Observable emitted the complete notification') 
+    })
+    this.subscriptions.push(imagesSubscribe);    
   }
 
   closeQrCodePopup() {
@@ -69,6 +74,10 @@ export class ScoreAppComponent {
 
   openCorpwebsite() {
     window.open(this.corpWebsiteUrl, '_blank');
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());    
   }
 
 }

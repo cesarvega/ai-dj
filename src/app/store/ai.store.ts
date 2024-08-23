@@ -1,4 +1,9 @@
-import { signalStore, withState, patchState, withMethods, withComputed } from '@ngrx/signals';
+import { signalStore,
+         withState, 
+         patchState, 
+         withMethods, 
+         withComputed
+         } from '@ngrx/signals';
 import { Album, Book} from '@app/data-models';
 import { withStorageSync } from './storage-ai-sync';
 import { albums,books } from '@app/data';

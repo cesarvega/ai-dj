@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login-universal',
@@ -33,10 +34,11 @@ export class LoginUniversalComponent {
   // password: string = 'evt_1PiyfiIGoSU0Z9WxG9PG3ibC';
   username: string = '';
   password: string = '';
+  subscriptions: Subscription[] = [];
   constructor(private authService: AuthService, private router: Router) { }
 
   onSubmit() {
-    this.authService.checkCredentials(this.username, this.password).subscribe({
+    const loginSubscribe = this.authService.checkCredentials(this.username, this.password).subscribe({
       next: (response) => {
         if (response.username === this.username) {
           localStorage.setItem('user', JSON.stringify(response));
@@ -49,5 +51,9 @@ export class LoginUniversalComponent {
         console.error('Login failed:', error);
       }
     });
+    this.subscriptions.push(loginSubscribe);
+  }
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());    
   }
 }

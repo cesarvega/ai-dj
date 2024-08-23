@@ -35,12 +35,14 @@ export class AudioBookSalesComponent {
 
 
   ngOnInit(): void {
-    const bookId = this.route.snapshot.paramMap.get('id');
-    this.http.get(`assets/db/book${bookId}.json`).subscribe(data => {
-      this.data = data;
-    });
+    this.http.get('assets/db/book.json').subscribe({
+      next: resp => {
+        this.data = resp;
+      },
+      error: err => console.error(err.error.message),
+      complete: () => console.log('Observable emitted the complete notification')     
+    })
   }
-
 
   buyNowButton(): void {
     window.location.href = environment.bookRealStatePaymentUrl;

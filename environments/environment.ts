@@ -11,6 +11,7 @@ export const environment = {
   // paymentUrl: 'https://buy.stripe.com/00g14KdCo6bh3Sg8ww',//$1
   booksActionsUrl: 'assets/db/books.json',
   imagesActionsUrl: 'assets/db/images.json',
+  subscriptionUrl: 'https://hook.eu2.make.com/kp6dhkwmr6qcl53o1fsqjspq6g5eytog'
 };
 
 /*
