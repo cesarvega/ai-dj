@@ -79,5 +79,9 @@ vite/
 .angular/cache/17.3.8/vite/*
 .src/assets/tracks/*
 .src/assets/files/StudyMaterial.zip
+<<<<<<< HEAD
 .angular/cache/17.3.8/elevated-tech-ng/.tsbuildinfo
+=======
+.angular/cache
+>>>>>>> 305948b (fk)
 
