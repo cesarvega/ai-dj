@@ -37,7 +37,7 @@ export const routes: Routes = [
 
   },
   
-  { path: 'book-sales', component: AudioBookSalesComponent },
+  { path: 'book-sales/:id', component: AudioBookSalesComponent },
   
   { path: 'study/:id', component: AudioBookPlayerComponent },
 
