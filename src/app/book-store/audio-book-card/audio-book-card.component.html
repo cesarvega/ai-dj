@@ -52,11 +52,13 @@
   </div>
 </div> -->
 
-<div (click)="togglePlay()"   class="scale-100 cursor-pointer ">
-  <div class="relative">
+
+<div   class="scale-100 cursor-pointer  ">
+  <div (click)="togglePlay()" class="relative">
     <img [src]="bookInfo?.bookImagePath" alt="book images" class="w-56 h-56 mb-3 rounded-md " />
     <div class="absolute inset-0 flex items-center justify-center">
-      <div class="flex items-center justify-center h-screen ">
+      <div   class="flex items-center justify-center h-screen ">
+        
         <button 
           
           class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center focus:outline-none">
@@ -89,9 +91,23 @@
 
   <h3 class=" font-abel text-xl">{{bookInfo?.bookTitle}}</h3>
   <div  (click)="viewDetails()" class="flex justify-between items-center mt-5">
+    <div class="flex items-center mb-2">
+      <div class="flex">
+        <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
+          <!-- Estrella amarilla si i <= averageRating -->
+          <svg *ngIf="i <= averageRating" class="w-5 h-5 fill-current text-yellow-500" viewBox="0 0 24 24">
+            <path d="M12 17.27l6.18 3.73-1.64-7.03 5.46-4.73-7.1-.61L12 2.5 8.1 8.63l-7.1.61 5.46 4.73-1.64 7.03L12 17.27z"/>
+          </svg>
+          <!-- Estrella gris si i > averageRating -->
+          <svg *ngIf="i > averageRating" class="w-5 h-5 fill-current text-gray-300" viewBox="0 0 24 24">
+            <path d="M12 17.27l6.18 3.73-1.64-7.03 5.46-4.73-7.1-.61L12 2.5 8.1 8.63l-7.1.61 5.46 4.73-1.64 7.03L12 17.27z"/>
+          </svg>
+        </ng-container>
+      </div>
+    </div>
+    
     <h4 class="font-semibold text-xl">
-      $749.00
-      <del class="font-normal text-black text-opacity-50 text-sm">$850.00</del>
+      <del class="font-normal text-black text-opacity-50 text-sm">{{bookInfo?.bookPrice}}</del>
     </h4>
     <button>
       <svg width="328" height="328" viewBox="0 0 328 328" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -109,3 +125,8 @@
     </button>
   </div>
 </div >
+
+
+
+
+

@@ -9,7 +9,7 @@
     {  "name":"Ejercicios de meditacion",  "src":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/Meditation%2FEjercicios%20de%20meditacion.mp3?alt=media&token=31be75e5-e6f4-4c74-a759-e333c0670dc3"},
     {  "name":"El bosque magico", "src":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/Meditation%2FEl%20Bosque%20Magico.mp3?alt=media&token=5617c872-7361-493b-bd22-a03336de9338" },
     {  "name":"La historia de la meditacion",  "src":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/Meditation%2FHistoria%20de%20la%20meditacion%3F.mp3?alt=media&token=1a0bc522-455b-4536-a6b7-d1c3c046b522"}    ],
-    "bookAudioSamplePath": "assets/tracks/🚀Astronaut On The Depths.mp3",
+    "bookAudioSamplePath": "https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/Meditation%2FQue%20es%20Meditar%3F.mp3?alt=media&token=9bdc12cd-2f1b-40be-bd10-d7172c38aa3a",
     "bookTitle": "Rental Property Investing",
     "bookDescription": "A complete guide to successfully investing in rental properties and building long-term wealth.",
     "bookPrice": 64.99,
@@ -136,7 +136,7 @@
                             { "name":"Name two national U.S. holidays.", "src":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/US-CITINZENSHIP%2FTrack%2520100.mp3.mp3?alt=media&token=b34a0681-f60d-469c-9a72-d5d654a1333c"}
                         
                     ],
-    "bookAudioSamplePath": "assets/tracks/🚀Astronaut On The Depths.mp3",
+    "bookAudioSamplePath": "https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/US-CITINZENSHIP%2FTrack%252001.mp3?alt=media&token=5b2bec1b-09fd-4ec4-841d-8a93f15a3637",
     "bookTitle": "US Citizenship Test",
     "bookDescription": "Embark on your journey to becoming a United States citizen with confidence and clarity using US Citizenship Test: Your Essential Guide to Passing the American Civics Exam. This comprehensive guide is designed to help you master the 100 civics (history and government) questions that form the backbone of the US naturalization test.",
     "bookPrice": 64.99, 

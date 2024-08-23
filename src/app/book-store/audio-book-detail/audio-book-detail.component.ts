@@ -23,19 +23,21 @@ export class AudioBookDetailComponent {
   averageRating: number = 0;
   isPlaying: boolean = false;
   private audio: HTMLAudioElement|undefined;
-
+  samplePhat:string | undefined;
   constructor(private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object
 
   ) { 
-    this.bookInfoDetails = this.aiStore.selectedBookDetail;
+    this.bookInfoDetails = this.aiStore?.selectedBookDetail();
   }
 
   ngOnInit(){
     if (isPlatformBrowser(this.platformId)) {
     this.bookInfoDetails = this.aiStore.selectedBookDetail();
-    this.audio = new Audio(this.bookInfoDetails.AiStore.bookAudioSamplePath);
-      this.audio.load();
+    this.samplePhat = this.aiStore.selectedBookDetail()?.bookAudioSamplePath;
+ //   this.audio = new Audio(this.aiStore.selectedBookDetail()?.bookAudioSamplePath);
+ this.audio = new Audio(this.samplePhat)  
+ this.audio.load();
     }
     this.bookInfoDetails = this.aiStore.selectedBookDetail();
     if (this.bookInfoDetails && this.bookInfoDetails.userReviews) {

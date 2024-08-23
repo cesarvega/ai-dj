@@ -6,4 +6,5 @@ export const environment = {
   soundPackOfficalSiteUrl: 'https://elevate-tech-ai-essential-sounds-pro.web.app',//$10
   booksActionsUrl: 'assets/db/books.json',
   imagesActionsUrl: 'assets/db/images.json',
+  subscriptionUrl: 'https://hook.eu2.make.com/kp6dhkwmr6qcl53o1fsqjspq6g5eytog'
 };

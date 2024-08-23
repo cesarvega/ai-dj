@@ -19,6 +19,7 @@ export class AudioBookCardComponent implements OnInit {
   private audio: HTMLAudioElement|undefined;
   isPlaying: boolean = false;
   averageRating: number = 0;
+  audioSrc = '';
 
   constructor(
     private router: Router,
@@ -33,8 +34,9 @@ export class AudioBookCardComponent implements OnInit {
       this.averageRating = totalReviews > 0 ? sumRatings / totalReviews : 0;
     }
     if (isPlatformBrowser(this.platformId)) {
-      this.audio = new Audio(this.bookInfo.bookAudioSamplePath);
+      this.audio = new Audio(this.bookInfo?.bookAudioSamplePath);
       this.audio.load();
+      console.log(this.bookInfo?.bookAudioSamplePath)
     }
   }
 
