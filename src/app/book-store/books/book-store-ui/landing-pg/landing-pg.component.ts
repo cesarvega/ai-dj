@@ -6,7 +6,6 @@ import { ProductTabComponent } from '../product-tab/product-tab.component';
 import { ProductListComponent } from '../product-list/product-list.component';
 import { AudioBookLibraryComponent } from '@app/book-store/audio-book-library/audio-book-library.component';
 
-
 @Component({
   selector: 'app-landing-pg',
   standalone: true,
