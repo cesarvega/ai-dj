@@ -53,13 +53,16 @@ export class AudioBookPlayerComponent implements OnInit, AfterViewInit {
     });
     this.studyMaterialUrl = 'assets/files/StudyMaterial.zip';
    
-    this.http.get(`assets/db/book${this.aiStore.selectedBookDetail()?.bookId}.json`).subscribe(data => {
-      this.data = data;
-      this.audioOptions = this.data.bookChaptersAndAudioPaths;
-      this.selectedAudio= this.data.bookChaptersAndAudioPaths[0];
-      this.audioSrc =  this.data.bookChaptersAndAudioPaths[0].src;
-    });
-
+    this.http.get(`assets/db/book${this.aiStore.selectedBookDetail()?.bookId}.json`).subscribe({
+      next: data => {
+        this.data = data;
+        this.audioOptions = this.data.bookChaptersAndAudioPaths;
+        this.selectedAudio= this.data.bookChaptersAndAudioPaths[0];
+        this.audioSrc =  this.data.bookChaptersAndAudioPaths[0].src;
+      },
+      error: err => console.error(err.error.message),
+      complete: () => console.log('Observable emitted the complete notification')  
+    })
   }
 
   ngOnDestroy() {
@@ -72,14 +75,12 @@ export class AudioBookPlayerComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.audioPlayer.nativeElement.playbackRate = this.playbackRate;
-  }
-
-  
+  }  
 
   buyNowButton(): void {
     window.location.href = 'https://buy.stripe.com/00g14KdCo6bh3Sg8ww';
   }
-
+  
   onMouseOverBook(): void {
     const bookImage = document.querySelector('.book-image') as HTMLElement | null;
     if (bookImage) {
@@ -175,6 +176,5 @@ export class AudioBookPlayerComponent implements OnInit, AfterViewInit {
   padZero(value: number): string {
     return value < 10 ? '0' + value : value.toString();
   }
-
 
 }
