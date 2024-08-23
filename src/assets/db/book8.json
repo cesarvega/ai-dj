@@ -110,7 +110,7 @@
                             { "name":"Name two national U.S. holidays.", "src":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/US-CITINZENSHIP%2FTrack%2520100.mp3.mp3?alt=media&token=b34a0681-f60d-469c-9a72-d5d654a1333c"}
                         
                     ],
-    "bookAudioSamplePath": "assets/tracks/🚀Astronaut On The Depths.mp3",
+    "bookAudioSamplePath": "https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/US-CITINZENSHIP%2FTrack%252001.mp3?alt=media&token=5b2bec1b-09fd-4ec4-841d-8a93f15a3637",
     "bookTitle": "US Citizenship Test",
     "bookDescription": "Embark on your journey to becoming a United States citizen with confidence and clarity using US Citizenship Test: Your Essential Guide to Passing the American Civics Exam. This comprehensive guide is designed to help you master the 100 civics (history and government) questions that form the backbone of the US naturalization test.",
     "bookPrice": 64.99, 
