@@ -22,7 +22,9 @@
         { "userId": "Brayan", "rating": 5, "review": "quiero mas libros" }
     
     ],
-    "bookPromotion": "Get a free consultation with purchase"
+    "bookPromotion": "Get a free consultation with purchase",
+    "bookColor":"#ff0000"
+
   },
   {
     "bookId": "8",
@@ -149,7 +151,8 @@
         { "userId": "Brayan", "rating": 5, "review": "quiero mas libros" }
     
     ],
-    "bookPromotion": "Get a free consultation with purchase"
+    "bookPromotion": "Get a free consultation with purchase",
+    "bookColor":"#ff0000"
   }
 
 ]
