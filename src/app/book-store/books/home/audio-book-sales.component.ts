@@ -24,18 +24,19 @@ export class AudioBookSalesComponent {
   isPlaying = false;
   playbackRate = 1.0;
   data: any;
-
+  bookId:string | null;
   @ViewChild('audioPlayer') audioPlayer!: ElementRef<HTMLAudioElement>;
   @ViewChild('timeline', { static: true }) timeline!: ElementRef<HTMLDivElement>;
   @ViewChild('progress', { static: true }) progress!: ElementRef<HTMLDivElement>;
 
   constructor(private http: HttpClient, private route: ActivatedRoute) {
-    
+    this.bookId = this.route.snapshot.paramMap.get('id')
+
   }
 
 
   ngOnInit(): void {
-    this.http.get('assets/db/book.json').subscribe({
+    this.http.get(`assets/db/book${this.bookId}.json`).subscribe({
       next: resp => {
         this.data = resp;
       },
