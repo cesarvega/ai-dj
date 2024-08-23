@@ -2,31 +2,22 @@
 module.exports = {
   content: ["./src/**/*.{html,ts,scss}"],
   theme: {
-    colors: {
-      blue: {
-        DEFAULT: "#00FFFC",
-        300: "#D1D5DB", // Agrega esta línea para incluir `gray-300`
-        // Puedes incluir más valores de la escala gris aquí si es necesario
-        500: "#6B7280",
-      },
-      
-      
-      black: "#222222",
-      white: "#FFFFFF",
-      gray: "#F4F4F4",
-      yellow: "#F1FF72",
-      bgColor: "#0D0D0D",
-      gray: {
-        DEFAULT: "#252525",
-        300: "#D1D5DB", // Agrega esta línea para incluir `gray-300`
-        // Puedes incluir más valores de la escala gris aquí si es necesario
-        500: "#6B7280",
-      },
-      white: "#FFFFFF",
-      themeColor: "#077194",
-      
-    },
     extend: {
+      colors: {
+        blue: {
+          DEFAULT: "#00FFFC",
+          300: "#D1D5DB",
+          500: "#6B7280",
+        },
+        red: {
+          500: "#EF4444",
+        },
+        gray: {
+          300: "#D1D5DB",
+          500: "#6B7280",
+        },
+        themeColor: "#077194",
+      },
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],
         abel: ["Abel", "sans-serif"],
@@ -36,6 +27,7 @@ module.exports = {
         mCollection: "url('/assets/images/mens-collections.webp')",
       },
     },
+    // No necesitas duplicar colores como `black`, `white`, `yellow`, etc.
   },
   plugins: [],
 };

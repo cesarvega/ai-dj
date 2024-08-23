@@ -10,6 +10,7 @@ import { AudioPlayerComponent } from '../audio-player/audio-player.component';
 import { AudioLowComponent } from '../audio-low/audio-low.component';
 import { SoundWavesComponent } from '../sound-waves/sound-waves.component';
 import { environment } from '../../../environments/environment';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-home-pg',
   standalone: true,
@@ -29,6 +30,7 @@ import { environment } from '../../../environments/environment';
 export class HomePgComponent implements AfterViewInit {
   img: any;
   showQrCode: boolean = false;
+  subscriptions: Subscription[] = [];
   websiteUrl: string = environment.websiteUrl;
   @ViewChild('videoPlayer') videoPlayer!: ElementRef<HTMLVideoElement>;
   corpWebsiteUrl: string = environment.corpWebsiteUrl;
@@ -51,9 +53,14 @@ export class HomePgComponent implements AfterViewInit {
   }
 
   getImages(): void {
-    this.http.get(this.imagesUrl).subscribe((res) => {
-      this.img = res;
-    });
+    const imagesSubscribe = this.http.get(this.imagesUrl).subscribe(
+      {
+        next: res => {this.img = res;},
+        error: err => console.error(err),
+        complete: () => console.log('Observable emitted the complete notification') 
+      }
+    );
+    this.subscriptions.push(imagesSubscribe);
   }
 
   closeQrCodePopup() {
@@ -66,6 +73,10 @@ export class HomePgComponent implements AfterViewInit {
 
   openCorpwebsite() {
     window.open(this.corpWebsiteUrl, '_blank');
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());    
   }
 
 }
