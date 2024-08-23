@@ -2,6 +2,33 @@
 module.exports = {
   content: ["./src/**/*.{html,ts,scss}"],
   theme: {
+<<<<<<< HEAD
+=======
+    colors: {
+      blue: {
+        DEFAULT: "#00FFFC",
+        300: "#D1D5DB", // Agrega esta línea para incluir `gray-300`
+        // Puedes incluir más valores de la escala gris aquí si es necesario
+        
+      },
+      
+      
+      black: "#222222",
+      white: "#FFFFFF",
+      gray: "#F4F4F4",
+      yellow: "#00FFFC",
+      bgColor: "#0D0D0D",
+      gray: {
+        DEFAULT: "#252525",
+        300: "#D1D5DB", // Agrega esta línea para incluir `gray-300`
+        // Puedes incluir más valores de la escala gris aquí si es necesario
+        500: "#6B7280",
+      },
+      white: "#FFFFFF",
+      themeColor: "#077194",
+      
+    },
+>>>>>>> fc01c9e (fix audios sample from card audio books)
     extend: {
       colors: {
         blue: {

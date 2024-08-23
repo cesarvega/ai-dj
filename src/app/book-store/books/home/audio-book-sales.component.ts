@@ -35,7 +35,8 @@ export class AudioBookSalesComponent {
 
 
   ngOnInit(): void {
-    this.http.get('assets/db/book.json').subscribe({
+    const bookId = this.route.snapshot.paramMap.get('id');
+    this.http.get(`assets/db/book${bookId}.json`).subscribe({
       next: resp => {
         this.data = resp;
       },
