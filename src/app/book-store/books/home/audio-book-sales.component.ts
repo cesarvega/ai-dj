@@ -29,11 +29,14 @@ export class AudioBookSalesComponent {
 
 
   ngOnInit(): void {
-    this.http.get('assets/db/book.json').subscribe(data => {
-      this.data = data;
-    });
+    this.http.get('assets/db/book.json').subscribe({
+      next: resp => {
+        this.data = resp;
+      },
+      error: err => console.error(err.error.message),
+      complete: () => console.log('Observable emitted the complete notification')     
+    })
   }
-
 
   buyNowButton(): void {
     window.location.href = environment.bookRealStatePaymentUrl;

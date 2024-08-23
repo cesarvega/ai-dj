@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Accept': '*/*',
+  }),
+};
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +20,6 @@ export class SubscriptionService {
   }
 
   subscribeUser(payload: any){
-    return this.http.post(this.base,payload)
+    return this.http.post(this.base,payload,httpOptions)
   }
 }

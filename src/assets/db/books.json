@@ -26,7 +26,7 @@
   },
   {
     "bookId": "8",
-    "bookImagePath": "assets/images/book-covers/citizenship.png",
+    "bookImagePath": "assets/images/book-covers/coverUSBook.png",
     "bookAudioPathUrl": "https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/US-CITINZENSHIP%2FTrack%252001.mp3?alt=media&token=5b2bec1b-09fd-4ec4-841d-8a93f15a3637",
     "bookChaptersAndAudioPaths": [
         
