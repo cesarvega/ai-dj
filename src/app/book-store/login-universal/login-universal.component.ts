@@ -7,7 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AiService } from '../services/ai.service';
 import { Subscription } from 'rxjs';
 import { AiStore } from '@app/store/ai.store';
 
@@ -29,6 +29,7 @@ import { AiStore } from '@app/store/ai.store';
 })
 export class LoginUniversalComponent {
   readonly aiStore = inject(AiStore)
+  readonly aiService = inject(AiService)
   appsTitle = 'AI Books'; // Set your app title here
   // add input 
   // username: string = 'tech_guru_99';
@@ -38,14 +39,18 @@ export class LoginUniversalComponent {
   username: string = '';
   password: string = '';
   subscriptions: Subscription[] = [];
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private router: Router) { }
 
   onSubmit() {
-    const loginSubscribe = this.authService.checkCredentials(this.username, this.password).subscribe({
-      next: (response) => {
+    let body = {
+      username : this.username,
+      password: this.password
+    }
+    const loginSubscribe = this.aiService.checkCredentials(body).subscribe({
+      next: (response: any) => {
         if (response.username === this.username) {
-          localStorage.setItem('user', JSON.stringify(response));
-        this.aiStore.updateUserLogued(response);
+          // localStorage.setItem('user', JSON.stringify(response));
+          this.aiStore.updateUserLogued(response);
           this.router.navigate(['/study']);
         } else {
           alert('Invalid username or password');
