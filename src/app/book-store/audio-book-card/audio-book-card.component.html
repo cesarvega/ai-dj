@@ -53,65 +53,34 @@
 </div> -->
 
 
-<div   class="scale-100 cursor-pointer  ">
-  <div (click)="togglePlay()" class="relative">
+<div class="scale-100 cursor-pointer  ">
+  <div  (click)="viewDetails()" class="relative">
     <img [src]="bookInfo?.bookImagePath" alt="book images" class="w-56 h-56 mb-3 rounded-md " />
     <div class="absolute inset-0 flex items-center justify-center">
-      <div   class="flex items-center justify-center h-screen ">
-        
-        <button 
-          
-          class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center focus:outline-none">
-          <svg 
-            *ngIf="!isPlaying" 
-            xmlns="http://www.w3.org/2000/svg" 
-            class="h-8 w-8" 
-            fill="none" 
-            viewBox="0 0 24 24" 
-            stroke="currentColor" 
-            stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-6.518 3.845A1 1 0 017 14.118V9.882a1 1 0 011.234-.97l6.518 3.845a1 1 0 010 1.736z" />
-          </svg>
-          <svg 
-            *ngIf="isPlaying" 
-            xmlns="http://www.w3.org/2000/svg" 
-            class="h-8 w-8" 
-            fill="none" 
-            viewBox="0 0 24 24" 
-            stroke="currentColor" 
-            stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10 9v6m4-6v6m5-6.378C19 5.79 17.21 4 15.128 4H8.872C6.79 4 5 5.79 5 7.872v8.256C5 18.21 6.79 20 8.872 20h6.256C17.21 20 19 18.21 19 16.128V7.872z" />
-          </svg>
-        </button>
+      <div class="flex items-center justify-center h-screen ">
       </div>
     </div>
   </div>
-  
-
-
   <h3 class=" font-abel text-xl">{{bookInfo?.bookTitle}}</h3>
-  <div  (click)="viewDetails()" class="flex justify-between items-center mt-5">
-    <div class="flex items-center mb-2">
-      <div class="flex">
-        <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
-          <!-- Estrella amarilla si i <= averageRating -->
-          <svg *ngIf="i <= averageRating" class="w-5 h-5 fill-current text-yellow-500" viewBox="0 0 24 24">
-            <path d="M12 17.27l6.18 3.73-1.64-7.03 5.46-4.73-7.1-.61L12 2.5 8.1 8.63l-7.1.61 5.46 4.73-1.64 7.03L12 17.27z"/>
-          </svg>
-          <!-- Estrella gris si i > averageRating -->
-          <svg *ngIf="i > averageRating" class="w-5 h-5 fill-current text-gray-300" viewBox="0 0 24 24">
-            <path d="M12 17.27l6.18 3.73-1.64-7.03 5.46-4.73-7.1-.61L12 2.5 8.1 8.63l-7.1.61 5.46 4.73-1.64 7.03L12 17.27z"/>
-          </svg>
-        </ng-container>
+  <div class="flex justify-between items-center">
+    <button (click)="togglePlay()" mat-raised-button color="primary" class="focus:outline-none bg-blue">
+      <div class="flex items-center">
+        Preview
+        <svg *ngIf="!isPlaying" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M14.752 11.168l-6.518 3.845A1 1 0 017 14.118V9.882a1 1 0 011.234-.97l6.518 3.845a1 1 0 010 1.736z" />
+        </svg>
+        <svg *ngIf="isPlaying" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M10 9v6m4-6v6m5-6.378C19 5.79 17.21 4 15.128 4H8.872C6.79 4 5 5.79 5 7.872v8.256C5 18.21 6.79 20 8.872 20h6.256C17.21 20 19 18.21 19 16.128V7.872z" />
+        </svg>
       </div>
-    </div>
-    
-    <h4 class="font-semibold text-xl">
-      <del class="font-normal text-black text-opacity-50 text-sm">{{bookInfo?.bookPrice}}</del>
-    </h4>
-    <button>
+    </button>
+    <button (click)="viewDetails()" mat-icon-button color="primary">
       <svg width="328" height="328" viewBox="0 0 328 328" fill="none" xmlns="http://www.w3.org/2000/svg"
-        class="w-6 h-6 fill-black">
+        class="w-6 h-6 fill-current">
         <g clip-path="url(#clip0_765_22)">
           <path
             d="M98.4 262.4C80.36 262.4 65.6 277.16 65.6 295.2C65.6 313.24 80.36 328 98.4 328C116.44 328 131.2 313.24 131.2 295.2C131.2 277.16 116.44 262.4 98.4 262.4ZM0 0V32.8H32.8L91.84 157.44L68.88 196.8C67.24 201.72 65.6 208.28 65.6 213.2C65.6 231.24 80.36 246 98.4 246H295.2V213.2H104.96C103.32 213.2 101.68 211.56 101.68 209.92V208.279L116.44 180.399H237.8C250.92 180.399 260.76 173.839 265.68 163.999L324.72 57.4C328 54.12 328 52.48 328 49.2C328 39.36 321.44 32.8 311.6 32.8H68.88L54.12 0H0ZM262.4 262.4C244.36 262.4 229.6 277.16 229.6 295.2C229.6 313.24 244.36 328 262.4 328C280.44 328 295.2 313.24 295.2 295.2C295.2 277.16 280.44 262.4 262.4 262.4Z" />
@@ -124,9 +93,27 @@
       </svg>
     </button>
   </div>
-</div >
+  <div  class="flex justify-between items-center mt-5">
+    <div class="flex items-center mb-2">
+      <div class="flex">
+        <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
+          <!-- Estrella amarilla si i <= averageRating -->
+          <svg *ngIf="i <= averageRating" class="w-5 h-5 fill-current text-yellow-500" viewBox="0 0 24 24">
+            <path
+              d="M12 17.27l6.18 3.73-1.64-7.03 5.46-4.73-7.1-.61L12 2.5 8.1 8.63l-7.1.61 5.46 4.73-1.64 7.03L12 17.27z" />
+          </svg>
+          <!-- Estrella gris si i > averageRating -->
+          <svg *ngIf="i > averageRating" class="w-5 h-5 fill-current text-gray-300" viewBox="0 0 24 24">
+            <path
+              d="M12 17.27l6.18 3.73-1.64-7.03 5.46-4.73-7.1-.61L12 2.5 8.1 8.63l-7.1.61 5.46 4.73-1.64 7.03L12 17.27z" />
+          </svg>
+        </ng-container>
+      </div>
+    </div>
 
+    <h4 class="font-semibold text-xl">
+      <del class="font-normal text-black text-opacity-50 text-sm">{{bookInfo?.bookPrice}}</del>
+    </h4>
 
-
-
-
+  </div>
+</div>

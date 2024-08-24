@@ -20,5 +20,6 @@
       { "userId": "Brayan", "rating": 5, "review": "quiero mas libros" }
   
   ],
-  "bookPromotion": "Get a free consultation with purchase"
+  "bookPromotion": "Get a free consultation with purchase",
+  "bookColor":"#3498db"
 }
