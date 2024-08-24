@@ -1,11 +1,10 @@
 // Importaciones de Angular Core y otras dependencias necesarias
-import { Component, ElementRef, ViewChild, inject } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { environment } from '@environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { AiStore } from '@app/store/ai.store';
 
 interface AudioOption {
   name: string;
@@ -19,8 +18,6 @@ interface AudioOption {
   standalone: true,
 })
 export class AudioBookSalesComponent {
-  readonly aiStore = inject(AiStore);
-
   isPlaying = false;
   playbackRate = 1.0;
   data: any;

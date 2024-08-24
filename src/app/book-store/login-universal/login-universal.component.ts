@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { Subscription } from 'rxjs';
+import { AiStore } from '@app/store/ai.store';
+
 
 @Component({
   selector: 'app-login-universal',
@@ -26,6 +28,7 @@ import { Subscription } from 'rxjs';
   styleUrl: './login-universal.component.scss'
 })
 export class LoginUniversalComponent {
+  readonly aiStore = inject(AiStore)
   appsTitle = 'AI Books'; // Set your app title here
   // add input 
   // username: string = 'tech_guru_99';
@@ -42,6 +45,7 @@ export class LoginUniversalComponent {
       next: (response) => {
         if (response.username === this.username) {
           localStorage.setItem('user', JSON.stringify(response));
+        this.aiStore.updateUserLogued(response);
           this.router.navigate(['/study']);
         } else {
           alert('Invalid username or password');

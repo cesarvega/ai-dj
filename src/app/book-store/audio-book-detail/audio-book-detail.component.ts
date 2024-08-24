@@ -5,13 +5,15 @@ import { AiStore } from '../../store/ai.store';
 import { ButtonsSalesComponent } from '../buttons-sales/buttons-sales.component';
 import { AudioBookReviewsComponent } from '../audio-book-reviews/audio-book-reviews.component';
 import { Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-audio-book-detail',
   standalone: true,
   imports: [
     CommonModule,
     ButtonsSalesComponent,
-    AudioBookReviewsComponent ,
+    AudioBookReviewsComponent,
+    MatButtonModule
   ],
   templateUrl: './audio-book-detail.component.html',
   styleUrl: './audio-book-detail.component.scss'
