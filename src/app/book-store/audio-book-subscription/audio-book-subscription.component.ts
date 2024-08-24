@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { environment } from '../../../../environments/environment';
 import {
   AbstractControl,
   FormBuilder,
@@ -11,7 +10,7 @@ import {
   ValidationErrors,
   Validators
 } from "@angular/forms";
-import { SubscriptionService } from '../services/subscription.service';
+import { AiService } from '../services/ai.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -22,14 +21,12 @@ import { Subscription } from 'rxjs';
   styleUrl: './audio-book-subscription.component.scss'
 })
 export class AudioBookSubscribtionComponent {
-  readonly subscriptionService = inject(SubscriptionService)
+  readonly aiService = inject(AiService)
   registerForm: FormGroup;  
   passwordsMatch: boolean;
   subscriptions: Subscription[] = [];
-  url: string;
   constructor(private fb: FormBuilder) {
     this.passwordsMatch = false;
-    this.url = environment.subscriptionUrl;
     this.registerForm = this.fb.group({
       'full-name': new FormControl('', [
         Validators.required, Validators.minLength(2), Validators.maxLength(40)
@@ -79,7 +76,6 @@ export class AudioBookSubscribtionComponent {
   }
 
   onSubmit() {
-    console.log(this.registerForm)
     if (this.registerForm.valid) {
       let body = {
         "username": this.fullName?.value,
@@ -89,7 +85,7 @@ export class AudioBookSubscribtionComponent {
         "phone": this.phone?.value
       }
 
-      const subscription =  this.subscriptionService.subscribeUser(body).subscribe({
+      const subscription =  this.aiService.subscribeUser(body).subscribe({
         next: value => console.log(value),
         error: err => console.error(err.error.message),
         complete: () => console.log('Observable emitted the complete notification')        

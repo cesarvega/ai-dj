@@ -69,7 +69,7 @@ export function withStorageSync<
         parse = JSON.parse,
         stringify = JSON.stringify,
         storage: storageFactory = () => localStorage,
-    } = typeof configOrKey === 'string' ? {key: configOrKey} : configOrKey;
+    } = typeof configOrKey === 'string' ? {key: configOrKey} : configOrKey;    
 
     return signalStoreFeature(
         withMethods((store, platformId = inject(PLATFORM_ID)) => {
