@@ -2,12 +2,14 @@ import { Component, Input, inject, OnInit, PLATFORM_ID, Inject } from '@angular/
 import { AiStore } from '../../store/ai.store';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-audio-book-card',
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule,
+    MatButtonModule
   ],
   templateUrl: './audio-book-card.component.html',
   styleUrls: ['./audio-book-card.component.scss']

@@ -39,6 +39,8 @@ export class AudioBookPlayerComponent implements OnInit, AfterViewInit {
   ];
   selectedAudio: SelectedAudio = { name: '', src: '' };
   data:any
+  predominantColor: string | undefined; // Color que puedes setear
+
   constructor(private http: HttpClient,
     private route: ActivatedRoute
   ) { 
@@ -59,6 +61,7 @@ export class AudioBookPlayerComponent implements OnInit, AfterViewInit {
         this.audioOptions = this.data.bookChaptersAndAudioPaths;
         this.selectedAudio= this.data.bookChaptersAndAudioPaths[0];
         this.audioSrc =  this.data.bookChaptersAndAudioPaths[0].src;
+        this.predominantColor = this.data.bookColor;
       },
       error: err => console.error(err.error.message),
       complete: () => console.log('Observable emitted the complete notification')  

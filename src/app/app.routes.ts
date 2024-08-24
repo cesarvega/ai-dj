@@ -14,7 +14,7 @@ import { LandingPgComponent } from './book-store/books/book-store-ui/landing-pg/
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: HomePgComponent,
   },
   {
@@ -33,7 +33,7 @@ export const routes: Routes = [
   },
   {
     path: 'subscribtion',
-    component: AudioBookSubscribtionComponent
+    component: AudioBookSubscribtionComponent,
 
   },
   
