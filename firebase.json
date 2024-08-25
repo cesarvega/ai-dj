@@ -43,5 +43,21 @@
         "destination": "/index.html"
       }
     ]
-  }]
+  },
+  {
+    "target": "elevatebooks",
+    "public": "dist/elevated-tech-ng/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+]
 }

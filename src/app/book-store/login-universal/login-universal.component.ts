@@ -34,10 +34,10 @@ export class LoginUniversalComponent {
   // add input 
   // username: string = 'tech_guru_99';
   // password: string = 'P@ssw0rd!23';
-  // username: string = 'cesarvega.col@gmail.com';
-  // password: string = 'evt_1PiyfiIGoSU0Z9WxG9PG3ibC';
-  username: string = '';
-  password: string = '';
+  username: string = 'cesarvega.col@gmail.com';
+  password: string = 'evt_1PiyfiIGoSU0Z9WxG9PG3ibC';
+  // username: string = '';
+  // password: string = '';
   subscriptions: Subscription[] = [];
   constructor(private router: Router) { }
 

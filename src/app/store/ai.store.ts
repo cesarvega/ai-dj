@@ -44,6 +44,9 @@ export const AiStore = signalStore(
     },
     updateUserLogued(user: User): void{
       patchState(store, {userLogued: user})
+    },
+    logoutUser(): void{
+      patchState(store, {userLogued: null})
     }
     //)
     // updateOrder(order: 'asc' | 'desc'): void {
