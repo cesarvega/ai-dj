@@ -1,0 +1,42 @@
+<header class="header">
+  <div class="container">
+    <img src="assets/img/EidiLogo.jpg" alt="Logo" class="logo">
+  </div>
+</header>
+
+<div class="main-banner-area">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 col-md-12">
+        <div class="main-banner-content">
+          <h1>Elimina la Grasa de tu Motor con GrasaXtreme</h1>
+          <ul>
+            <li><b>Limpieza Potente:</b> Fórmula avanzada para eliminar la grasa más difícil de los motores.</li>
+            <li><b>Uso Profesional:</b> Aprobado por expertos en mantenimiento de vehículos.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="banner-image">
+          <img src="assets/img/desengrase.jpg" alt="Imagen del desengrasante" class="product-image animate__animated animate__fadeIn">
+        </div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button (click)="togglePlayPause()" id="listen-sample" class="buy listen">
+        <span class="material-icons">{{ isPlaying ? 'pause' : 'play_arrow' }}</span> Escuchar Presentacion
+      </button>
+      <audio #audioPlayer (timeupdate)="updateProgress()" (loadedmetadata)="setDuration()" src="assets/sound/wav/grasa-x-por.wav"></audio>
+
+      <div #timeline class="timeline" (click)="seek($event)">
+        <div #progress class="progress"></div>
+      </div>
+
+      <!-- <button (click)="buyNowButton()" class="buy">Comprar Ahora</button> -->
+    </div>
+  </div>
+</div>
+
+<app-qr-code-popup-component style="width: 60%;" (closePopup)="onQrCodeClose()" *ngIf="showQrCode" [url]="websiteUrl"></app-qr-code-popup-component>
+ 

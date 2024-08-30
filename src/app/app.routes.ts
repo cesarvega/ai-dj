@@ -12,6 +12,7 @@ import { AudioBookSalesComponent } from './book-store/books/home/audio-book-sale
 import { AudioBookPlayerComponent } from './book-store/books/home-detailed/audio-book-player.component';
 import { LandingPgComponent } from './book-store/books/book-store-ui/landing-pg/landing-pg.component';
 import { authGuard } from './guards/auth.guard';
+import { GrasaXPro } from './dj-app/dj-app-home/dj-app.component';
 
 export const routes: Routes = [
   {
@@ -36,6 +37,10 @@ export const routes: Routes = [
     path: 'subscribtion',
     component: AudioBookSubscribtionComponent,
   },
+  {
+    path: 'dj',
+    component: GrasaXPro,
+  },
   
   { path: 'book-sales/:id', component: AudioBookSalesComponent },
   
@@ -45,6 +50,6 @@ export const routes: Routes = [
 
   { path: 'store', component: LandingPgComponent },
 
-  { path: '**', redirectTo: '/store' }
+  { path: '**', redirectTo: '/dj' }
 
 ];

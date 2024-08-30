@@ -1,0 +1,36 @@
+
+.footer {
+    background-color: #1B2C3E;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    height: 14rem;
+    font-family: 'serif';
+
+}
+
+.footer-content {
+    display: flex;
+    align-items: flex-start;
+    width: 80%;
+}
+
+.footer-column {
+    flex: 1;
+    padding: 0 20px;
+    text-align: center;
+    h3{
+        font-size: 1.5rem;
+    }
+}
+
+.footer-separator {
+    width: 1px;
+    height: 29%;
+    background-color: #fff;
+}
+
+.footer-column h3 {
+    margin-top: 0;
+}
