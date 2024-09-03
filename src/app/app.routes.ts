@@ -12,6 +12,8 @@ import { AudioBookSalesComponent } from './book-store/books/home/audio-book-sale
 import { AudioBookPlayerComponent } from './book-store/books/home-detailed/audio-book-player.component';
 import { LandingPgComponent } from './book-store/books/book-store-ui/landing-pg/landing-pg.component';
 import { authGuard } from './guards/auth.guard';
+import {LandingSampleUniversalComponent} from './book-store/landing-sample-universal/landing-sample-universal.component';
+
 
 export const routes: Routes = [
   {
@@ -45,6 +47,9 @@ export const routes: Routes = [
 
   { path: 'store', component: LandingPgComponent },
 
+  {path:'landing-product-sample', component: LandingSampleUniversalComponent},
+  
   { path: '**', redirectTo: '/store' }
+
 
 ];
