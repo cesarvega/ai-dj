@@ -18,6 +18,7 @@ export class LandingSampleUniversalComponent implements OnInit, OnDestroy {
   seconds: number = 0;
   productSample: any;
   subscriptions: Subscription[] = [];
+
   
   isPlaying: boolean = false;
   showFeatures: boolean = false;
@@ -31,6 +32,7 @@ export class LandingSampleUniversalComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     console.log('LandingSampleUniversalComponent');
     
+
     this.route.paramMap.subscribe(params => {
       const productId = params.get('id'); // Obtiene el 'id' de la ruta
       if (productId) {
@@ -42,6 +44,7 @@ export class LandingSampleUniversalComponent implements OnInit, OnDestroy {
     this.startTimer();
   }
   
+
   getSample(productId: string): void {
     const bookSubscribe = this.http.get(`assets/db/sampleProduct${productId}.json`).subscribe({
       next: res => {
@@ -50,6 +53,7 @@ export class LandingSampleUniversalComponent implements OnInit, OnDestroy {
       error: err => console.error(err),
       complete: () => console.log('Observable emitted the complete notification')
     });
+
     if (this.productSample) {
       this.samplePhat = this.productSample?.samplePhat;
       this.audio = new Audio(this.samplePhat);
@@ -62,6 +66,7 @@ export class LandingSampleUniversalComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
   
+
   togglePlay() {
     if (this.isPlaying && this.audio) {
       this.audio.pause();
@@ -70,6 +75,7 @@ export class LandingSampleUniversalComponent implements OnInit, OnDestroy {
     }
     this.isPlaying = !this.isPlaying;
   }
+
   
   toggleFeatures() {
     this.showFeatures = !this.showFeatures;
@@ -83,3 +89,4 @@ export class LandingSampleUniversalComponent implements OnInit, OnDestroy {
     // Implementa tu lógica de temporizador aquí
   }
 }
+
