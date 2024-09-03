@@ -4,19 +4,9 @@ import { signalStore,
          withMethods, 
          withComputed
          } from '@ngrx/signals';
-import { Album, Book} from '@app/data-models';
+import { Album, Book, User, AppState} from '@app/data-models';
 import { withStorageSync } from './storage-ai-sync';
 import { albums,books } from '@app/data';
-import { User } from '@app/data-models/user';
-
-type AppState = {
-  albums: Album[] | null,
-  books: Book[] | null,
-  selectedBookDetailStatus: boolean | null,
-  selectedBookDetail: Book | null,
-  donateValue: number,
-  userLogued: User | null
-}
 
 const initialState: AppState = {
   albums: albums,
