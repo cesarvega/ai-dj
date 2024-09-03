@@ -1,0 +1,85 @@
+<div class="custom-scrollbar flex justify-center items-center h-screen bg-gray-900">
+  <div class=" w-full h-screen lg:w-80 sm:w-80 lg:h-[600px] overflow-y-auto lg:overflow-y-auto md:overflow-y-auto md:h-[500px] bg-white shadow-lg rounded-lg overflow-hidden">
+    
+    <!-- Hero Section -->
+    <div class="p-2 text-white text-center" [ngStyle]="{'background-color':  productSample?.colors[0].primary}">
+      <div class="flex items-center w-full mb-4 justify-center">
+        <div class="w-14 h-14 ml-2">
+          <img src="assets/images/elevated-tech1.png" class="rounded-full w-full h-full" alt="Elevate Icon" />
+        </div>
+      </div>
+      <h1 class="text-2xl font-bold">ELEVATE</h1>
+        <!-- <p class="text-xl line-through">{{productSample?.price.original}}{{productSample?.price.currency}}</p>
+      <p class="text-2xl font-bold">{{productSample?.price.current}} {{productSample?.price.currency}} TODAY</p>
+      <span class="countdown font-mono text-2xl">
+        <span>{{ hours }}</span>h
+        <span>{{ minutes }}</span>m
+        <span>{{ seconds }}</span>s
+      </span> -->
+    </div>
+    
+    <!-- Description Section -->
+    <div class="p-6 text-center">
+      <h2 class="text-xl text-center font-semibold">{{productSample?.name}}</h2>
+      <div className="avatar">
+        <div className="mask mask-hexagon w-24">
+          <img src={{productSample?.imageUrl}} />
+        </div>
+      </div>
+      <p class="mt-4 pt-2 text-gray-00 text-xl">{{productSample?.description}}</p>
+           <!-- Features Collapse -->
+
+     
+      <div class="mt-4">
+        <button (click)="toggleFeatures()" class="w-full px-4 py-2 text-gray-100  rounded-full focus:outline-none"
+        [ngStyle]="{'background-color':  productSample?.colors[0].tertiary}"
+
+        >
+          {{ showFeatures ? 'Hide Features' : 'Show Features' }}
+        </button>
+        <div *ngIf="showFeatures" class="mt-2">
+          <ul class="list-disc list-inside">
+            <li *ngFor="let feature of productSample?.features">
+              <strong>{{ feature.title }}:</strong> {{ feature.description }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Benefits Collapse -->
+      <div class="mt-4">
+        <button (click)="toggleBenefits()" class="w-full px-4 py-2  text-gray-100 rounded-full focus:outline-none"
+        [ngStyle]="{'background-color':  productSample?.colors[0].primary}"
+        >
+          {{ showBenefits ? 'Hide Benefits' : 'Show Benefits' }}
+        </button>
+        <div *ngIf="showBenefits" class="mt-2">
+          <ul class="list-disc list-inside">
+            <li *ngFor="let benefit of productSample?.benefits">
+              <strong>{{ benefit.title }}:</strong> {{ benefit.description }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Audio Preview -->
+<div class="mb-4 mt-4">
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1846010670&color=%237868ac&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+
+</div>
+
+      <p class="text-2xl font-bold line-through">{{productSample?.price.original}} {{productSample?.price.currency}} BEFORE</p>
+      <p class="text-2xl font-bold">{{productSample?.price.current}} {{productSample?.price.currency}} TODAY</p>
+      <span class="countdown font-mono text-2xl">
+        <span>{{ hours }}</span>h
+        <span>{{ minutes }}</span>m
+        <span>{{ seconds }}</span>s
+      </span>
+
+        <div class="mt-6">
+          <button class="w-full px-4 py-2 text-white rounded-full" 
+          [ngStyle]="{'background-color':  productSample?.colors[0].primary}">$10 Get it now</button>
+        </div>
+      
+    </div>
+  </div>
+</div>
