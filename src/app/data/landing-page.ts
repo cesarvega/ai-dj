@@ -39,7 +39,7 @@ export const product: Product = {
     ]
 };
 
-const producto: Product = {
+export const producto: Product = {
     id: "123",
     name: "Elevate Tech Essential Sounds - Construction Pack",
     description: "Eleva tu producción musical con más de 80 samples premium diseñados para impulsar tu creatividad en los géneros Tech House, Minimal y Deep House.",
