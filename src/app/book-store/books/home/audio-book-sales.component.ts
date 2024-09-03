@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { environment } from '@environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 interface AudioOption {
   name: string;
@@ -20,20 +21,26 @@ export class AudioBookSalesComponent {
   isPlaying = false;
   playbackRate = 1.0;
   data: any;
-
+  bookId:string | null;
   @ViewChild('audioPlayer') audioPlayer!: ElementRef<HTMLAudioElement>;
   @ViewChild('timeline', { static: true }) timeline!: ElementRef<HTMLDivElement>;
   @ViewChild('progress', { static: true }) progress!: ElementRef<HTMLDivElement>;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private route: ActivatedRoute) {
+    this.bookId = this.route.snapshot.paramMap.get('id')
+
+  }
 
 
   ngOnInit(): void {
-    this.http.get('assets/db/book.json').subscribe(data => {
-      this.data = data;
-    });
+    this.http.get(`assets/db/book${this.bookId}.json`).subscribe({
+      next: resp => {
+        this.data = resp;
+      },
+      error: err => console.error(err.error.message),
+      complete: () => console.log('Observable emitted the complete notification')     
+    })
   }
-
 
   buyNowButton(): void {
     window.location.href = environment.bookRealStatePaymentUrl;

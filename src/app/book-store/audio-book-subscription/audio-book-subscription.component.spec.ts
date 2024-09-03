@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AudioBookSubscribtionComponent } from './audio-book-subscribtion.component';
+import { AudioBookSubscribtionComponent } from './audio-book-subscription.component';
 
 describe('AudioBookSubscribtionComponent', () => {
   let component: AudioBookSubscribtionComponent;

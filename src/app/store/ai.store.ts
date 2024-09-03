@@ -1,22 +1,20 @@
-import { signalStore, withState, patchState, withMethods, withComputed } from '@ngrx/signals';
-import { Album, Book} from '@app/data-models';
+import { signalStore,
+         withState, 
+         patchState, 
+         withMethods, 
+         withComputed
+         } from '@ngrx/signals';
+import { Album, Book, User, AppState} from '@app/data-models';
 import { withStorageSync } from './storage-ai-sync';
 import { albums,books } from '@app/data';
-
-type AppState = {
-  albums: Album[] | null,
-  books: Book[] | null,
-  selectedBookDetailStatus: boolean | null,
-  selectedBookDetail: Book | null
-  donateValue: number
-}
 
 const initialState: AppState = {
   albums: albums,
   books: books,
   selectedBookDetail: null,
   selectedBookDetailStatus: null,
-  donateValue: 0
+  donateValue: 0,
+  userLogued: null
 }
 
 export const AiStore = signalStore(
@@ -43,6 +41,12 @@ export const AiStore = signalStore(
     },
     updateDonateValue(value: number): void{
       patchState(store, {donateValue: value})
+    },
+    updateUserLogued(user: User): void{
+      patchState(store, {userLogued: user})
+    },
+    logoutUser(): void{
+      patchState(store, {userLogued: null})
     }
     //)
     // updateOrder(order: 'asc' | 'desc'): void {

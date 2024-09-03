@@ -105,5 +105,12 @@
         }
       }
     }
+  },
+  "cli": {
+<<<<<<< HEAD
+    "analytics": "785b6bfc-ada8-4079-a539-4f5c32a5759a"
+=======
+    "analytics": false
+>>>>>>> 10ef9ac (save)
   }
 }

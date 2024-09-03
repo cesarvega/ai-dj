@@ -92,4 +92,10 @@
       }
     }
   }
+  .alert{
+    @apply text-xs text-red-600;
+  }
+  .disabled{
+    @apply bg-gray-300;
+  }
   

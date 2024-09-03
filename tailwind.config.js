@@ -1,7 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,ts}"],
+  content: ["./src/**/*.{html,ts,scss}"],
   theme: {
+<<<<<<< HEAD
     colors: {
       blue: "#00FFFC",
       black: "#222222",
@@ -18,7 +19,25 @@ module.exports = {
       themeColor: "#077194",
       
     },
+=======
+
+>>>>>>> create-logout
     extend: {
+      colors: {
+        blue: {
+          DEFAULT: "#00FFFC",
+          300: "#D1D5DB",
+          500: "#6B7280",
+        },
+        red: {
+          500: "#EF4444",
+        },
+        gray: {
+          300: "#D1D5DB",
+          500: "#6B7280",
+        },
+        themeColor: "#077194",
+      },
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],
         abel: ["Abel", "sans-serif"],
@@ -28,6 +47,7 @@ module.exports = {
         mCollection: "url('/assets/images/mens-collections.webp')",
       },
     },
+    // No necesitas duplicar colores como `black`, `white`, `yellow`, etc.
   },
-  plugins: [],
+  plugins: [require('daisyui'),],
 };

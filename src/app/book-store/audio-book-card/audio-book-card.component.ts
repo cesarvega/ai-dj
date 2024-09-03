@@ -2,12 +2,14 @@ import { Component, Input, inject, OnInit, PLATFORM_ID, Inject } from '@angular/
 import { AiStore } from '../../store/ai.store';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-audio-book-card',
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule,
+    MatButtonModule
   ],
   templateUrl: './audio-book-card.component.html',
   styleUrls: ['./audio-book-card.component.scss']
@@ -19,21 +21,24 @@ export class AudioBookCardComponent implements OnInit {
   private audio: HTMLAudioElement|undefined;
   isPlaying: boolean = false;
   averageRating: number = 0;
+  audioSrc = '';
 
   constructor(
     private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
   ngOnInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.audio = new Audio('/assets/tracks/Astronaut On The Depths.mp3');
-      this.audio.load();
-    }
+   
 
     if (this.bookInfo && this.bookInfo.userReviews) {
       const totalReviews = this.bookInfo.userReviews.length;
       const sumRatings = this.bookInfo.userReviews.reduce((sum: number, review: any) => sum + review.rating, 0);
       this.averageRating = totalReviews > 0 ? sumRatings / totalReviews : 0;
+    }
+    if (isPlatformBrowser(this.platformId)) {
+      this.audio = new Audio(this.bookInfo?.bookAudioSamplePath);
+      this.audio.load();
+      console.log(this.bookInfo?.bookAudioSamplePath)
     }
   }
 
