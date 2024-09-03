@@ -7,13 +7,10 @@
     <p class="text-xl line-through">$49</p>
     <p class="text-2xl font-bold">$10 today</p>
     <span class="countdown font-mono text-2xl">
-
-        <span style="--value:10;"></span>
-        h
-        <span style="--value:24;"></span>
-        m
-        <span style="--value:${Date().getSeconds()};"></span>
-        s
+        <span>{{ hours }}</span>h
+        <span>{{ minutes }}</span>m
+        <span>{{ seconds }}</span>s
+      
       </span>
     
   </div>
