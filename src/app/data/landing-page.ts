@@ -37,5 +37,45 @@ export const product: Product = {
       { name: "Black", hex: "#000000", rgb: "rgb(0, 0, 0)" },
       { name: "White", hex: "#FFFFFF", rgb: "rgb(255, 255, 255)" }
     ]
-  };
+};
+
+const producto: Product = {
+    id: "123",
+    name: "Elevate Tech Essential Sounds - Construction Pack",
+    description: "Eleva tu producción musical con más de 80 samples premium diseñados para impulsar tu creatividad en los géneros Tech House, Minimal y Deep House.",
+    price: {
+      current: 10,
+      original: 45,
+      currency: 'USD'
+    },
+    features: [
+      { title: "Kicks Potentes", description: "Dale a tus pistas una energía de bajos impactante." },
+      { title: "Snares y Claps Nítidos", description: "Añade elementos definidos y crujientes a tus secciones rítmicas." },
+      { title: "Líneas de Bajo Groovy", description: "Llena la pista de baile con bajos profundos y resonantes." },
+      { title: "Pads y FX Atmosféricos", description: "Crea texturas y transiciones cautivadoras." },
+      { title: "Top Loops", description: "Loops listos para usar que encajan perfectamente en tu mezcla." }
+    ],
+    benefits: [
+      { title: "Calidad de Estándar Industrial", description: "Estos samples están diseñados para ayudarte a crear pistas de nivel profesional que destaquen en la competitiva escena de la música electrónica." },
+      { title: "Versátil e Inspirador", description: "Ya sea que estés trabajando en un nuevo proyecto o necesites un impulso creativo, este pack está diseñado para inspirarte y llevar tus límites más allá." },
+      { title: "Valor Inigualable", description: "Originalmente con un precio de $45, ahora puedes obtener todo este pack por solo $10 USD—¡un descuento del 75%!" }
+    ],
+    cta: {
+      message: "¡Actúa Ahora—Esta Oferta No Durará Mucho!",
+      button_label: "Comprar Ahora",
+      link: "https://example.com/comprar-ahora"
+    },
+    imageUrl: "https://example.com/image.jpg",
+    category: "soundpack",
+    tags: ["tech house", "minimal", "deep house", "samples"],
+    colors: [
+      { name: "Deep Purple", hex: "#4A148C", rgb: "rgb(74, 20, 140)" },
+      { name: "Vivid Pink", hex: "#E91E63", rgb: "rgb(233, 30, 99)" },
+      { name: "Bright Pink", hex: "#F50057", rgb: "rgb(245, 0, 87)" },
+      { name: "Dark Violet", hex: "#8E24AA", rgb: "rgb(142, 36, 170)" },
+      { name: "Black", hex: "#000000", rgb: "rgb(0, 0, 0)" },
+      { name: "White", hex: "#FFFFFF", rgb: "rgb(255, 255, 255)" }
+    ]
+};
+  
   
