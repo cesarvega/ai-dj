@@ -28,3 +28,7 @@ firebase target:apply hosting qr-code-linq qr-code-linq
 
 firebase deploy --only hosting:qr-code-linq  
 
+firebase target:apply hosting elevatebooks elevatebooks  
+
+firebase deploy --only hosting:elevatebooks  
+

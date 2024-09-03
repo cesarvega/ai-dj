@@ -1,8 +1,8 @@
-<header>
+<header >
   <div class="container mx-auto py-4 px-4">
     <div class="flex justify-center items-center md:hidden mb-5">
       <a href="">
-        <img src="assets/images/logo.webp" />
+        <img class="logo" src="assets/img/recorte logo.png" />
       </a>
     </div>
     <div class="flex justify-between items-center">
@@ -40,16 +40,18 @@
         </a>
       </nav>
       <a href="" class="hidden md:block">
-        <img src="assets/images/logo.webp" />
+        <img class="logo" src="assets/img/recorte logo.png" />
       </a>
       <nav class="w-60 flex gap-6 justify-end">
         <a href="">My Account</a>
         <a href="">Shopping Cart</a>
+        
       </nav>
+     
     </div>
   </div>
   <nav
-    class="bg-blue py-6 px-4 fixed md:relative top-0 bottom-0 z-50 shadow-md md:shadow-none w-64 md:w-full transition-all delay-200"
+    class="bg-blue py-6 px-4 fixed z-1 md:relative top-0 bottom-0 z-50 shadow-md md:shadow-none w-64 md:w-full transition-all delay-200"
     [ngClass]="{ 'left-0': isToggle, '-left-full md:left-0': !isToggle }"
   >
     <a (click)="toggleValue()" class="absolute right-5 top-5 cursor-pointer">
