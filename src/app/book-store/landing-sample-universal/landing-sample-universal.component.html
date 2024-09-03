@@ -2,10 +2,12 @@
     <div class=" w-full h-screen lg:w-80 sm:w-80 lg:h-[600px] overflow-y-auto lg:overflow-y-auto md:overflow-y-auto md:h-[500px] bg-white shadow-lg rounded-lg overflow-hidden">
 
 <!-- Hero Section -->
-<div class="p-2 bg-blue-500 text-white text-center">
-    <h1 class="text-2xl font-bold">ELEVATE</h1>
-    <p class="text-xl line-through">$49</p>
-    <p class="text-2xl font-bold">$10 today</p>
+<div class="p-2 text-white text-center"     
+[ngStyle]="{'background-color':  productSample?.colors[0].primary}">
+
+    <h1 class="text-2xl font-bold">ELEVATE  </h1>
+    <p class="text-xl line-through">{{productSample?.price.original}}{{productSample?.price.currency}}</p>
+    <p class="text-2xl font-bold">{{productSample?.price.current}} {{productSample?.price.currency}} TODAY</p>
     <span class="countdown font-mono text-2xl">
         <span>{{ hours }}</span>h
         <span>{{ minutes }}</span>m
@@ -17,27 +19,55 @@
   
   <!-- Description Section -->
   <div class="p-6 text-center">
-    <h2 class="text-xl text-center  font-semibold">Title</h2>
+    <h2 class="text-xl text-center  font-semibold">{{productSample?.name}}</h2>
   <div className="avatar">
     <div className="mask mask-hexagon w-24">
-      <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+      <img src={{productSample?.imageUrl}} />
     </div>
   </div>
-    <p class="mt-4 pt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p class="mt-4 pt-2 text-gray-600">{{productSample?.description}}</p>
     
     <!-- Audio Preview -->
-    <div class="mt-6">
-      <button class="w-full px-4 py-2 bg-gray-200 rounded-full">Play Preview</button>
+    <div class="mt-6 justify-center ">
+      
+        <div class="flex justify-between items-center mb-10">
+          <button (click)="togglePlay()" class="focus:outline-none w-full px-4 py-2 rounded-full"
+          [ngStyle]="{'background-color':  productSample?.colors[0].tertiary}"
+          >
+            <div class="flex items-center justify-center">
+              Preview
+              <svg *ngIf="!isPlaying" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M14.752 11.168l-6.518 3.845A1 1 0 017 14.118V9.882a1 1 0 011.234-.97l6.518 3.845a1 1 0 010 1.736z" />
+              </svg>
+              <svg *ngIf="isPlaying" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M10 9v6m4-6v6m5-6.378C19 5.79 17.21 4 15.128 4H8.872C6.79 4 5 5.79 5 7.872v8.256C5 18.21 6.79 20 8.872 20h6.256C17.21 20 19 18.21 19 16.128V7.872z" />
+              </svg>
+            </div>
+
+    
+      
+
+
+
+      </button>
     </div>
     
     <!-- Purchase Button -->
     <div class="mt-6">
-      <button class="w-full px-4 py-2 bg-blue-500 text-white rounded-full">$10 Get it now</button>
+      <button class="w-full px-4 py-2 text-white rounded-full"
+      [ngStyle]="{'background-color':  productSample?.colors[0].primary}"
+      >$10 Get it now</button>
     </div>
   </div>
   
   <!-- Upsell Section -->
-  <div class="p-6 bg-gray-100 text-center">
+  <div class="p-6  text-center"
+
+  >
     <h3 class="text-lg font-semibold">Adds 4 FREE</h3>
     <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
   </div>

@@ -1,5 +1,9 @@
-import { Component, } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router'; // Importa ActivatedRoute
+import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-landing-sample-universal',
   standalone: true,
@@ -7,11 +11,69 @@ import { CommonModule } from '@angular/common';
   templateUrl: './landing-sample-universal.component.html',
   styleUrl: './landing-sample-universal.component.scss'
 })
-export class LandingSampleUniversalComponent {
+export class LandingSampleUniversalComponent implements OnInit, OnDestroy {
 
-  hours: number = 1; // Establece las horas iniciales aquí
+  hours: number = 1;
   minutes: number = 0;
   seconds: number = 0;
+  productSample: any;
+  subscriptions: Subscription[] = [];
 
-  
+  isPlaying: boolean = false;
+  private audio: HTMLAudioElement|undefined;
+  samplePhat:string | undefined;
+  constructor(private http: HttpClient, private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    console.log('LandingSampleUniversalComponent');
+
+    this.route.paramMap.subscribe(params => {
+      const productId = params.get('id'); // Obtiene el 'id' de la ruta
+      if (productId) {
+        this.getSample(productId); // Llama a getSample con el ID de la ruta
+      }
+      if (productId) {
+        this.samplePhat = this.productSample.samplePhat;
+ //   this.audio = new Audio(this.aiStore.selectedBookDetail()?.bookAudioSamplePath);
+ this.audio = new Audio(this.samplePhat)  
+ this.audio.load();
+      }
+
+    });
+
+    this.startTimer();
+    
+
+
+
+
+  }
+
+  getSample(productId: string): void {
+    const bookSubscribe = this.http.get(`assets/db/sampleProduct${productId}.json`).subscribe({
+      next: res => {
+        this.productSample = res;
+      },
+      error: err => console.error(err),
+      complete: () => console.log('Observable emitted the complete notification')
+    });
+    
+    this.subscriptions.push(bookSubscribe);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
+  }
+  togglePlay() {
+    if (this.isPlaying && this.audio) {
+      this.audio.pause();
+    } else if (this.audio) {
+      this.audio.play();
+    }
+    this.isPlaying = !this.isPlaying;
+  }
+
+  startTimer(): void {
+    // Implementa tu lógica de temporizador aquí
+  }
 }
