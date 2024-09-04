@@ -1,14 +1,24 @@
 
 <div class="custom-scrollbar flex justify-center items-center h-screen bg-gray-900">
   <div class=" w-full h-screen lg:w-80 sm:w-80 lg:h-[600px] overflow-y-auto lg:overflow-y-auto md:overflow-y-auto md:h-[500px] bg-white shadow-lg rounded-lg overflow-hidden">
-    
+    <div class="absolute top-2 right-2 z-10">
+      <button (click)="toggleLanguage()" class="px-4 py-2 bg-black/20 text-white rounded-full focus:outline-none">
+        {{ selectedLanguage === 'en' ? 'ES' : 'EN' }}
+      </button>
+    </div>
     <!-- Hero Section -->
     <div class="p-2 text-white text-center" [ngStyle]="{'background-color':  productSample?.colors[0].primary}">
       <div class="flex items-center w-full mb-4 justify-center">
-        <div class="w-14 h-14 ml-2">
+        <div class="w-14 h-14 ">
           <img src="assets/images/elevated-tech1.png" class="rounded-full w-full h-full" alt="Elevate Icon" />
         </div>
       </div>
+
+
+
+
+
+      
       <h1 class="text-2xl font-bold">ELEVATE</h1>
         <!-- <p class="text-xl line-through">{{productSample?.price.original}}{{productSample?.price.currency}}</p>
       <p class="text-2xl font-bold">{{productSample?.price.current}} {{productSample?.price.currency}} TODAY</p>
@@ -19,29 +29,51 @@
       </span> -->
     </div>
     
+<!-- Flyer container -->
+<div class=" shadow-lg w-full max-w-lg pb-1 pt-1 mx-auto "
+[ngStyle]="{'background-color':  productSample?.colors[0].secondary}"
+
+>
+  <!-- Title -->
+  <h1 class="text-3xl font-bold text-center text-gray-100 mb-2">
+    {{productSample?.price.offert[selectedLanguage]}}
+  </h1>
+
+  <!-- Description -->
+  <p class="text-lg text-center text-white font-bold mb-6">
+      {{productSample?.price.promotion[selectedLanguage]}}
+  </p>
+
+ 
+ 
+</div>
+
+
+
+
     <!-- Description Section -->
     <div class="p-6 text-center">
-      <h2 class="text-xl text-center font-semibold">{{productSample?.name}}</h2>
+      <h2 class="text-xl text-center font-semibold">{{productSample?.name[selectedLanguage]}}</h2>
       <div className="avatar">
         <div className="mask mask-hexagon w-24">
           <img src={{productSample?.imageUrl}} />
         </div>
       </div>
-      <p class="mt-4 pt-2 text-gray-00 text-xl">{{productSample?.description}}</p>
+      <p class="mt-4 pt-2 text-gray-00 text-xl">{{productSample?.description[selectedLanguage]}}</p>
            <!-- Features Collapse -->
 
      
-      <div class="mt-4">
+      <div class="mt-4 ">
         <button (click)="toggleFeatures()" class="w-full px-4 py-2 text-gray-100  rounded-full focus:outline-none"
         [ngStyle]="{'background-color':  productSample?.colors[0].tertiary}"
 
         >
-          {{ showFeatures ? 'Hide Features' : 'Show Features' }}
+          {{ showFeatures ? selectedLanguage === "es" ? "Ocultar Caracteristicas" : "Hide Caracteristicas"  : selectedLanguage === "es" ? "Mostrar Features" : "Show Features" }}
         </button>
-        <div *ngIf="showFeatures" class="mt-2">
-          <ul class="list-disc list-inside">
+        <div *ngIf="showFeatures" class="mt-2 ">
+          <ul class="list-disc list-inside text-left ">
             <li *ngFor="let feature of productSample?.features">
-              <strong>{{ feature.title }}:</strong> {{ feature.description }}
+              <strong>{{ feature.title[selectedLanguage] }}:</strong> {{ feature.description[selectedLanguage] }}
             </li>
           </ul>
         </div>
@@ -49,32 +81,37 @@
       
       <!-- Benefits Collapse -->
       <div class="mt-4">
-        <button (click)="toggleBenefits()" class="w-full px-4 py-2  text-gray-100 rounded-full focus:outline-none"
-        [ngStyle]="{'background-color':  productSample?.colors[0].primary}"
-        >
-          {{ showBenefits ? 'Hide Benefits' : 'Show Benefits' }}
+        <!-- Botón para mostrar/ocultar los beneficios -->
+        <button (click)="toggleBenefits()" class="w-full px-4 py-2 text-gray-100 rounded-full focus:outline-none "
+          [ngStyle]="{'background-color':  productSample?.colors[0].primary}">
+          {{ showBenefits ? selectedLanguage === "es" ? "Ocultar Beneficios" : "Hide Benefits"  : selectedLanguage === "es" ? "Mostrar Beneficios" : "Show Benefits"  }}
         </button>
+      
+        <!-- Lista de beneficios alineada a la izquierda -->
         <div *ngIf="showBenefits" class="mt-2">
-          <ul class="list-disc list-inside">
+          <ul class="list-disc list-inside text-left">
             <li *ngFor="let benefit of productSample?.benefits">
-              <strong>{{ benefit.title }}:</strong> {{ benefit.description }}
+              <strong>{{ benefit.title[selectedLanguage] }}:</strong> {{ benefit.description[selectedLanguage] }}
             </li>
           </ul>
         </div>
       </div>
+      
       <!-- Audio Preview -->
 <div class="mb-4 mt-4">
         <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1846010670&color=%237868ac&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
 
 </div>
 
-      <p class="text-2xl font-bold line-through">{{productSample?.price.original}} {{productSample?.price.currency}} BEFORE</p>
-      <p class="text-2xl font-bold">{{productSample?.price.current}} {{productSample?.price.currency}} TODAY</p>
+      <p class="text-2xl font-bold line-through">{{productSample?.price.original}} {{productSample?.price.currency}} {{selectedLanguage === "es" ? "ANTES" : "BEFORE" }}</p>
+      <p class="text-2xl font-bold">{{productSample?.price.current}} {{productSample?.price.currency}} {{selectedLanguage === "es" ? "AHORA" : "TODAY" }}</p>
       
       <app-countdown-timer [expirationDate]="'2024-12-31T23:59:59'"></app-countdown-timer>
 
         <div class="mt-6">
-          <button class="w-full px-4 py-2 text-white rounded-full" 
+          <button
+          (click)="buyNowButton()"
+          class="w-full px-4 py-2 text-white rounded-full" 
           [ngStyle]="{'background-color':  productSample?.colors[0].primary}">$10 Get it now</button>
         </div>
       
