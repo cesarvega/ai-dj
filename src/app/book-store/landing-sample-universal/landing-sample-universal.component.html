@@ -29,24 +29,6 @@
       </span> -->
     </div>
     
-<!-- Flyer container -->
-<div class=" shadow-lg w-full max-w-lg pb-1 pt-1 mx-auto "
-[ngStyle]="{'background-color':  productSample?.colors[0].secondary}"
-
->
-  <!-- Title -->
-  <h1 class="text-3xl font-bold text-center text-gray-100 mb-2">
-    {{productSample?.price.offert[selectedLanguage]}}
-  </h1>
-
-  <!-- Description -->
-  <p class="text-lg text-center text-white font-bold mb-6">
-      {{productSample?.price.promotion[selectedLanguage]}}
-  </p>
-
- 
- 
-</div>
 
 
 
@@ -104,7 +86,24 @@
 </div>
 
       <p class="text-2xl font-bold line-through">{{productSample?.price.original}} {{productSample?.price.currency}} {{selectedLanguage === "es" ? "ANTES" : "BEFORE" }}</p>
-      <p class="text-2xl font-bold">{{productSample?.price.current}} {{productSample?.price.currency}} {{selectedLanguage === "es" ? "AHORA" : "TODAY" }}</p>
+     
+     
+<!-- Flyer container -->
+<div class=" shadow-lg w-full bg-white max-w-lg pb-1 pt-1 mx-auto "
+
+>
+  <!-- Title -->
+  <h1 class="font-Holidays-Homework text-4xl font-bold text-center text-red-500 mb-2">
+    {{productSample?.price.offert[selectedLanguage]}}
+  </h1>
+
+  
+
+  <p class="text-2xl font-bold">{{productSample?.price.current}} {{productSample?.price.currency}} {{selectedLanguage === "es" ? "AHORA" : "TODAY" }}</p>
+
+ 
+</div>
+     
       
       <!-- <app-countdown-timer [expirationDate]="'2024-12-31T23:59:59'"></app-countdown-timer> -->
 
@@ -112,7 +111,7 @@
           <button
           (click)="buyNowButton()"
           class="w-full px-4 py-2 text-white rounded-full" 
-          [ngStyle]="{'background-color':  productSample?.colors[0].primary}">$10 Get it now</button>
+          [ngStyle]="{'background-color':  productSample?.colors[0].primary}">${{productSample?.price.current}} {{selectedLanguage === "es" ? "Comprar ahora": "Get it now" }}</button>
         </div>
       
     </div>

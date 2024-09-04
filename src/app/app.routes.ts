@@ -16,36 +16,36 @@ import {LandingSampleUniversalComponent} from './book-store/landing-sample-unive
 
 
 export const routes: Routes = [
-  {
-    path: 'home',
-    component: HomePgComponent,
-  },
-  {
-    path: 'score',
-    component: ScoreAppComponent,
-  },
+  // {
+  //   path: 'home',
+  //   component: HomePgComponent,
+  // },
+  // {
+  //   path: 'score',
+  //   component: ScoreAppComponent,
+  // },
  
-  {
-    path: 'details-book',
-    component: AudioBookDetailComponent,
-  },
+  // {
+  //   path: 'details-book',
+  //   component: AudioBookDetailComponent,
+  // },
   
-  {
-    path: 'login',
-    component: LoginUniversalComponent
-  },
-  {
-    path: 'subscribtion',
-    component: AudioBookSubscribtionComponent,
-  },
-
-  { path: 'book-sales/:id', component: AudioBookSalesComponent },
+  // {
+  //   path: 'login',
+  //   component: LoginUniversalComponent
+  // },
+  // {
+  //   path: 'subscribtion',
+  //   component: AudioBookSubscribtionComponent,
+  // },
   
-  { path: 'study/:id', component: AudioBookPlayerComponent,canActivate: [authGuard]},
+  // { path: 'book-sales/:id', component: AudioBookSalesComponent },
+  
+  // { path: 'study/:id', component: AudioBookPlayerComponent,canActivate: [authGuard]},
 
-  { path: 'link', component: LinkSelectorComponent },
+  // { path: 'link', component: LinkSelectorComponent },
 
-  { path: 'store', component: LandingPgComponent },
+  // { path: 'store', component: LandingPgComponent },
 
   {path:'sample/:id', component: LandingSampleUniversalComponent},
   

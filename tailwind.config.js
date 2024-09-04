@@ -3,6 +3,9 @@ module.exports = {
   content: ["./src/**/*.{html,ts,scss}"],
   theme: {
     extend: {
+      fontFamily: {
+        miFuente: ['MiFuente', 'sans-serif'], // Aquí defines tu fuente
+      },
       colors: {
         blue: {
           DEFAULT: "#00FFFC",
