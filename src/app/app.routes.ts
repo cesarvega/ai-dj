@@ -25,10 +25,10 @@ export const routes: Routes = [
   //   component: ScoreAppComponent,
   // },
  
-  // {
-  //   path: 'details-book',
-  //   component: AudioBookDetailComponent,
-  // },
+   {
+     path: 'details-book',
+     component: AudioBookDetailComponent,
+   },
   
   // {
   //   path: 'login',
@@ -39,13 +39,13 @@ export const routes: Routes = [
   //   component: AudioBookSubscribtionComponent,
   // },
   
-  // { path: 'book-sales/:id', component: AudioBookSalesComponent },
+   { path: 'book-sales/:id', component: AudioBookSalesComponent },
   
-  // { path: 'study/:id', component: AudioBookPlayerComponent,canActivate: [authGuard]},
+  { path: 'study/:id', component: AudioBookPlayerComponent,canActivate: [authGuard]},
 
   // { path: 'link', component: LinkSelectorComponent },
 
-  // { path: 'store', component: LandingPgComponent },
+   { path: 'store', component: LandingPgComponent },
 
   {path:'sample/:id', component: LandingSampleUniversalComponent},
   
