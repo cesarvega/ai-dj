@@ -32,3 +32,10 @@ firebase target:apply hosting elevatebooks elevatebooks
 
 firebase deploy --only hosting:elevatebooks  
 
+firebase use --add // to change the project
+
+ng build --configuration=production
+
+firebase target:apply hosting elevate-tech-ai-essential-sounds-pro elevate-tech-ai-essential-sounds-pro
+
+firebase deploy --only hosting:elevate-tech-ai-essential-sounds-pro  

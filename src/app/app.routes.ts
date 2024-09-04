@@ -16,40 +16,40 @@ import {LandingSampleUniversalComponent} from './book-store/landing-sample-unive
 
 
 export const routes: Routes = [
-  {
-    path: 'home',
-    component: HomePgComponent,
-  },
-  {
-    path: 'score',
-    component: ScoreAppComponent,
-  },
+  // {
+  //   path: 'home',
+  //   component: HomePgComponent,
+  // },
+  // {
+  //   path: 'score',
+  //   component: ScoreAppComponent,
+  // },
  
-  {
-    path: 'details-book',
-    component: AudioBookDetailComponent,
-  },
+  // {
+  //   path: 'details-book',
+  //   component: AudioBookDetailComponent,
+  // },
   
-  {
-    path: 'login',
-    component: LoginUniversalComponent
-  },
-  {
-    path: 'subscribtion',
-    component: AudioBookSubscribtionComponent,
-  },
+  // {
+  //   path: 'login',
+  //   component: LoginUniversalComponent
+  // },
+  // {
+  //   path: 'subscribtion',
+  //   component: AudioBookSubscribtionComponent,
+  // },
   
-  { path: 'book-sales/:id', component: AudioBookSalesComponent },
+  // { path: 'book-sales/:id', component: AudioBookSalesComponent },
   
-  { path: 'study/:id', component: AudioBookPlayerComponent,canActivate: [authGuard]},
+  // { path: 'study/:id', component: AudioBookPlayerComponent,canActivate: [authGuard]},
 
-  { path: 'link', component: LinkSelectorComponent },
+  // { path: 'link', component: LinkSelectorComponent },
 
-  { path: 'store', component: LandingPgComponent },
+  // { path: 'store', component: LandingPgComponent },
 
-  {path:'landing-product-sample/:id', component: LandingSampleUniversalComponent},
+  {path:'sample/:id', component: LandingSampleUniversalComponent},
   
-  { path: '**', redirectTo: '/store' }
+  { path: '**', redirectTo: '/sample/1' }
 
 
 ];
