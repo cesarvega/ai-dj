@@ -23,7 +23,6 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
   } 
   ngOnInit(): void {
     
-  //  console.log(this.hours); // Verifica si la fecha está llegando correctamente
   }
 
   startCountdown(): void {
