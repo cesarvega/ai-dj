@@ -38,7 +38,7 @@ export const routes: Routes = [
     path: 'subscribtion',
     component: AudioBookSubscribtionComponent,
   },
-  
+
   { path: 'book-sales/:id', component: AudioBookSalesComponent },
   
   { path: 'study/:id', component: AudioBookPlayerComponent,canActivate: [authGuard]},
