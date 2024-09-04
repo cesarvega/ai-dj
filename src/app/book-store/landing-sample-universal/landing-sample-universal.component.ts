@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy,  ElementRef, ViewChild  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router'; // Importa ActivatedRoute
@@ -27,6 +27,8 @@ export class LandingSampleUniversalComponent implements OnInit, OnDestroy {
   showBenefits: boolean = false;
   
   private audio: HTMLAudioElement | undefined;
+  @ViewChild('audioPlayer') audioPlayer!: ElementRef<HTMLAudioElement>;
+
   samplePhat: string | undefined;
     // Variable para controlar el idioma
   selectedLanguage: 'en' | 'es' = 'en'; // Por defecto inglés
@@ -84,7 +86,17 @@ export class LandingSampleUniversalComponent implements OnInit, OnDestroy {
     }
     this.isPlaying = !this.isPlaying;
   }
+  playAudio(): void {
+    const audioElement = this.audioPlayer.nativeElement;
 
+    if (audioElement.paused) {
+      audioElement.play();
+      this.isPlaying = true;
+    } else {
+      audioElement.pause();
+      this.isPlaying = false;
+    }
+  }
   
   toggleFeatures() {
     this.showFeatures = !this.showFeatures;
