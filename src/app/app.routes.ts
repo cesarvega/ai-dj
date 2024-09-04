@@ -38,7 +38,7 @@ export const routes: Routes = [
     path: 'subscribtion',
     component: AudioBookSubscribtionComponent,
   },
-  
+
   { path: 'book-sales/:id', component: AudioBookSalesComponent },
   
   { path: 'study/:id', component: AudioBookPlayerComponent,canActivate: [authGuard]},
@@ -47,9 +47,9 @@ export const routes: Routes = [
 
   { path: 'store', component: LandingPgComponent },
 
-  {path:'landing-product-sample/:id', component: LandingSampleUniversalComponent},
+  {path:'sample/:id', component: LandingSampleUniversalComponent},
   
-  { path: '**', redirectTo: '/store' }
+  { path: '**', redirectTo: '/sample/1' }
 
 
 ];

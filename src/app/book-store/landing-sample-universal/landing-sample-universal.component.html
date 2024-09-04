@@ -70,11 +70,8 @@
 
       <p class="text-2xl font-bold line-through">{{productSample?.price.original}} {{productSample?.price.currency}} BEFORE</p>
       <p class="text-2xl font-bold">{{productSample?.price.current}} {{productSample?.price.currency}} TODAY</p>
-      <span class="countdown font-mono text-2xl">
-        <span>{{ hours }}</span>h
-        <span>{{ minutes }}</span>m
-        <span>{{ seconds }}</span>s
-      </span>
+      
+      <app-countdown-timer [expirationDate]="'2024-12-31T23:59:59'"></app-countdown-timer>
 
         <div class="mt-6">
           <button class="w-full px-4 py-2 text-white rounded-full" 

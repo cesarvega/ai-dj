@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router'; // Importa ActivatedRoute
 import { Subscription } from 'rxjs';
+import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
 
 @Component({
   selector: 'app-landing-sample-universal',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CountdownTimerComponent],
   templateUrl: './landing-sample-universal.component.html',
   styleUrl: './landing-sample-universal.component.scss'
 })
