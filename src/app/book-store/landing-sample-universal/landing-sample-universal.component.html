@@ -57,7 +57,8 @@
         <audio #audioPlayer [src]="selectedLanguage === 'es' ? productSample?.urlPitchEsp : productSample?.urlPitchEng"
           preload="auto" style="display: none;"></audio>
       </div>
-      <div class="mt-4 ">
+
+      <div class="mt-4 " *ngIf="productSample?.haveFeatures === true">
         <button (click)="toggleFeatures()" class="w-full px-4 py-2 text-gray-100  rounded-full focus:outline-none"
           [ngStyle]="{'background-color':  productSample?.colors[0].tertiary}">
           {{ showFeatures ? selectedLanguage === "es" ? "Ocultar Caracteristicas" : "Hide Caracteristicas" :
@@ -73,7 +74,7 @@
       </div>
 
       <!-- Benefits Collapse -->
-      <div class="mt-4">
+      <div class="mt-4" *ngIf="productSample?.haveBenefits === true">
         <!-- Botón para mostrar/ocultar los beneficios -->
         <button (click)="toggleBenefits()" class="w-full px-4 py-2 text-gray-100 rounded-full focus:outline-none "
           [ngStyle]="{'background-color':  productSample?.colors[0].primary}">
@@ -91,6 +92,27 @@
         </div>
       </div>
 
+
+        <!-- Lista de Capitulos  -->
+
+      <div class="mt-4" *ngIf="productSample?.haveChapters === true">
+  <!-- Botón para mostrar/ocultar los capítulos -->
+  <button (click)="toggleChapters()" class="w-full px-4 py-2 text-gray-100 rounded-full focus:outline-none"
+    [ngStyle]="{'background-color': productSample?.colors[0].primary}">
+    {{ showChapters ? (selectedLanguage === 'es' ? 'Ocultar Capítulos' : 'Hide Chapters') : (selectedLanguage === 'es' ? 'Mostrar Capítulos' : 'Show Chapters') }}
+  </button>
+
+  <!-- Desplegable de capítulos alineado a la izquierda -->
+  <div *ngIf="showChapters" class="mt-2">
+    <ul class="list-disc list-inside text-left text-black">
+      <li *ngFor="let chapter of productSample?.chapters">
+        {{ chapter.name[selectedLanguage] }}
+      </li>
+    </ul>
+  </div>
+      </div>
+
+
       <!-- Audio Preview -->
       
       <div class="mb-4 mt-4" *ngIf="productSample?.typeProduct === 'sample-pack' ">
@@ -98,7 +120,28 @@
         src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1846010670&color=%237868ac&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
        
       </div>
-
+      <div class="mb-4 mt-4" *ngIf="productSample?.typeProduct === 'book' ">
+        
+        <button (click)="playAudio()" id="salesButton"
+          class="w-full px-4 py-2 mt-2 text-gray-100 rounded-full focus:outline-none text-lg"
+          [ngStyle]="{'background-color': productSample?.colors[0].secondary}">
+          <ng-container *ngIf="isPlaying; else playIcon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 inline-block"
+              viewBox="0 0 24 24">
+              <path d="M6 19h4V5H6v14zM14 5v14h4V5h-4z" />
+            </svg> <!-- Pause Icon -->
+          </ng-container>
+          <ng-template #playIcon>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 inline-block"
+              viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7L8 5z" />
+            </svg> <!-- Play Icon -->
+          </ng-template>
+          {{ selectedLanguage === 'es' ? 'Escuchar Demo' : 'Listen to Preview' }}
+        </button>
+        <audio #bookPreview [src]="selectedLanguage === 'es' ? productSample?.urlPreviewEsp : productSample?.urlPreviewEng"
+          preload="auto" style="display: none;"></audio>
+      </div>
 
       <!-- Flyer container -->
       <div class=" shadow-lg w-full bg-white max-w-lg pb-1 pt-1 mx-auto ">

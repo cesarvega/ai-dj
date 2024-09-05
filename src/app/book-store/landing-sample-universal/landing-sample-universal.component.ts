@@ -20,14 +20,16 @@ export class LandingSampleUniversalComponent implements OnInit, OnDestroy {
   seconds: number = 0;
   productSample: any;
   subscriptions: Subscription[] = [];
-    
+
+  showChapters = false;
+
   isPlaying: boolean = false;
   showFeatures: boolean = false;
   showBenefits: boolean = false;
   
   private audio: HTMLAudioElement | undefined;
   @ViewChild('audioPlayer') audioPlayer!: ElementRef<HTMLAudioElement>;
-
+  @ViewChild('bookPreview') bookPreview!:ElementRef<HTMLAudioElement>;
   samplePhat: string | undefined;
     // Variable para controlar el idioma
   selectedLanguage: 'en' | 'es' = 'en'; // Por defecto inglés
@@ -45,7 +47,11 @@ export class LandingSampleUniversalComponent implements OnInit, OnDestroy {
       
     });
     
-   
+    this.startTimer();
+  }
+
+  toggleChapters() {
+    this.showChapters = !this.showChapters;
   }
   
   toggleLanguage(): void {
@@ -70,23 +76,27 @@ export class LandingSampleUniversalComponent implements OnInit, OnDestroy {
     this.subscriptions.push(bookSubscribe);
   }
   buyNowButton(): void {
-    window.location.href = environment.paymentUrl;
+    window.location.href = this.productSample?.cta.link;
   }
   ngOnDestroy(): void {
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
   
 
-  togglePlay() {
-    if (this.isPlaying && this.audio) {
-      this.audio.pause();
-    } else if (this.audio) {
-      this.audio.play();
-    }
-    this.isPlaying = !this.isPlaying;
-  }
+  
   playAudio(): void {
     const audioElement = this.audioPlayer.nativeElement;
+
+    if (audioElement.paused) {
+      audioElement.play();
+      this.isPlaying = true;
+    } else {
+      audioElement.pause();
+      this.isPlaying = false;
+    }
+  }
+  playPreview(): void {
+    const audioElement = this.bookPreview.nativeElement;
 
     if (audioElement.paused) {
       audioElement.play();
