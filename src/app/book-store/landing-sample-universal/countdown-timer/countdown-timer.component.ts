@@ -24,9 +24,8 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     console.log("Component initialized");
   
-    Promise.resolve().then(() => {
-      this.startCountdown()
-    });}
+  
+  }
 
 
   startCountdown(): void {

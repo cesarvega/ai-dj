@@ -1,0 +1,160 @@
+<div class="max-w-4xl mx-auto p-6 bg-white rounded-md shadow-lg">
+    <!-- Formulario de ID y tipo de producto -->
+    <form [formGroup]="idForm" class="mb-6">
+      <h3 class="text-lg font-medium text-gray-900 mb-4">ID & Product Type</h3>
+      <label class="block text-sm font-medium text-gray-700">ID</label>
+      <input formControlName="id" class="w-full mt-1 p-2 border rounded-md" />
+  
+      <label class="block text-sm font-medium text-gray-700 mt-4">Type of Product</label>
+      <input formControlName="typeProduct" class="w-full mt-1 p-2 border rounded-md" />
+  
+      <label class="block text-sm font-medium text-gray-700 mt-4">Pitch URL (English)</label>
+      <input formControlName="urlPitchEng" class="w-full mt-1 p-2 border rounded-md" />
+  
+      <label class="block text-sm font-medium text-gray-700 mt-4">Pitch URL (Spanish)</label>
+      <input formControlName="urlPitchEsp" class="w-full mt-1 p-2 border rounded-md" />
+    </form>
+  
+    <!-- Formulario del nombre -->
+    <form [formGroup]="nameForm" class="mb-6">
+      <h3 class="text-lg font-medium text-gray-900 mb-4">Name</h3>
+      <div formGroupName="name">
+        <label class="block text-sm font-medium text-gray-700">Name (English)</label>
+        <input formControlName="en" class="w-full mt-1 p-2 border rounded-md" />
+  
+        <label class="block text-sm font-medium text-gray-700 mt-2">Name (Spanish)</label>
+        <input formControlName="es" class="w-full mt-1 p-2 border rounded-md" />
+      </div>
+    </form>
+  
+    <!-- Formulario de descripción -->
+    <form [formGroup]="descriptionForm" class="mb-6">
+      <h3 class="text-lg font-medium text-gray-900 mb-4">Description</h3>
+      <div formGroupName="description">
+        <label class="block text-sm font-medium text-gray-700">Description (English)</label>
+        <input formControlName="en" class="w-full mt-1 p-2 border rounded-md" />
+  
+        <label class="block text-sm font-medium text-gray-700 mt-2">Description (Spanish)</label>
+        <input formControlName="es" class="w-full mt-1 p-2 border rounded-md" />
+      </div>
+    </form>
+  
+    <!-- Formulario de precios -->
+    <form [formGroup]="priceForm" class="mb-6">
+      <h3 class="text-lg font-medium text-gray-900 mb-4">Price</h3>
+      <div formGroupName="price">
+        <label class="block text-sm font-medium text-gray-700">Current Price</label>
+        <input formControlName="current" class="w-full mt-1 p-2 border rounded-md" />
+  
+        <label class="block text-sm font-medium text-gray-700 mt-4">Original Price</label>
+        <input formControlName="original" class="w-full mt-1 p-2 border rounded-md" />
+  
+        <label class="block text-sm font-medium text-gray-700 mt-4">Currency</label>
+        <input formControlName="currency" class="w-full mt-1 p-2 border rounded-md" />
+  
+        <div formGroupName="offert" class="mt-4">
+          <label class="block text-sm font-medium text-gray-700">Offer (English)</label>
+          <input formControlName="en" class="w-full mt-1 p-2 border rounded-md" />
+  
+          <label class="block text-sm font-medium text-gray-700 mt-2">Offer (Spanish)</label>
+          <input formControlName="es" class="w-full mt-1 p-2 border rounded-md" />
+        </div>
+      </div>
+    </form>
+  
+    <!-- Formulario de características -->
+    <form [formGroup]="featuresForm" class="mb-6">
+      <h3 class="text-lg font-medium text-gray-900 mb-4">Features</h3>
+      <label class="block text-sm font-medium text-gray-700">Has Features?</label>
+      <input type="checkbox" formControlName="haveFeatures" class="mt-1" />
+  
+      <div *ngFor="let feature of features.controls; let i = index" class="mt-4">
+        <label class="block text-sm font-medium text-gray-700">Feature {{ i + 1 }}</label>
+        <input [formControlName]="i" class="w-full mt-1 p-2 border rounded-md" />
+  
+        <button type="button" (click)="removeFeature(i)" class="mt-2 bg-red-500 text-white px-4 py-2 rounded-md">
+          Remove Feature
+        </button>
+      </div>
+  
+      <button type="button" (click)="addFeature()" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md">
+        Add Feature
+      </button>
+    </form>
+  
+    <!-- Formulario de beneficios -->
+    <form [formGroup]="benefitsForm" class="mb-6">
+      <h3 class="text-lg font-medium text-gray-900 mb-4">Benefits</h3>
+      <label class="block text-sm font-medium text-gray-700">Has Benefits?</label>
+      <input type="checkbox" formControlName="haveBenefits" class="mt-1" />
+  
+      <div *ngFor="let benefit of benefits.controls; let i = index" class="mt-4 p-4 border rounded-md bg-gray-50">
+        <div formGroupName="title">
+          <label class="block text-sm font-medium text-gray-700">Benefit Title (English)</label>
+          <input formControlName="en" class="w-full mt-1 p-2 border rounded-md" />
+          <label class="block text-sm font-medium text-gray-700 mt-2">Benefit Title (Spanish)</label>
+          <input formControlName="es" class="w-full mt-1 p-2 border rounded-md" />
+        </div>
+  
+        <div formGroupName="description" class="mt-4">
+          <label class="block text-sm font-medium text-gray-700">Benefit Description (English)</label>
+          <input formControlName="en" class="w-full mt-1 p-2 border rounded-md" />
+          <label class="block text-sm font-medium text-gray-700 mt-2">Benefit Description (Spanish)</label>
+          <input formControlName="es" class="w-full mt-1 p-2 border rounded-md" />
+        </div>
+  
+        <button type="button" (click)="removeBenefit(i)" class="mt-4 bg-red-500 text-white px-4 py-2 rounded-md">
+          Remove Benefit
+        </button>
+      </div>
+  
+      <button type="button" (click)="addBenefit()" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md">
+        Add Benefit
+      </button>
+    </form>
+  
+    <!-- Formulario de capítulos -->
+    <form [formGroup]="chaptersForm" class="mb-6">
+      <h3 class="text-lg font-medium text-gray-900 mb-4">Chapters</h3>
+      <label class="block text-sm font-medium text-gray-700">Has Chapters?</label>
+      <input type="checkbox" formControlName="haveChapters" class="mt-1" />
+  
+      <div *ngFor="let chapter of chapters.controls; let i = index" class="mt-4 p-4 border rounded-md bg-gray-50">
+        <div formGroupName="name">
+          <label class="block text-sm font-medium text-gray-700">Chapter Name (English)</label>
+          <input formControlName="en" class="w-full mt-1 p-2 border rounded-md" />
+          <label class="block text-sm font-medium text-gray-700 mt-2">Chapter Name (Spanish)</label>
+          <input formControlName="es" class="w-full mt-1 p-2 border rounded-md" />
+        </div>
+  
+        <button type="button" (click)="removeChapter(i)" class="mt-4 bg-red-500 text-white px-4 py-2 rounded-md">
+          Remove Chapter
+        </button>
+      </div>
+  
+      <button type="button" (click)="addChapter()" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md">
+        Add Chapter
+      </button>
+    </form>
+  
+    <!-- Formulario de CTA -->
+    <form [formGroup]="ctaForm" class="mb-6">
+      <h3 class="text-lg font-medium text-gray-900 mb-4">CTA</h3>
+      <div formGroupName="cta">
+        <label class="block text-sm font-medium text-gray-700">Button Label (English)</label>
+        <input formControlName="en" class="w-full mt-1 p-2 border rounded-md" />
+  
+        <label class="block text-sm font-medium text-gray-700 mt-4">Button Label (Spanish)</label>
+        <input formControlName="es" class="w-full mt-1 p-2 border rounded-md" />
+  
+        <label class="block text-sm font-medium text-gray-700 mt-4">Link</label>
+        <input formControlName="link" class="w-full mt-1 p-2 border rounded-md" />
+      </div>
+    </form>
+  
+    <!-- Botón de Submit -->
+    <button (click)="onSubmit()" class="mt-4 bg-green-500 text-white px-4 py-2 rounded-md">
+      Submit
+    </button>
+  </div>
+  

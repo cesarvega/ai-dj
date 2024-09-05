@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>Raw-Tracks</title>
-    <base href="/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <title>Techno Sound Pack - High-Quality Loops & Samples for Producers</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <!-- Meta Description -->
+    <meta name="description" content="Explore our premium techno sound pack with high-quality loops and samples for music producers. Perfect for creating deep, dynamic tracks. Download now!">
+  
+    <!-- Meta Keywords -->
+    <meta name="keywords" content="techno sound pack, music production, high-quality loops, techno samples, sound design, music producers, Ableton loops, electronic music, techno beats, deep house samples, music producer tools">
+  
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,3 +27,36 @@
     <app-root></app-root>
   </body>
 </html>
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '321317381002968');
+  fbq('track', 'PageView');
+  </script>
+  <noscript>
+  <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=321317381002968&ev=PageView&noscript=1"/> 
+  </noscript>
+  <!-- End Meta Pixel Code -->
+  
+<script>
+  document.getElementById('salesButton').addEventListener('click', function() {
+    fbq('trackCustom', 'BotonClick', {
+      buttonText: 'listen to features',
+      buttonID: 'salesButton'
+    });
+  });
+
+  document.getElementById('buyNow').addEventListener('click', function() {
+    fbq('trackCustom', 'BotonClick', {
+      buttonText: 'Shop now',
+      buttonID: 'buyNow'
+    });
+  });
+</script>
