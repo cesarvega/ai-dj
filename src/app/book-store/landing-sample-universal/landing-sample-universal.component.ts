@@ -20,8 +20,7 @@ export class LandingSampleUniversalComponent implements OnInit, OnDestroy {
   seconds: number = 0;
   productSample: any;
   subscriptions: Subscription[] = [];
-
-  
+    
   isPlaying: boolean = false;
   showFeatures: boolean = false;
   showBenefits: boolean = false;
@@ -46,7 +45,7 @@ export class LandingSampleUniversalComponent implements OnInit, OnDestroy {
       
     });
     
-    this.startTimer();
+   
   }
   
   toggleLanguage(): void {

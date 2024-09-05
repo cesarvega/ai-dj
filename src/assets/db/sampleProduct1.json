@@ -1,6 +1,9 @@
 {
   "id": "123",
-  "urlPitch":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/Meditation%2FQue%20es%20Meditar%3F.mp3?alt=media&token=9bdc12cd-2f1b-40be-bd10-d7172c38aa3a",
+  "typeProduct": "sample-pack",
+  "urlPitchEng":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/sample-pack%2FSample-pack-pitch-sale-eng.mp3?alt=media&token=32584d87-2fa3-42c7-88a4-58f272b41801",
+  "urlPitchEsp":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/sample-pack%2FSample-pack-pitch-sale-esp.mp3?alt=media&token=2332ce4a-4a72-4a63-8066-2e6f352a3e2d",
+
   "name": {
     "en": "Elevate Tech Essential Sounds - Construction Pack",
     "es": "Elevate Tech Sonidos Esenciales - Paquete de Construcción"
@@ -14,8 +17,8 @@
     "original": 45,
     "currency": "USD",
     "offert": {
-      "en": "Exclusive Offer",
-      "es": "Oferta Exclusiva"
+      "en": "limited time only",
+      "es": "solo por tiempo limitado"
     },
     "promotion": {
       "en": "77.78% discount!",
@@ -107,10 +110,6 @@
     }
   ],
   "cta": {
-    "message": {
-      "en": "Act Now—This Offer Won’t Last Long!",
-      "es": "¡Actúa ahora—Esta oferta no durará mucho!"
-    },
     "button_label": {
       "en": "Shop Now",
       "es": "Compra Ahora"
