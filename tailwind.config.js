@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        miFuente: ['MiFuente', 'sans-serif'], // Aquí defines tu fuente
+        HolidaysHomework: ['Holidays-Homework', 'sans-serif'], // Aquí defines tu fuente
       },
       colors: {
         blue: {
