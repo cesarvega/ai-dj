@@ -76,3 +76,9 @@ vite/
 # Angular metadata files
 .angular/
 .angular/cache/17.3.8/vite/*
+.angular/cache/
+.src/assets/tracks/*
+.src/assets/files/studyMaterial.zip
+.angular/cache/17.3.8/elevated-tech-ng/.tsbuildinfo
+.angular/cache/17.3.8/vite/deps/_metadata.json
+.idx/dev.nix
