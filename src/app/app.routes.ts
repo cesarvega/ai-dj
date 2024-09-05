@@ -12,6 +12,7 @@ import { Routes } from '@angular/router';
 // import { AudioBookPlayerComponent } from './book-store/books/home-detailed/audio-book-player.component';
 // import { LandingPgComponent } from './book-store/books/book-store-ui/landing-pg/landing-pg.component';
 // import { authGuard } from './guards/auth.guard';
+import { FormSampleProductsComponent } from './book-store/landing-sample-universal/form-sample-products/form-sample-products.component';
 import {LandingSampleUniversalComponent} from './book-store/landing-sample-universal/landing-sample-universal.component';
 
 
@@ -48,8 +49,8 @@ export const routes: Routes = [
  //  { path: 'store', component: LandingPgComponent },
 
   {path:'sample/:id', component: LandingSampleUniversalComponent},
-  
-  { path: '**', redirectTo: '/sample/1' }
+  {path:'form', component: FormSampleProductsComponent},
+  { path: '**', redirectTo: 'form' }
 
 
 ];

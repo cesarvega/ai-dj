@@ -3,7 +3,8 @@
   "typeProduct": "sample-pack",
   "urlPitchEng":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/sample-pack%2FSample-pack-pitch-sale-eng.mp3?alt=media&token=32584d87-2fa3-42c7-88a4-58f272b41801",
   "urlPitchEsp":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/sample-pack%2FSample-pack-pitch-sale-esp.mp3?alt=media&token=2332ce4a-4a72-4a63-8066-2e6f352a3e2d",
-
+  "urlPreviewEng":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/sample-pack%2FSample-pack-pitch-sale-eng.mp3?alt=media&token=32584d87-2fa3-42c7-88a4-58f272b41801",
+  "urlPreviewEsp":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/sample-pack%2FSample-pack-pitch-sale-esp.mp3?alt=media&token=2332ce4a-4a72-4a63-8066-2e6f352a3e2d",
   "name": {
     "en": "Elevate Tech Essential Sounds - Construction Pack",
     "es": "Elevate Tech Sonidos Esenciales - Paquete de Construcción"
@@ -19,12 +20,10 @@
     "offert": {
       "en": "limited time only",
       "es": "solo por tiempo limitado"
-    },
-    "promotion": {
-      "en": "77.78% discount!",
-      "es": "¡77.78% de descuento!"
     }
+   
   },
+  "haveFeatures":true,
   "features": [
     {
       "title": {
@@ -77,6 +76,7 @@
       }
     }
   ],
+  "haveBenefits":true,
   "benefits": [
     {
       "title": {
@@ -109,15 +109,19 @@
       }
     }
   ],
+  "haveChapters":false,
+  "chapters": [
+  
+  ],
+  
   "cta": {
     "button_label": {
       "en": "Shop Now",
       "es": "Compra Ahora"
     },
-    "link": "https://example.com/shop-now"
+    "link": "https://buy.stripe.com/5kA4gWgOA9nt1K828d"
   },
   "imageUrl": "assets/img/sample-kit.png",
-  "category": "soundpack",
   "tags": ["tech house", "minimal", "deep house", "samples"],
   "colors": [
     {
