@@ -7,7 +7,7 @@
       </button>
     </div>
     <!-- Hero Section -->
-    <div class="p-2 text-white text-center" [ngStyle]="{'background-color':  productSample?.colors[0].primary}">
+    <div class="p-2 text-white text-center" [ngStyle]="{'background-color':productSample?.color.primary}">
       <div class="flex items-center w-full mb-4 justify-center">
         <div class="w-14 h-14 ">
           <img src="assets/images/elevated-tech1.png" class="rounded-full w-full h-full" alt="Elevate Icon" />
@@ -29,7 +29,7 @@
       <h2 class="text-xl text-center font-semibold text-black">{{productSample?.name[selectedLanguage]}}</h2>
       <div className="avatar">
         <div className="mask mask-hexagon w-24">
-          <img src={{productSample?.imageUrl}} />
+          <img src={{productSample?.basicInfo.imageUrl}} />
         </div>
       </div>
       <p class="mt-4 pt-2 text-black text-xl">{{productSample?.description[selectedLanguage]}}</p>
@@ -39,7 +39,7 @@
       <div class="mt-4 ">
         <button (click)="playAudio()" id="salesButton"
           class="w-full px-4 py-2 mt-2 text-gray-100 rounded-full focus:outline-none text-lg"
-          [ngStyle]="{'background-color': productSample?.colors[0].secondary}">
+          [ngStyle]="{'background-color': productSample?.color.secondary}">
           <ng-container *ngIf="isPlaying; else playIcon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 inline-block"
               viewBox="0 0 24 24">
@@ -54,19 +54,20 @@
           </ng-template>
           {{ selectedLanguage === 'es' ? 'Escuchar Oferta' : 'Listen to features' }}
         </button>
-        <audio #audioPlayer [src]="selectedLanguage === 'es' ? productSample?.urlPitchEsp : productSample?.urlPitchEng"
+        <audio #audioPlayer [src]="selectedLanguage === 'es' ? productSample?.basicInfo.urlPitchEsp : productSample?.basicInfo.urlPitchEng"
           preload="auto" style="display: none;"></audio>
       </div>
 
-      <div class="mt-4 " *ngIf="productSample?.haveFeatures === true">
+
+      <div class="mt-4 " *ngIf="productSample?.basicInfo.haveFeatures   === true">
         <button (click)="toggleFeatures()" class="w-full px-4 py-2 text-gray-100  rounded-full focus:outline-none"
-          [ngStyle]="{'background-color':  productSample?.colors[0].tertiary}">
+          [ngStyle]="{'background-color':  productSample?.color.primary}">
           {{ showFeatures ? selectedLanguage === "es" ? "Ocultar Caracteristicas" : "Hide Caracteristicas" :
           selectedLanguage === "es" ? "Mostrar Features" : "Show Features" }}
         </button>
         <div *ngIf="showFeatures" class="mt-2 ">
           <ul class="list-disc list-inside text-left text-black">
-            <li *ngFor="let feature of productSample?.features">
+            <li *ngFor="let feature of productSample?.features.features">
               <strong>{{ feature.title[selectedLanguage] }}:</strong> {{ feature.description[selectedLanguage] }}
             </li>
           </ul>
@@ -74,10 +75,10 @@
       </div>
 
       <!-- Benefits Collapse -->
-      <div class="mt-4" *ngIf="productSample?.haveBenefits === true">
+      <div class="mt-4" *ngIf="productSample?.basicInfo.haveBenefits === true">
         <!-- Botón para mostrar/ocultar los beneficios -->
         <button (click)="toggleBenefits()" class="w-full px-4 py-2 text-gray-100 rounded-full focus:outline-none "
-          [ngStyle]="{'background-color':  productSample?.colors[0].primary}">
+          [ngStyle]="{'background-color':  productSample?.color.primary}">
           {{ showBenefits ? selectedLanguage === "es" ? "Ocultar Beneficios" : "Hide Benefits" : selectedLanguage ===
           "es" ? "Mostrar Beneficios" : "Show Benefits" }}
         </button>
@@ -85,7 +86,7 @@
         <!-- Lista de beneficios alineada a la izquierda -->
         <div *ngIf="showBenefits" class="mt-2">
           <ul class="list-disc list-inside text-left text-black">
-            <li *ngFor="let benefit of productSample?.benefits">
+            <li *ngFor="let benefit of productSample?.benefits.benefits">
               <strong>{{ benefit.title[selectedLanguage] }}:</strong> {{ benefit.description[selectedLanguage] }}
             </li>
           </ul>
@@ -95,18 +96,20 @@
 
         <!-- Lista de Capitulos  -->
 
-      <div class="mt-4" *ngIf="productSample?.haveChapters === true">
+      <div class="mt-4" *ngIf="productSample?.basicInfo.haveChapters === true">
   <!-- Botón para mostrar/ocultar los capítulos -->
   <button (click)="toggleChapters()" class="w-full px-4 py-2 text-gray-100 rounded-full focus:outline-none"
-    [ngStyle]="{'background-color': productSample?.colors[0].primary}">
+    [ngStyle]="{'background-color': productSample?.color.primary}">
     {{ showChapters ? (selectedLanguage === 'es' ? 'Ocultar Capítulos' : 'Hide Chapters') : (selectedLanguage === 'es' ? 'Mostrar Capítulos' : 'Show Chapters') }}
   </button>
 
   <!-- Desplegable de capítulos alineado a la izquierda -->
   <div *ngIf="showChapters" class="mt-2">
     <ul class="list-disc list-inside text-left text-black">
-      <li *ngFor="let chapter of productSample?.chapters">
-        {{ chapter.name[selectedLanguage] }}
+      <li *ngFor="let chapter of productSample?.chapters.chapters">
+       
+        <strong> {{selectedLanguage === "es" ? chapter.title_es : chapter.title_en  }}</strong>
+
       </li>
     </ul>
   </div>
@@ -115,7 +118,7 @@
 
       <!-- Audio Preview -->
       
-      <div class="mb-4 mt-4" *ngIf="productSample?.typeProduct === 'sample-pack' ">
+      <div class="mb-4 mt-4" *ngIf="productSample?.basicInfo.typeProduct === 'sample-pack' ">
         <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
         src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1846010670&color=%237868ac&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
        
@@ -124,7 +127,7 @@
         
         <button (click)="playAudio()" id="salesButton"
           class="w-full px-4 py-2 mt-2 text-gray-100 rounded-full focus:outline-none text-lg"
-          [ngStyle]="{'background-color': productSample?.colors[0].secondary}">
+          [ngStyle]="{'background-color': productSample?.colors.secondary}">
           <ng-container *ngIf="isPlaying; else playIcon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 inline-block"
               viewBox="0 0 24 24">
@@ -147,7 +150,7 @@
       <div class=" shadow-lg w-full bg-white max-w-lg pb-1 pt-1 mx-auto ">
         <!-- Title -->
         <h1 class="font-Holidays-Homework text-1sm font-bold text-center text-red-500 mb-2">
-          {{productSample?.price.offert[selectedLanguage]}}
+          {{productSample?.offert[selectedLanguage]}}
         </h1>
         <p class="text-2xl font-bold line-through text-slate-600">${{productSample?.price.original}}
           {{selectedLanguage === "es" ? "ANTES" : "BEFORE" }}</p>
@@ -161,9 +164,9 @@
 
       <div class="mt-6">
         <button (click)="buyNowButton()" id="buyNow" class="w-full px-4 py-2 text-white rounded-full text-lg"
-          [ngStyle]="{'background-color':  productSample?.colors[0].primary}">
+          [ngStyle]="{'background-color':  productSample?.color.primary}">
           ${{productSample?.price.current}}
-          {{productSample?.cta.button_label[selectedLanguage] }}</button>
+          {{productSample?.button_label[selectedLanguage] }}</button>
       </div>
 
 
