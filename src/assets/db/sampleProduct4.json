@@ -1,0 +1,141 @@
+{
+    "basicInfo": {
+        "id": "123",
+        "typeProduct": "sample-pack",
+        "urlPitchEng":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/sample-pack%2FSample-pack-pitch-sale-eng.mp3?alt=media&token=32584d87-2fa3-42c7-88a4-58f272b41801",
+        "urlPitchEsp":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/sample-pack%2FSample-pack-pitch-sale-esp.mp3?alt=media&token=2332ce4a-4a72-4a63-8066-2e6f352a3e2d",
+        "urlPreviewEng":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/sample-pack%2FSample-pack-pitch-sale-eng.mp3?alt=media&token=32584d87-2fa3-42c7-88a4-58f272b41801",
+        "urlPreviewEsp":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/sample-pack%2FSample-pack-pitch-sale-esp.mp3?alt=media&token=2332ce4a-4a72-4a63-8066-2e6f352a3e2d",
+        "imageUrl": "assets/img/sample-kit.png",  
+     
+      "haveBenefits": true,
+      "haveFeatures": true,
+      "haveChapters": true
+
+    },
+    "name": {
+        "en": "Elevate Tech Essential Sounds - Construction Pack",
+        "es": "Elevate Tech Sonidos Esenciales - Paquete de Construcción"
+    },
+    "description": {
+        "en": "Elevate your music production with over 80 premium samples designed to fuel your creativity in Tech House, Minimal, and Deep House genres.",
+        "es": "Eleva tu producción musical con más de 80 muestras premium diseñadas para alimentar tu creatividad en los géneros Tech House, Minimal y Deep House."
+    
+    },
+    "price": {
+        "current": 10,
+        "original": 45,
+        "currency": "USD"
+    },
+    "offert": {
+        "en": "limited time only",
+        "es": "solo por tiempo limitado"
+    },
+    "button_label": {
+        "en": "Shop Now",
+        "es": "Compra Ahora",
+        "link": "https://buy.stripe.com/5kA4gWgOA9nt1K828d"
+    },
+    "color": {
+        "primary": "#4A148C",
+        "secondary": "#FF69B4",
+        "tertiary": "#8E24AA"
+    },
+    "features": {
+      "features": [
+        {
+          "title": {
+            "en": "Punchy Kicks",
+            "es": "Patadas Potentes"
+          },
+          "description": {
+            "en": "Drive your tracks with impactful low-end energy.",
+            "es": "Impulsa tus pistas con una energía de graves impactante."
+          }
+        },
+        {
+          "title": {
+            "en": "Snappy Snares & Claps",
+            "es": "Cajas y Palmas Brillantes"
+          },
+          "description": {
+            "en": "Add crisp, defining elements to your rhythm sections.",
+            "es": "Añade elementos nítidos y definitorios a tus secciones rítmicas."
+          }
+        },
+        {
+          "title": {
+            "en": "Groovy Basslines",
+            "es": "Líneas de Bajo Groovy"
+          },
+          "description": {
+            "en": "Fill the dancefloor with deep, resonating bass.",
+            "es": "Llena la pista de baile con bajos profundos y resonantes."
+          }
+        },
+        {
+          "title": {
+            "en": "Lush Pads & FX",
+            "es": "Pads y Efectos Exuberantes"
+          },
+          "description": {
+            "en": "Create atmospheric textures and transitions that captivate.",
+            "es": "Crea texturas y transiciones atmosféricas que cautivan."
+          }
+        },
+        {
+          "title": {
+            "en": "Top Loops",
+            "es": "Loops Listos"
+          },
+          "description": {
+            "en": "Ready-to-go loops that fit seamlessly into your mix.",
+            "es": "Loops listos para usar que se integran perfectamente en tu mezcla."
+          }
+        }
+      ]
+    },
+    "benefits": {
+      "benefits": [
+        {
+          "title": {
+            "en": "Industry-Standard Quality",
+            "es": "Calidad Estándar de la Industria"
+          },
+          "description": {
+            "en": "These samples are crafted to help you create professional-level tracks that stand out in the competitive electronic music scene.",
+            "es": "Estas muestras están diseñadas para ayudarte a crear pistas de nivel profesional que se destaquen en la competitiva escena de la música electrónica."
+          }
+        },
+        {
+          "title": {
+            "en": "Versatile & Inspiring",
+            "es": "Versátil e Inspirador"
+          },
+          "description": {
+            "en": "Whether you're working on a new project or stuck in a creative rut, this pack is designed to inspire and push your boundaries.",
+            "es": "Ya sea que estés trabajando en un nuevo proyecto o te sientas estancado creativamente, este paquete está diseñado para inspirarte y superar tus límites."
+          }
+        },
+        {
+          "title": {
+            "en": "Unbeatable Value",
+            "es": "Valor Inmejorable"
+          },
+          "description": {
+            "en": "Originally priced at $45, you can now get this entire pack for just $10—a 75% discount!",
+            "es": "Originalmente valorado en $45, ahora puedes obtener todo este paquete por solo $10—¡un descuento del 75%!"
+          }
+        }
+      ]
+    },
+    "chapters": {
+      "chapters": [
+        {
+          "title_en": "asd",
+          "title_es": "asd"
+        }
+      ]
+    }
+  }
+  

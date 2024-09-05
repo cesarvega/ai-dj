@@ -1,0 +1,6 @@
+
+  <div class="flex-col flex gap-10 lg:flex-row md:flex-row">
+    <div *ngFor="let book of bookStore">
+      <app-audio-book-card [bookInfo]="book"></app-audio-book-card>
+    </div>
+  </div>

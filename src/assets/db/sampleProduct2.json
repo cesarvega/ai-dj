@@ -1,0 +1,118 @@
+{
+    "id": "1234",
+    "typeProduct": "book",
+    "urlPitchEng":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/sample-pack%2FSample-pack-pitch-sale-eng.mp3?alt=media&token=32584d87-2fa3-42c7-88a4-58f272b41801",
+    "urlPitchEsp":"https://firebasestorage.googleapis.com/v0/b/ai-sound-60a1a.appspot.com/o/sample-pack%2FSample-pack-pitch-sale-esp.mp3?alt=media&token=2332ce4a-4a72-4a63-8066-2e6f352a3e2d",
+  
+    "name": {
+      "en": "The art of Meditation",
+      "es": "El arte de la Meditacion"
+    },
+    "description": {
+      "en": "This is a description about meditation",
+      "es": "Esta es una descripcion sobre la meditacion"
+    },
+    "price": {
+      "current": 5,
+      "original": 15,
+      "currency": "USD",
+      "offert": {
+        "en": "limited time only",
+        "es": "solo por tiempo limitado"
+      }
+      
+    },
+    "haveFeatures":false,
+    "features": [    
+    ],
+    "haveBenefits":true, 
+    "benefits": [
+          {
+            "title": {
+              "en": "Reduces Stress",
+              "es": "Reduce el Estrés"
+            },
+            "description": {
+              "en": "Meditation is known to lower cortisol levels, helping you manage stress and maintain a calm state of mind.",
+              "es": "Se sabe que la meditación reduce los niveles de cortisol, ayudándote a controlar el estrés y mantener un estado mental calmado."
+            }
+          },
+          {
+            "title": {
+              "en": "Improves Focus",
+              "es": "Mejora la Concentración"
+            },
+            "description": {
+              "en": "Regular meditation sharpens your attention, allowing you to focus more easily on tasks and improving overall productivity.",
+              "es": "La meditación regular agudiza tu atención, permitiéndote concentrarte con mayor facilidad en las tareas y mejorando la productividad general."
+            }
+          },
+          {
+            "title": {
+              "en": "Promotes Emotional Health",
+              "es": "Promueve la Salud Emocional"
+            },
+            "description": {
+              "en": "Practicing meditation enhances emotional stability and can increase your overall sense of well-being and happiness.",
+              "es": "Practicar la meditación mejora la estabilidad emocional y puede aumentar tu sensación general de bienestar y felicidad."
+            }
+          },
+          {
+            "title": {
+              "en": "Enhances Self-Awareness",
+              "es": "Potencia la Autoconciencia"
+            },
+            "description": {
+              "en": "Meditation encourages self-reflection, helping you gain a deeper understanding of yourself and your reactions.",
+              "es": "La meditación fomenta la autorreflexión, ayudándote a obtener una comprensión más profunda de ti mismo y de tus reacciones."
+            }
+          },
+          {
+            "title": {
+              "en": "Improves Sleep",
+              "es": "Mejora el Sueño"
+            },
+            "description": {
+              "en": "By calming the mind and reducing stress, meditation can improve sleep quality and help you fall asleep faster.",
+              "es": "Al calmar la mente y reducir el estrés, la meditación puede mejorar la calidad del sueño y ayudarte a conciliar el sueño más rápidamente."
+            }
+          }
+        ], 
+    "haveChapters":true,
+    "chapters": [
+      {  
+        "name": {
+          "es": "Qué es meditar",
+          "en": "What is meditation"
+        }
+      },
+      {  
+        "name": {
+          "es": "Ejercicios de meditación",
+          "en": "Meditation exercises"
+        }
+      },
+      {  
+        "name": {
+          "es": "El bosque mágico",
+          "en": "The magical forest"
+        }
+      }
+    ],
+    "cta": {
+      "button_label": {
+        "en": "Shop Now",
+        "es": "Compra Ahora"
+      },
+      "link": "https://example.com/shop-now"
+    },
+    "imageUrl": "assets/images/book-covers/what-is-meditation.png",
+    "colors": [
+      {
+        "primary": "#E1C16E",
+        "secondary": "#DAA520",
+        "tertiary": "#4682B4"
+      }
+    ]
+  }
+  

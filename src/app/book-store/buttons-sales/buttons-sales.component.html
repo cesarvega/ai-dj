@@ -1,0 +1,56 @@
+<div class=" mt-0 lg:mt-10 w-full ">
+<div class="flex flex-wrap lg:space-x-4 lg:space-y-0 space-y-4 justify-center items-center">
+    <!-- Botón FREE -->
+    <button class="bg-yellow text-black px-4 py-2 rounded hover:bg-blue-600 w-48">
+      FREE
+    </button>
+
+  
+    <!-- Botón DOWNLOAD BOOK -->
+    <button class="bg-yellow  text-black px-4 py-2 rounded hover:bg-green-600 w-48">
+      DOWNLOAD BOOK
+    </button>
+  
+    <!-- Botón DOWNLOAD AUDIO -->
+    <button class="bg-yellow  text-black px-4 py-2 rounded hover:bg-yellow-600 w-48">
+      DOWNLOAD AUDIO
+    </button>
+  
+    <!-- Botón DONATE Desplegable -->
+    <div class="relative">
+      <button (click)="toggleDonateMenu()" class="donate-button bg-yellow  text-black px-4 py-2 rounded hover:bg-orange-600 w-48">
+        DONATE
+      </button>
+      <!-- Menú desplegable -->
+      <div *ngIf="isDonateMenuOpen" class="absolute right-0 mt-2 w-48 bg-white border rounded shadow-lg z-10 donate-menu">
+        <a class="block px-4 py-2 text-gray-700 hover:bg-gray-100">1 Dólar</a>
+        <a class="block px-4 py-2 text-gray-700 hover:bg-gray-100">5 Dólares</a>
+        <a class="block px-4 py-2 text-gray-700 hover:bg-gray-100">20 Dólares</a>
+        <div class="px-4 py-2">
+          <input [(ngModel)]="donationAmount" type="number"  placeholder="Ingresa una cantidad" class="w-full border rounded px-2 py-1 focus:outline-none focus:ring focus:ring-blue-300">
+          <a href="">Otro valor</a>
+          <button (click)="openConfirmationModal()" class="bg-yellow  text-black px-4 py-2 rounded w-full hover:bg-orange-600">
+            confirmar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal de Confirmación -->
+  <div *ngIf="isConfirmationModalOpen" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+    <div class="bg-white p-6 rounded shadow-lg">
+      <h2 class="text-xl mb-4">Confirmar Donación</h2>
+      <p>¿Estás seguro de que quieres confirmar esta donación? </p>
+      <p>Monto total {{donationAmount}}</p>
+      <div class="mt-4 flex space-x-4">
+        <button (click)="confirmDonation()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+          Confirmar
+        </button>
+        <button (click)="closeConfirmationModal()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

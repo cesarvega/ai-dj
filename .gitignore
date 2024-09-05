@@ -75,10 +75,20 @@ vite/
 
 # Angular metadata files
 .angular/
+/.angular/cache/
 .angular/cache/17.3.8/vite/*
+<<<<<<< HEAD
 .angular/cache/
 .src/assets/tracks/*
 .src/assets/files/studyMaterial.zip
 .angular/cache/17.3.8/elevated-tech-ng/.tsbuildinfo
 .angular/cache/17.3.8/vite/deps/_metadata.json
 .idx/dev.nix
+=======
+.src/assets/tracks/*
+.src/assets/files/StudyMaterial.zip
+
+.angular/cache/17.3.8/elevated-tech-ng/.tsbuildinfo
+
+
+>>>>>>> f39b0a81dc6f1ff5636ba9ec111d65124303bcd6
