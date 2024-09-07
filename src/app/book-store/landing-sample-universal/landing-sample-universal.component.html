@@ -63,12 +63,12 @@
         <button (click)="toggleFeatures()" class="w-full px-4 py-2 text-gray-100  rounded-full focus:outline-none"
           [ngStyle]="{'background-color':  productSample?.color.primary}">
           {{ showFeatures ? selectedLanguage === "es" ? "Ocultar Caracteristicas" : "Hide Caracteristicas" :
-          selectedLanguage === "es" ? "Mostrar Features" : "Show Features" }}
+          selectedLanguage === "es" ? "Mostrar Caracteristicas" : "Show Features" }}
         </button>
         <div *ngIf="showFeatures" class="mt-2 ">
           <ul class="list-disc list-inside text-left text-black">
             <li *ngFor="let feature of productSample?.features.features">
-              <strong>{{ feature.title[selectedLanguage] }}:</strong> {{ feature.description[selectedLanguage] }}
+              <strong>{{selectedLanguage === "es" ? feature.title_es : feature.title_en}}:</strong> {{selectedLanguage === "es" ? feature.description_es : feature.desciption_en}}
             </li>
           </ul>
         </div>
@@ -87,8 +87,7 @@
         <div *ngIf="showBenefits" class="mt-2">
           <ul class="list-disc list-inside text-left text-black">
             <li *ngFor="let benefit of productSample?.benefits.benefits">
-              <strong>{{ benefit.title[selectedLanguage] }}:</strong> {{ benefit.description[selectedLanguage] }}
-            </li>
+              <a>{{selectedLanguage === "es" ? benefit.title_es : benefit.title_en}}   </a>        </li>
           </ul>
         </div>
       </div>
@@ -123,11 +122,11 @@
         src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1846010670&color=%237868ac&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
        
       </div>
-      <div class="mb-4 mt-4" *ngIf="productSample?.typeProduct === 'book' ">
+      <div class="mb-4 mt-4" *ngIf="productSample?.basicInfo.typeProduct === 'book' ">
         
-        <button (click)="playAudio()" id="salesButton"
+        <button (click)="playPreview()" id="salesButton"
           class="w-full px-4 py-2 mt-2 text-gray-100 rounded-full focus:outline-none text-lg"
-          [ngStyle]="{'background-color': productSample?.colors.secondary}">
+          [ngStyle]="{'background-color': productSample?.color.secondary}">
           <ng-container *ngIf="isPlaying; else playIcon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 inline-block"
               viewBox="0 0 24 24">
@@ -142,7 +141,7 @@
           </ng-template>
           {{ selectedLanguage === 'es' ? 'Escuchar Demo' : 'Listen to Preview' }}
         </button>
-        <audio #bookPreview [src]="selectedLanguage === 'es' ? productSample?.urlPreviewEsp : productSample?.urlPreviewEng"
+        <audio #bookPreview [src]="selectedLanguage === 'es' ? productSample?.basicInfo.urlPreviewEsp : productSample?.basicInfo.urlPreviewEng"
           preload="auto" style="display: none;"></audio>
       </div>
 
