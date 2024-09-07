@@ -82,22 +82,24 @@ export class LandingSampleUniversalComponent implements OnInit, OnDestroy {
       'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlwd2N0a2VxY3pkZWNpcWl0cmpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQzOTgwNTksImV4cCI6MjAyOTk3NDA1OX0.g5XjjEX9H5NMyetDxmENnIIs3ylN0rwhdxFWe4IiG6k'
     });
   
-    const url = `https://ypwctkeqczdeciqitrjf.supabase.co/rest/v1/products_test?select=*`;
+    const url = `https://ypwctkeqczdeciqitrjf.supabase.co/rest/v1/products_test?select=*&id=eq.${productId}`;
   
     const bookSubscribe = this.http.get(url, { headers }).subscribe({
       next: (res:any) => {
-        this.productSample = JSON.parse(res[2].product_json)
+
+        this.productSample = JSON.parse(res[0].product_json)
+
         if (this.productSample) {
               this.samplePhat = this.productSample?.samplePhat;
               this.audio = new Audio(this.samplePhat);
               this.audio.load();
             }
             this.subscriptions.push(bookSubscribe);
+
       },
       error: err => console.error(err),
       complete: () => console.log('Observable emitted the complete notification')
     });
-    console.log(this.productSample)
   }
 
   buyNowButton(): void {
