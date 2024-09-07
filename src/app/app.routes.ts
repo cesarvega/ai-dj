@@ -10,7 +10,7 @@ import { Routes } from '@angular/router';
 
 // import { AudioBookSalesComponent } from './book-store/books/home/audio-book-sales.component';
 // import { AudioBookPlayerComponent } from './book-store/books/home-detailed/audio-book-player.component';
-// import { LandingPgComponent } from './book-store/books/book-store-ui/landing-pg/landing-pg.component';
+ import { LandingPgComponent } from './book-store/books/book-store-ui/landing-pg/landing-pg.component';
 // import { authGuard } from './guards/auth.guard';
 import { FormSampleProductsComponent } from './book-store/landing-sample-universal/form-sample-products/form-sample-products.component';
 import {LandingSampleUniversalComponent} from './book-store/landing-sample-universal/landing-sample-universal.component';
@@ -46,7 +46,7 @@ export const routes: Routes = [
 
   // { path: 'link', component: LinkSelectorComponent },
 
- //  { path: 'store', component: LandingPgComponent },
+   { path: 'store', component: LandingPgComponent },
 
   {path:'sample/:id', component: LandingSampleUniversalComponent},
   {path:'form', component: FormSampleProductsComponent},
