@@ -3,8 +3,8 @@ import { Routes } from '@angular/router';
 // import { ScoreAppComponent } from './score-app/score-app.component';
 // import { AudioBookCardComponent } from './book-store/audio-book-card/audio-book-card.component';
 // import { AudioBookLibraryComponent } from './book-store/audio-book-library/audio-book-library.component';
-// import { LoginUniversalComponent } from './book-store/login-universal/login-universal.component';
-// import { AudioBookSubscribtionComponent } from './book-store/audio-book-subscription/audio-book-subscription.component'
+ import { LoginUniversalComponent } from './book-store/login-universal/login-universal.component';
+ import { AudioBookSubscribtionComponent } from './book-store/audio-book-subscription/audio-book-subscription.component'
 // import { LinkSelectorComponent } from './link-selector/link-selector.component';
 // import { AudioBookDetailComponent } from './book-store/audio-book-detail/audio-book-detail.component';
 
@@ -31,14 +31,14 @@ export const routes: Routes = [
     // component: AudioBookDetailComponent,
   // },
   
-  // {
-  //   path: 'login',
-  //   component: LoginUniversalComponent
-  // },
-  // {
-  //   path: 'subscribtion',
-  //   component: AudioBookSubscribtionComponent,
-  // },
+   {
+    path: 'login',
+     component: LoginUniversalComponent
+  },
+   {
+     path: 'subscribtion',
+     component: AudioBookSubscribtionComponent,
+   },
   
    //{ path: 'book-sales/:id', component: AudioBookSalesComponent },
   
@@ -50,7 +50,7 @@ export const routes: Routes = [
 
   {path:'sample/:id', component: LandingSampleUniversalComponent},
  // {path:'form', component: FormSampleProductsComponent},
-  { path: '**', redirectTo: 'store' }
+  { path: '**', redirectTo: 'subscribtion' } 
 
 
 ];

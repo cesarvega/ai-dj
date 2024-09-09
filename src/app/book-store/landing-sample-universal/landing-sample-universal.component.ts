@@ -1,10 +1,14 @@
-import { Component, OnInit, OnDestroy,  ElementRef, ViewChild  } from '@angular/core';
+import { Component, OnDestroy,  ElementRef, ViewChild, Inject, OnInit, PLATFORM_ID  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router'; // Importa ActivatedRoute
 import { Subscription } from 'rxjs';
 import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
 import { environment } from '@environments/environment';
+import { SupabaseService } from '@app/services/supabase.service';
+
+
+
 
 @Component({
   selector: 'app-landing-sample-universal',
@@ -33,7 +37,12 @@ export class LandingSampleUniversalComponent implements OnInit, OnDestroy {
   samplePhat: string | undefined;
     // Variable para controlar el idioma
   selectedLanguage: 'en' | 'es' = 'en'; // Por defecto inglés
-  constructor(private http: HttpClient, private route: ActivatedRoute) { }
+  constructor(private http: HttpClient, 
+    private route: ActivatedRoute,
+     private supabaseService: SupabaseService,   
+      @Inject(PLATFORM_ID) private platformId: Object // Inyectamos PLATFORM_ID
+
+    ) { }
   
   ngOnInit(): void {
     console.log('LandingSampleUniversalComponent');
