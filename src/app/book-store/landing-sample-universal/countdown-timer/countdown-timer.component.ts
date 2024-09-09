@@ -14,11 +14,10 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
 
   @Input() expirationDate!: string;
 
-  hours: number = 10;
-  minutes: number = 1;
-  seconds: number = 1;
+  hours: number = 0;
+  minutes: number = 0;
+  seconds: number = 0;
   private subscription!: Subscription;
-  private countdownStarted: boolean = false; // Evitar reiniciar el temporizador
 
   constructor(@Inject(PLATFORM_ID) private platformId: object) {}
 

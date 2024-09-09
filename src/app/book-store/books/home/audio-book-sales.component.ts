@@ -5,7 +5,6 @@ import { environment } from '@environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-
 interface AudioOption {
   name: string;
   src: string;
