@@ -24,10 +24,12 @@ import { SupabaseService } from '@app/services/supabase.service';
 export class AudioBookSubscribtionComponent {
   readonly aiService = inject(AiService)
   registerForm: FormGroup;  
+  registrationSuccessful: boolean
   passwordsMatch: boolean;
   subscriptions: Subscription[] = []; 
   constructor(private fb: FormBuilder, private supabaseService:SupabaseService) {
     this.passwordsMatch = false;
+    this.registrationSuccessful = false;
     this.registerForm = this.fb.group({
       'full-name': new FormControl('', [
         Validators.required, Validators.minLength(2), Validators.maxLength(40)
@@ -85,13 +87,17 @@ export class AudioBookSubscribtionComponent {
         "email": this.email?.value,
         "phone": this.phone?.value
       }
-       this.supabaseService.SubscribeUser(body)
-      // const subscription =  this.aiService.subscribeUser(body).subscribe({
-      //   next: value => console.log(value),
-      //   error: err => console.error(err.error.message),
-      //   complete: () => console.log('Observable emitted the complete notification')        
-      // })
-      // this.subscriptions.push(subscription);      
+
+      const subscription =  this.aiService.subscribeUser(body).subscribe({
+        next: (value:any) => {
+          if(value.id){
+            this.registrationSuccessful = true;
+          }
+        },
+        error: err => console.error(err.error.message),
+        complete: () => console.log('Observable emitted the complete notification')        
+      })
+      this.subscriptions.push(subscription);      
     }
   }
 
