@@ -12,6 +12,7 @@ import {
 } from "@angular/forms";
 import { AiService } from '../services/ai.service';
 import { Subscription } from 'rxjs';
+import { SupabaseService } from '@app/services/supabase.service';
 
 @Component({
   selector: 'app-audio-book-subscribtion',
@@ -24,8 +25,8 @@ export class AudioBookSubscribtionComponent {
   readonly aiService = inject(AiService)
   registerForm: FormGroup;  
   passwordsMatch: boolean;
-  subscriptions: Subscription[] = [];
-  constructor(private fb: FormBuilder) {
+  subscriptions: Subscription[] = []; 
+  constructor(private fb: FormBuilder, private supabaseService:SupabaseService) {
     this.passwordsMatch = false;
     this.registerForm = this.fb.group({
       'full-name': new FormControl('', [
@@ -78,19 +79,19 @@ export class AudioBookSubscribtionComponent {
   onSubmit() {
     if (this.registerForm.valid) {
       let body = {
-        "username": this.fullName?.value,
+       "username": this.fullName?.value,
         "password": this.password?.value,
-        "fullName": this.fullName?.value,
+       // "fullName": this.fullName?.value,
         "email": this.email?.value,
         "phone": this.phone?.value
       }
-
-      const subscription =  this.aiService.subscribeUser(body).subscribe({
-        next: value => console.log(value),
-        error: err => console.error(err.error.message),
-        complete: () => console.log('Observable emitted the complete notification')        
-      })
-      this.subscriptions.push(subscription);      
+       this.supabaseService.SubscribeUser(body)
+      // const subscription =  this.aiService.subscribeUser(body).subscribe({
+      //   next: value => console.log(value),
+      //   error: err => console.error(err.error.message),
+      //   complete: () => console.log('Observable emitted the complete notification')        
+      // })
+      // this.subscriptions.push(subscription);      
     }
   }
 
