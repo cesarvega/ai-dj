@@ -49,8 +49,8 @@ export const routes: Routes = [
    { path: 'store', component: LandingPgComponent },
 
   {path:'sample/:id', component: LandingSampleUniversalComponent},
-  {path:'form', component: FormSampleProductsComponent},
-  { path: '**', redirectTo: 'form' }
+ // {path:'form', component: FormSampleProductsComponent},
+  { path: '**', redirectTo: 'store' }
 
 
 ];
