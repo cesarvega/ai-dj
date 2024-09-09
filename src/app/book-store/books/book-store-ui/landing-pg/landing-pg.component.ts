@@ -5,7 +5,7 @@ import { BlogTabComponent } from '../blog-tab/blog-tab.component';
 import { ProductTabComponent } from '../product-tab/product-tab.component';
 import { ProductListComponent } from '../product-list/product-list.component';
 import { AudioBookLibraryComponent } from '@app/book-store/audio-book-library/audio-book-library.component';
-
+import { CarouselComponent } from '../carousel/carousel.component';
 @Component({
   selector: 'app-landing-pg',
   standalone: true,
@@ -15,7 +15,8 @@ import { AudioBookLibraryComponent } from '@app/book-store/audio-book-library/au
     BlogTabComponent,
     ProductTabComponent,
     ProductListComponent,
-    AudioBookLibraryComponent
+    AudioBookLibraryComponent,
+    CarouselComponent
   ],
   templateUrl: './landing-pg.component.html',
   styleUrl: './landing-pg.component.scss',

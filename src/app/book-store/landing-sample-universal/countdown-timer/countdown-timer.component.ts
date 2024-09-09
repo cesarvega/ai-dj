@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
+import { Component , OnInit, OnDestroy, PLATFORM_ID, Inject, Input} from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { interval, Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
@@ -19,14 +20,13 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
   private subscription!: Subscription;
   private countdownStarted: boolean = false; // Evitar reiniciar el temporizador
 
-  constructor() {}
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
 
   ngOnInit(): void {
-    console.log("Component initialized");
-  
-  
+    if (isPlatformBrowser(this.platformId)) {
+      this.startCountdown()
+    }
   }
-
 
   startCountdown(): void {
     const targetDate = new Date(this.expirationDate).getTime();
