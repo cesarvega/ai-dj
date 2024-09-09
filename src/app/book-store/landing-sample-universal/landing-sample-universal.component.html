@@ -62,13 +62,13 @@
       <div class="mt-4 " *ngIf="productSample?.basicInfo.haveFeatures   === true">
         <button (click)="toggleFeatures()" class="w-full px-4 py-2 text-gray-100  rounded-full focus:outline-none"
           [ngStyle]="{'background-color':  productSample?.color.primary}">
-          {{ showFeatures ? selectedLanguage === "es" ? "Ocultar Caracteristicas" : "Hide Caracteristicas" :
+          {{ showFeatures ? selectedLanguage === "es" ? "Ocultar Caracteristicas" : "Hide Feature" :
           selectedLanguage === "es" ? "Mostrar Caracteristicas" : "Show Features" }}
         </button>
         <div *ngIf="showFeatures" class="mt-2 ">
           <ul class="list-disc list-inside text-left text-black">
             <li *ngFor="let feature of productSample?.features.features">
-              <strong>{{selectedLanguage === "es" ? feature.title_es : feature.title_en}}:</strong> {{selectedLanguage === "es" ? feature.description_es : feature.desciption_en}}
+              <strong>{{selectedLanguage === "es" ? feature.title_es : feature.title_en}}:</strong> {{selectedLanguage === "es" ? feature.description_es : feature.description_en}}
             </li>
           </ul>
         </div>
@@ -157,7 +157,7 @@
         <p class="text-2xl font-bold text-black">${{productSample?.price.current}}
           {{selectedLanguage === "es" ? "AHORA" : "TODAY" }}</p>
 
-          <app-countdown-timer [expirationDate]="'2024-12-31T23:59:59'"></app-countdown-timer>
+          <app-countdown-timer  [expirationDate]="productSample?.price.dateOffert"></app-countdown-timer>
 
       </div>
 
