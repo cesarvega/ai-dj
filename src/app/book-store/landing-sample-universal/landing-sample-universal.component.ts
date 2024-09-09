@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy,  ElementRef, ViewChild  } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router'; // Importa ActivatedRoute
 import { Subscription } from 'rxjs';
 import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
@@ -58,23 +58,50 @@ export class LandingSampleUniversalComponent implements OnInit, OnDestroy {
     this.selectedLanguage = this.selectedLanguage === 'en' ? 'es' : 'en';
   }
   
+  // getSample(productId: string): void {
+  //   const bookSubscribe = this.http.get(`assets/db/sampleProduct${productId}.json`).subscribe({
+  //     next: res => {
+  //       this.productSample = res;
+  //     },
+  //     error: err => console.error(err),
+  //     complete: () => console.log('Observable emitted the complete notification')
+  //   });
+    
+
+  //   if (this.productSample) {
+  //     this.samplePhat = this.productSample?.samplePhat;
+  //     this.audio = new Audio(this.samplePhat);
+  //     this.audio.load();
+  //   }
+  //   this.subscriptions.push(bookSubscribe);
+   //}
+
   getSample(productId: string): void {
-    const bookSubscribe = this.http.get(`assets/db/sampleProduct${productId}.json`).subscribe({
-      next: res => {
-        this.productSample = res;
+    const headers = new HttpHeaders({
+      'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlwd2N0a2VxY3pkZWNpcWl0cmpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQzOTgwNTksImV4cCI6MjAyOTk3NDA1OX0.g5XjjEX9H5NMyetDxmENnIIs3ylN0rwhdxFWe4IiG6k',
+      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlwd2N0a2VxY3pkZWNpcWl0cmpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQzOTgwNTksImV4cCI6MjAyOTk3NDA1OX0.g5XjjEX9H5NMyetDxmENnIIs3ylN0rwhdxFWe4IiG6k'
+    });
+  
+    const url = `https://ypwctkeqczdeciqitrjf.supabase.co/rest/v1/products_test?select=*&id=eq.${productId}`;
+  
+    const bookSubscribe = this.http.get(url, { headers }).subscribe({
+      next: (res:any) => {
+
+        this.productSample = JSON.parse(res[0].product_json)
+
+        if (this.productSample) {
+              this.samplePhat = this.productSample?.samplePhat;
+              this.audio = new Audio(this.samplePhat);
+              this.audio.load();
+            }
+            this.subscriptions.push(bookSubscribe);
+
       },
       error: err => console.error(err),
       complete: () => console.log('Observable emitted the complete notification')
     });
-    
-
-    if (this.productSample) {
-      this.samplePhat = this.productSample?.samplePhat;
-      this.audio = new Audio(this.samplePhat);
-      this.audio.load();
-    }
-    this.subscriptions.push(bookSubscribe);
   }
+
   buyNowButton(): void {
     window.location.href = this.productSample?.cta.link;
   }
