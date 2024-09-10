@@ -11,9 +11,10 @@ import { Routes } from '@angular/router';
 // import { AudioBookSalesComponent } from './book-store/books/home/audio-book-sales.component';
 // import { AudioBookPlayerComponent } from './book-store/books/home-detailed/audio-book-player.component';
  import { LandingPgComponent } from './book-store/books/book-store-ui/landing-pg/landing-pg.component';
-// import { authGuard } from './guards/auth.guard';
+import { authGuard } from './guards/auth.guard';
 import { FormSampleProductsComponent } from './book-store/landing-sample-universal/form-sample-products/form-sample-products.component';
 import {LandingSampleUniversalComponent} from './book-store/landing-sample-universal/landing-sample-universal.component';
+import { guestGuard } from './guards/guest.guard';
 
 
 export const routes: Routes = [
@@ -33,20 +34,22 @@ export const routes: Routes = [
   
    {
     path: 'login',
-     component: LoginUniversalComponent
+     component: LoginUniversalComponent,
+     canActivate : [guestGuard]
   },
    {
      path: 'subscribtion',
      component: AudioBookSubscribtionComponent,
+     canActivate : [guestGuard]
    },
   
-   //{ path: 'book-sales/:id', component: AudioBookSalesComponent },
+   //{ path: 'book-sales/:id', component: AudioBookSalesComponent,canActivate: [authGuard]},
   
 //  { path: 'study/:id', component: AudioBookPlayerComponent,canActivate: [authGuard]},
 
   // { path: 'link', component: LinkSelectorComponent },
 
-   { path: 'store', component: LandingPgComponent },
+   { path: 'store', component: LandingPgComponent,canActivate: [authGuard]},
 
   {path:'sample/:id', component: LandingSampleUniversalComponent},
  // {path:'form', component: FormSampleProductsComponent},
