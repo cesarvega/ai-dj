@@ -49,7 +49,7 @@ export const routes: Routes = [
    { path: 'store', component: LandingPgComponent },
 
   {path:'sample/:id', component: LandingSampleUniversalComponent},
- // {path:'form', component: FormSampleProductsComponent},
+  {path:'form', component: FormSampleProductsComponent},
   { path: '**', redirectTo: 'subscribtion' } 
 
 
