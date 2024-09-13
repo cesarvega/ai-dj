@@ -34,12 +34,8 @@
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
+
           },
           "configurations": {
             "production": {
@@ -107,10 +103,6 @@
     }
   },
   "cli": {
-<<<<<<< HEAD
     "analytics": "785b6bfc-ada8-4079-a539-4f5c32a5759a"
-=======
-    "analytics": false
->>>>>>> 10ef9ac (save)
   }
 }

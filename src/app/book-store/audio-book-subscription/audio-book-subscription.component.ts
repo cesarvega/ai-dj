@@ -12,6 +12,7 @@ import {
 } from "@angular/forms";
 import { AiService } from '../services/ai.service';
 import { Subscription } from 'rxjs';
+import { SupabaseService } from '@app/services/supabase.service';
 
 @Component({
   selector: 'app-audio-book-subscribtion',
@@ -23,10 +24,12 @@ import { Subscription } from 'rxjs';
 export class AudioBookSubscribtionComponent {
   readonly aiService = inject(AiService)
   registerForm: FormGroup;  
+  registrationSuccessful: boolean
   passwordsMatch: boolean;
-  subscriptions: Subscription[] = [];
-  constructor(private fb: FormBuilder) {
+  subscriptions: Subscription[] = []; 
+  constructor(private fb: FormBuilder, private supabaseService:SupabaseService) {
     this.passwordsMatch = false;
+    this.registrationSuccessful = false;
     this.registerForm = this.fb.group({
       'full-name': new FormControl('', [
         Validators.required, Validators.minLength(2), Validators.maxLength(40)
@@ -42,7 +45,7 @@ export class AudioBookSubscribtionComponent {
       ]),
       'password': new FormControl('', [
         Validators.required,
-        Validators.minLength(8),
+        Validators.minLength(6),
         Validators.maxLength(8)
       ]),
       'confirm-password': new FormControl('', [Validators.required]),
@@ -78,15 +81,19 @@ export class AudioBookSubscribtionComponent {
   onSubmit() {
     if (this.registerForm.valid) {
       let body = {
-        "username": this.fullName?.value,
+       "username": this.fullName?.value,
         "password": this.password?.value,
-        "fullName": this.fullName?.value,
+       // "fullName": this.fullName?.value,
         "email": this.email?.value,
         "phone": this.phone?.value
       }
 
       const subscription =  this.aiService.subscribeUser(body).subscribe({
-        next: value => console.log(value),
+        next: (value:any) => {
+          if(value.id){
+            this.registrationSuccessful = true;
+          }
+        },
         error: err => console.error(err.error.message),
         complete: () => console.log('Observable emitted the complete notification')        
       })

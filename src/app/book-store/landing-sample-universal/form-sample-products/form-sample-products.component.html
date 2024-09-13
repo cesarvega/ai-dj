@@ -1,0 +1,261 @@
+<div class="custom-scrollbar flex justify-center items-center h-screen bg-gray-900 ">
+    <div
+      class=" px-2 w-full h-screen lg:w-80 sm:w-80 lg:h-[90%] md:h-[90%]  overflow-y-auto lg:overflow-y-auto md:overflow-y-auto  bg-white shadow-lg rounded-lg overflow-hidden">
+    
+    <h2 class="text-xl font-semibold mb-4">Basic product data</h2>
+    <form [formGroup]="basicInfo" (ngSubmit)="onSubmit($event)" class="space-y-4 max-w-md mx-auto">
+      <!-- ID Field -->
+      <div class="flex flex-col">
+        <label for="id" class="mb-2 text-sm font-medium text-gray-700">ID</label>
+        <input id="id" formControlName="id" type="text" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+    
+      <!-- Type of Product Field -->
+      <div class="flex flex-col">
+        <label for="typeProduct" class="mb-2 text-sm font-medium text-gray-700">Tipo de Producto</label>
+        <select id="typeProduct" formControlName="typeProduct" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="book">Book</option>
+          <option value="sound-pack">sample-pack</option>
+        </select>
+      </div>
+      
+      <!-- URL Pitch (English) Field -->
+      <div class="flex flex-col">
+        <label for="urlPitchEng" class="mb-2 text-sm font-medium text-gray-700">URL Pitch (Inglés)</label>
+        <input id="urlPitchEng" formControlName="urlPitchEng" type="text" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+    
+      <!-- URL Pitch (Español) Field -->
+      <div class="flex flex-col">
+        <label for="urlPitchEsp" class="mb-2 text-sm font-medium text-gray-700">URL Pitch (Español)</label>
+        <input id="urlPitchEsp" formControlName="urlPitchEsp" type="text" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+    
+      <!-- URL Preview (Español) Field -->
+      <div class="flex flex-col">
+        <label for="urlPreviewEsp" class="mb-2 text-sm font-medium text-gray-700">URL Preview (Español)</label>
+        <input id="urlPreviewEsp" formControlName="urlPreviewEsp" type="text" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+    
+      <!-- URL Preview (English) Field -->
+      <div class="flex flex-col">
+        <label for="urlPreviewEng" class="mb-2 text-sm font-medium text-gray-700">URL Preview (Inglés)</label>
+        <input id="urlPreviewEng" formControlName="urlPreviewEng" type="text" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+    
+      <!-- Have Benefits Field -->
+      <!-- <div class="flex flex-col">
+        <label for="haveBenefits" class="mb-2 text-sm font-medium text-gray-700">¿Tiene Beneficios?</label>
+        <input id="haveBenefits" formControlName="haveBenefits" type="text" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div> -->
+    
+      <!-- Have Features Field -->
+      <!-- <div class="flex flex-col">
+        <label for="haveFeatures" class="mb-2 text-sm font-medium text-gray-700">¿Tiene Características?</label>
+        <input id="haveFeatures" formControlName="haveFeatures" type="text" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+     -->
+      <!-- Have Chapters Field -->
+      <!-- <div class="flex flex-col">
+        <label for="haveChapters" class="mb-2 text-sm font-medium text-gray-700">¿Tiene Capítulos?</label>
+        <input id="haveChapters" formControlName="haveChapters" type="text" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div> -->
+    
+      <!-- Image URL Field -->
+      <div class="flex flex-col">
+        <label for="imageUrl" class="mb-2 text-sm font-medium text-gray-700">URL de la Imagen</label>
+        <input id="imageUrl" formControlName="imageUrl" type="text" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+    
+     
+    </form>
+  
+  
+  
+  <!-- AQUI LLENARE EL FORM DE NAME -->
+  
+  <form [formGroup]="name" class="space-y-4 max-w-md mx-auto">
+    <div class="flex flex-col">
+      <label for="es" class="mb-2 text-sm font-medium text-gray-700">Nombre en Español</label>
+      <input id="es" formControlName="es" type="text" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+    <div class="flex flex-col">
+      <label for="en" class="mb-2 text-sm font-medium text-gray-700">Nombre en Inglés</label>
+      <input id="en" formControlName="en" type="text" class="px py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+  </form>
+   
+  <!-- AQUI LLENARE EL FORM DE DESCRIPTION -->
+  <form [formGroup]="description" class="space-y-4 max-w-md mx-auto">
+    <div class="flex flex-col">
+      <label for="es" class="mb-2 text-sm font-medium text-gray-700">descripcion en Español</label>
+      <input id="es" formControlName="es" type="text" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+    <div class="flex flex-col">
+      <label for="en" class="mb-2 text-sm font-medium text-gray-700">Descipcion en Inglés</label>
+      <input id="en" formControlName="en" type="text" class="px py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+  </form>
+  
+  <!-- AQUI LLENARE EL FORM DE PRICE -->
+  <form [formGroup]="price" class="space-y-4 max-w-md mx-auto">
+    <div class="flex flex-col">
+      <label for="current" class="mb-2 text-sm font-medium text-gray-700">valor con descuento</label>
+      <input id="current" formControlName="current" type="number" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+    <div class="flex flex-col">
+      <label for="original" class="mb-2 text-sm font-medium text-gray-700">Valor comercial</label>
+      <input id="original" formControlName="original" type="number" class="px py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+    <div class="flex flex-col">
+      <label for="currency" class="mb-2 text-sm font-medium text-gray-700">tipo de moneda</label>
+      <input id="currency" formControlName="currency" type="text" class="px py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+  </form>
+  <!-- AQUI LLENARE EL OFFERT -->
+  <form [formGroup]="offert" class="space-y-4 max-w-md mx-auto">
+    <div class="flex flex-col">
+      <label for="es" class="mb-2 text-sm font-medium text-gray-700">Oferta en Español</label>
+      <input id="es" formControlName="es" type="text" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+    <div class="flex flex-col">
+      <label for="en" class="mb-2 text-sm font-medium text-gray-700">Oferta en ingles</label>
+      <input id="en" formControlName="en" type="text" class="px py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+  </form>
+  <!-- AQUI LLENARE EL LBABEL BUTTON -->
+  <form [formGroup]="button_label" class="space-y-4 max-w-md mx-auto">
+    <div class="flex flex-col">
+      <label for="es" class="mb-2 text-sm font-medium text-gray-700">CTA Español</label>
+      <input id="es" formControlName="es" type="text" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+    <div class="flex flex-col">
+      <label for="en" class="mb-2 text-sm font-medium text-gray-700">CTA ingles</label>
+      <input id="en" formControlName="en" type="text" class="px py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+    <div class="flex flex-col">
+      <label for="link" class="mb-2 text-sm font-medium text-gray-700">Url de pago</label>
+      <input id="link" formControlName="link" type="text" class="px py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+  </form>
+  <!-- AQUI LLENARE EL COLORS -->
+  <form [formGroup]="color" class="space-y-4 max-w-md mx-auto">
+     <!-- Primary Color Field -->
+     <div class="flex flex-col">
+      <label for="primary" class="mb-2 text-sm font-medium text-gray-700">Primary Color</label>
+      <input id="primary" formControlName="primary" type="text" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+  
+    <!-- Secondary Color Field -->
+    <div class="flex flex-col">
+      <label for="secondary" class="mb-2 text-sm font-medium text-gray-700">Secondary Color</label>
+      <input id="secondary" formControlName="secondary" type="text" class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+  
+    <!-- Tertiary Color Field -->
+    <div class="flex flex-col">
+      <label for="tertiary" class="mb-2 text-sm font-medium text-gray-700">Tertiary Color</label>
+      <input matInput id="tertiary" formControlName="tertiary" type="color">
+    </div>
+  </form>
+  
+  <!-- AQUI ASIGNARE ca -->
+  <!-- Features Form -->
+  <!-- Features Form -->
+  <div>
+    <h2 class="text-xl font-semibold mb-4">Product Features</h2>
+    <form [formGroup]="featuresForm" (ngSubmit)="onSubmit($event)" class="space-y-4 max-w-md mx-auto">
+      <!-- Features Form Array -->
+      <div formArrayName="features" class="space-y-4">
+        <div *ngFor="let feature of featuresArray.controls; let i = index" [formGroupName]="i" class="space-y-4">
+          <div class="flex flex-col">
+            <label class="font-semibold mb-2">Title (EN):</label>
+            <input formControlName="title_en" type="text" class="px-4 py-2 border rounded-lg" placeholder="Enter title in English" />
+          </div>
+          <div class="flex flex-col">
+            <label class="font-semibold mb-2">Title (ES):</label>
+            <input formControlName="title_es" type="text" class="px-4 py-2 border rounded-lg" placeholder="Enter title in Spanish" />
+          </div>
+          <div class="flex flex-col">
+            <label class="font-semibold mb-2">Description (EN):</label>
+            <textarea formControlName="description_en" rows="3" class="px-4 py-2 border rounded-lg" placeholder="Enter description in English"></textarea>
+          </div>
+          <div class="flex flex-col">
+            <label class="font-semibold mb-2">Description (ES):</label>
+            <textarea formControlName="description_es" rows="3" class="px-4 py-2 border rounded-lg" placeholder="Enter description in Spanish"></textarea>
+          </div>
+          <button type="button" (click)="removeFeature(i)" class="mt-2 px-4 py-2 bg-red-500 text-white rounded-lg">Remove</button>
+        </div>
+      </div>
+  
+      <!-- Add Feature Button -->
+      <button type="button" (click)="addFeature()" class="px-4 py-2 bg-blue-500 text-white rounded-lg">Add Feature</button>
+  
+      <!-- Submit Button -->
+      
+    </form>
+  </div>
+  <!-- AQUI ESTAN LOS BENEFICIOS -->
+  <div>
+      <h2 class="text-xl font-semibold mb-4">Product Benefits</h2>
+    <form [formGroup]="benefitsForm" (ngSubmit)="onSubmit($event)" class="space-y-4 max-w-md mx-auto">
+      <!-- Features Form Array -->
+      <div formArrayName="benefits" class="space-y-4">
+        <div *ngFor="let benefit of benefitsArray.controls; let i = index" [formGroupName]="i" class="space-y-4">
+          <div class="flex flex-col">
+            <label class="font-semibold mb-2">Title (EN):</label>
+            <input formControlName="title_en" type="text" class="px-4 py-2 border rounded-lg" placeholder="Enter title in English" />
+          </div>
+          <div class="flex flex-col">
+            <label class="font-semibold mb-2">Title (ES):</label>
+            <input formControlName="title_es" type="text" class="px-4 py-2 border rounded-lg" placeholder="Enter title in Spanish" />
+          </div>
+          
+          <button type="button" (click)="removeBenefit(i)" class="mt-2 px-4 py-2 bg-red-500 text-white rounded-lg">Remove</button>
+        </div>
+      </div>
+  
+      <!-- Add Feature Button -->
+      <button type="button" (click)="addBenefit()" class="px-4 py-2 bg-blue-500 text-white rounded-lg">Add Benefits</button>
+  
+      <!-- Submit Button -->
+      
+    </form>
+  
+  
+  </div>
+  <!-- AQUI ESTAN LOS CAPITULOS -->
+  <div>
+    <h2 class="text-xl font-semibold mb-4">Product Chapters</h2>
+    <form [formGroup]="chaptersForm" (ngSubmit)="onSubmit($event)" class="space-y-4 max-w-md mx-auto">
+      <!-- Features Form Array -->
+      <div formArrayName="chapters" class="space-y-4">
+        <div *ngFor="let chapter of chaptersArray.controls; let i = index" [formGroupName]="i" class="space-y-4">
+          <div class="flex flex-col">
+            <label class="font-semibold mb-2">Title (EN):</label>
+            <input formControlName="title_en" type="text" class="px-4 py-2 border rounded-lg" placeholder="Enter title in English" />
+          </div>
+          <div class="flex flex-col">
+            <label class="font-semibold mb-2">Title (ES):</label>
+            <input formControlName="title_es" type="text" class="px-4 py-2 border rounded-lg" placeholder="Enter title in Spanish" />
+          </div>
+          
+          <button type="button" (click)="removeChapter(i)" class="mt-2 px-4 py-2 bg-red-500 text-white rounded-lg">Remove</button>
+        </div>
+      </div>
+  
+      <!-- Add Feature Button -->
+      <button type="button" (click)="addChapter()" class="px-4 py-2 mt-8 bg-blue-500 text-white rounded-lg">Add Chapters</button>
+  
+      <!-- Submit Button -->
+      <div class="w-full flex justify-center items-center mt-8 ">
+        <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded-lg">Submit</button>
+      
+      </div>
+    </form>
+  
+  
+  </div>
+  </div> 
+  </div> 

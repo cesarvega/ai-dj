@@ -2,8 +2,10 @@
 module.exports = {
   content: ["./src/**/*.{html,ts,scss}"],
   theme: {
-
     extend: {
+      fontFamily: {
+        HolidaysHomework: ['Holidays-Homework', 'sans-serif'], // Aquí defines tu fuente
+      },
       colors: {
         blue: {
           DEFAULT: "#00FFFC",
