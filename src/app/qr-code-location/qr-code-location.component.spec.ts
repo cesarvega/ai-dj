@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AudioBookCardComponent } from './audio-book-card.component';
+import { QrCodeLocationComponent } from './qr-code-location.component';
 
-describe('AudioBookCardComponent', () => {
-  let component: AudioBookCardComponent;
-  let fixture: ComponentFixture<AudioBookCardComponent>;
+describe('QrCodeLocationComponent', () => {
+  let component: QrCodeLocationComponent;
+  let fixture: ComponentFixture<QrCodeLocationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AudioBookCardComponent]
+      imports: [QrCodeLocationComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(AudioBookCardComponent);
+    fixture = TestBed.createComponent(QrCodeLocationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
