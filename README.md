@@ -27,3 +27,15 @@ firebase deploy --only hosting:raw-tracks-v2
 firebase target:apply hosting qr-code-linq qr-code-linq  
 
 firebase deploy --only hosting:qr-code-linq  
+
+firebase target:apply hosting elevatebooks elevatebooks  
+
+firebase deploy --only hosting:elevatebooks  
+
+firebase use --add // to change the project
+
+ng build --configuration=production
+
+firebase target:apply hosting elevate-tech-ai-essential-sounds-pro elevate-tech-ai-essential-sounds-pro
+
+firebase deploy --only hosting:elevate-tech-ai-essential-sounds-pro  

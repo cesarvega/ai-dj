@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 
 * {
   font-family: "Poppins", sans-serif;
@@ -25,4 +25,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-size: 1.5rem;
   margin-bottom: 10px;
   line-height: 1.5;
+}
+@font-face {
+  font-family: 'Holidays-Homework';
+  src: url('/assets/fonts/Holidays Homework.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }

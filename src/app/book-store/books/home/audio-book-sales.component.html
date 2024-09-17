@@ -14,7 +14,7 @@
       </div>
       <div class="col-lg-6 col-md-12">
         <div class="banner-image">
-          <img [src]="data?.image" alt="Book Image" class="book-image animate__animated animate__fadeIn">
+          <img [src]="data?.bookImagePath" alt="Book Image" class="book-image animate__animated animate__fadeIn">
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@
       <button (click)="togglePlayPause()" id="listen-sample" class="buy listen">
         <span class="material-icons">{{ isPlaying ? 'pause' : 'play_arrow' }}</span> Listen Sample
       </button>
-      <audio #audioPlayer (timeupdate)="updateProgress()" (loadedmetadata)="setDuration()" [src]="data?.sample"></audio>
+      <audio #audioPlayer (timeupdate)="updateProgress()" (loadedmetadata)="setDuration()" [src]="data?.bookAudioSamplePath"></audio>
 
       <div #timeline class="timeline" (click)="seek($event)">
         <div #progress class="progress"></div>

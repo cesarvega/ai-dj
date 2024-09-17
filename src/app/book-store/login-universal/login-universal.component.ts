@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
@@ -7,7 +7,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AiService } from '../services/ai.service';
+import { Subscription } from 'rxjs';
+import { AiStore } from '@app/store/ai.store';
+import { SupabaseService } from '@app/services/supabase.service';
+
 
 @Component({
   selector: 'app-login-universal',
@@ -25,22 +29,31 @@ import { AuthService } from '../services/auth.service';
   styleUrl: './login-universal.component.scss'
 })
 export class LoginUniversalComponent {
+  readonly aiStore = inject(AiStore)
+  readonly supabase = inject(SupabaseService)
   appsTitle = 'AI Books'; // Set your app title here
   // add input 
   // username: string = 'tech_guru_99';
   // password: string = 'P@ssw0rd!23';
-  // username: string = 'cesarvega.col@gmail.com';
-  // password: string = 'evt_1PiyfiIGoSU0Z9WxG9PG3ibC';
-  username: string = '';
-  password: string = '';
-  constructor(private authService: AuthService, private router: Router) { }
+  username: string = 'cesarvega.col@gmail.com';
+  password: string = 'evt_1PiyfiIGoSU0Z9WxG9PG3ibC';
+  // username: string = '';
+  // password: string = '';
+  subscriptions: Subscription[] = [];
+  constructor(private router: Router) { }
 
   onSubmit() {
-    this.authService.checkCredentials(this.username, this.password).subscribe({
+    let body = {
+      username : this.username,
+      password: this.password
+    }
+
+    const loginSubscribe = this.supabase.Login(body).subscribe({
       next: (response) => {
-        if (response.username === this.username) {
-          localStorage.setItem('user', JSON.stringify(response));
-          this.router.navigate(['/study']);
+        if (response) {
+          // Si el login es exitoso, puedes redirigir
+          console.log(response)
+          this.router.navigate(['/store']);
         } else {
           alert('Invalid username or password');
         }
@@ -49,5 +62,8 @@ export class LoginUniversalComponent {
         console.error('Login failed:', error);
       }
     });
+  }
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());    
   }
 }

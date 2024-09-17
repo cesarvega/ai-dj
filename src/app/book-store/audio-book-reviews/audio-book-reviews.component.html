@@ -1,17 +1,17 @@
-<div class="p-4 bg-gray-100 rounded-lg shadow">
-    <h2 class="text-xl font-bold mb-4">User Reviews</h2>
-    
-    <div *ngIf="reviews && reviews.length > 0; else noReviews">
-      <div *ngFor="let review of reviews" class="mb-4 p-4 bg-white rounded-lg shadow-sm">
-        <div class="flex items-center mb-2">
-          <span class="text-yellow-500 font-bold mr-2">{{ review.rating }} ★</span>
-          <span class="text-gray-600">User: {{ review.userId }}</span>
-        </div>
-        <p class="text-gray-800">{{ review.review }}</p>
+<div class="p-4 bg-gray-100 rounded-lg shadow w-screem">
+  <h2 class="text-xl font-bold mb-4">User Reviews</h2>
+
+  <div *ngIf="reviews && reviews.length > 0; else noReviews">
+    <div *ngFor="let review of reviews" class="mb-4 p-4 bg-white rounded-lg shadow-sm">
+      <div class="flex items-center mb-2">
+        <span class="text-yellow-500 font-bold mr-2">{{ review.rating }} ★</span>
+        <span class="text-gray-600">User: {{ review.userId }}</span>
       </div>
+      <p class="text-gray-800">{{ review.review }}</p>
     </div>
-    
-    <ng-template #noReviews>
-      <p class="text-gray-600">No reviews available for this book.</p>
-    </ng-template>
   </div>
+
+  <ng-template #noReviews>
+    <p class="text-gray-600">No reviews available for this book.</p>
+  </ng-template>
+</div>

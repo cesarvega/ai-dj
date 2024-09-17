@@ -1,7 +1,7 @@
 {
   "projects": {
     "default": "books-ec62b",
-    "prod": "ai-sound-60a1a",
+    "prod": "books-ec62b",
     "ai-sound": "ai-sound-60a1a",
     "book": "books-ec62b",
     "audio": "ai-sound-60a1a"
@@ -17,6 +17,9 @@
         ],
         "raw-tracks-v2": [
           "raw-tracks-v2"
+        ],
+        "elevate-tech-ai-essential-sounds-pro": [
+          "elevate-tech-ai-essential-sounds-pro"
         ]
       }
     },
@@ -30,6 +33,12 @@
         ],
         "qr-code-linq": [
           "qr-code-linq"
+        ],
+        "raw-tracks-v2": [
+          "raw-tracks-v2"
+        ],
+        "elevatebooks": [
+          "elevatebooks"
         ]
       }
     }
