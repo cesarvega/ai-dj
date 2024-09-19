@@ -1,0 +1,73 @@
+{
+    "id": "123",
+    "typeProduct": "book",
+    "urlPitchEng": "asdasdasdasd",
+    "urlPitchEsp": "asdasdasdasd",
+    "urlPreviewEng": "asdasdasd",
+    "urlPreviewEsp": "asdasdasd",
+    "name": {
+        "en": "",
+        "es": ""
+    },
+    "description": {
+        "en": "",
+        "es": ""
+    },
+    "price": {
+        "current": "",
+        "original": "",
+        "currency": "",
+        "offert": {
+            "en": "",
+            "es": ""
+        }
+    },
+    "haveFeatures": true,
+    "features": [
+        {
+            "title": {
+                "en": "",
+                "es": ""
+            },
+            "description": {
+                "en": "",
+                "es": ""
+            }
+        },
+        {
+            "title": {
+                "en": "",
+                "es": ""
+            },
+            "description": {
+                "en": "",
+                "es": ""
+            }
+        }
+    ],
+    "haveBenefits": false,
+    "benefits": [],
+    "haveChapters": true,
+    "chapters": [
+        {
+            "title": "ASDASDAS",
+            "description": "ASDASDASDASD"
+        }
+    ],
+    "cta": {
+        "button_label": {
+            "en": "",
+            "es": ""
+        },
+        "link": ""
+    },
+    "imageUrl": "assets/images/elevated-tech.png",
+    "tags": [],
+    "colors": [
+        {
+            "primary": "#3498db",
+            "secondary": "#3498DS",
+            "tertiary": "#349832"
+        }
+    ]
+}

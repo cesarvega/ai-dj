@@ -1,13 +1,20 @@
-import { signalStore, withState, patchState, withMethods, withComputed } from '@ngrx/signals';
-import { Album,albums, Track } from '../models/albums';
+import { signalStore,
+         withState, 
+         patchState, 
+         withMethods, 
+         withComputed
+         } from '@ngrx/signals';
+import { Album, Book, User, AppState} from '@app/data-models';
 import { withStorageSync } from './storage-ai-sync';
-
-type AppState = {
-  albums: Album[]
-}
+import { albums,books } from '@app/data';
 
 const initialState: AppState = {
-  albums: albums
+  albums: albums,
+  books: books,
+  selectedBookDetail: null,
+  selectedBookDetailStatus: null,
+  donateValue: 0,
+  userLogued: null
 }
 
 export const AiStore = signalStore(
@@ -23,6 +30,25 @@ export const AiStore = signalStore(
     updateAlbums(albums: Album[]): void {
       patchState(store, {albums: albums});
     },
+    updateBooks(books: Book[]): void {
+      patchState(store, {books: books});
+    },
+    updateSelectedBookDetail(books: Book): void{
+      patchState(store, {selectedBookDetail: books})
+    },
+    updateSelectedBookDetailStatus(boolean: boolean): void{
+      patchState(store, {selectedBookDetailStatus: boolean})
+    },
+    updateDonateValue(value: number): void{
+      patchState(store, {donateValue: value})
+    },
+    updateUserLogued(user: User): void{
+      patchState(store, {userLogued: user})
+    },
+    logoutUser(): void{
+      patchState(store, {userLogued: null})
+    }
+    //)
     // updateOrder(order: 'asc' | 'desc'): void {
     //   patchState(store, (state) => ({ filter: { ...state.filter, order } }));
     // },

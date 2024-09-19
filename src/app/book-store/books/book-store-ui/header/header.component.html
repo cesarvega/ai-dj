@@ -1,0 +1,87 @@
+<header >
+  <div class="container mx-auto py-4 px-4">
+    <div class="flex justify-center items-center md:hidden mb-5">
+      <a href="">
+        <img class="logo" src="assets/img/recorte logo.png" />
+      </a>
+    </div>
+    <div class="flex justify-between items-center">
+      <!-- <nav class="w-60 flex gap-3 items-center">
+        <select name="" class="bg-white bg-opacity-0">
+          <option data-currency="USD" selected="" value="USD">USD</option>
+          <option data-currency="EUR" value="EUR">EUR</option>
+          <option data-currency="GBP" value="GBP">GBP</option>
+          <option data-currency="AUD" value="AUD">AUD</option>
+          <option data-currency="INR" value="INR">INR</option>
+          <option data-currency="JPY" value="JPY">JPY</option>
+          <option data-currency="CAD" value="CAD">CAD</option>
+          <option data-currency="CNY" value="CNY">CNY</option>
+          <option data-currency="AED" value="AED">AED</option>
+          <option data-currency="RUB" value="RUB">RUB</option>
+        </select>
+        <a (click)="toggleValue()" class="block md:hidden cursor-pointer">
+          <svg
+            width="100"
+            height="62"
+            viewBox="0 0 100 62"
+            xmlns="http://www.w3.org/2000/svg"
+            class="fill-black w-6 h-6"
+          >
+            <path
+              d="M95.75 8.125H4.25C3.23886 8.125 2.26914 7.72333 1.55416 7.00834C0.839173 6.29336 0.4375 5.32364 0.4375 4.3125C0.4375 3.30136 0.839173 2.33164 1.55416 1.61666C2.26914 0.901674 3.23886 0.5 4.25 0.5H95.75C96.7611 0.5 97.7309 0.901674 98.4458 1.61666C99.1608 2.33164 99.5625 3.30136 99.5625 4.3125C99.5625 5.32364 99.1608 6.29336 98.4458 7.00834C97.7309 7.72333 96.7611 8.125 95.75 8.125Z"
+            />
+            <path
+              d="M95.75 34.8125H4.25C3.23886 34.8125 2.26914 34.4108 1.55416 33.6958C0.839173 32.9809 0.4375 32.0111 0.4375 31C0.4375 29.9889 0.839173 29.0191 1.55416 28.3042C2.26914 27.5892 3.23886 27.1875 4.25 27.1875H95.75C96.7611 27.1875 97.7309 27.5892 98.4458 28.3042C99.1608 29.0191 99.5625 29.9889 99.5625 31C99.5625 32.0111 99.1608 32.9809 98.4458 33.6958C97.7309 34.4108 96.7611 34.8125 95.75 34.8125Z"
+            />
+            <path
+              d="M95.75 61.5H4.25C3.23886 61.5 2.26914 61.0983 1.55416 60.3833C0.839173 59.6684 0.4375 58.6986 0.4375 57.6875C0.4375 56.6764 0.839173 55.7066 1.55416 54.9917C2.26914 54.2767 3.23886 53.875 4.25 53.875H95.75C96.7611 53.875 97.7309 54.2767 98.4458 54.9917C99.1608 55.7066 99.5625 56.6764 99.5625 57.6875C99.5625 58.6986 99.1608 59.6684 98.4458 60.3833C97.7309 61.0983 96.7611 61.5 95.75 61.5Z"
+            />
+          </svg>
+        </a>
+      </nav> -->
+      <a href="" class="hidden md:block">
+        <img class="logo" src="assets/img/recorte logo.png" />
+      </a>
+      <nav class="w-full flex gap-6 justify-center">
+        <a href="">My Account</a>
+        <a href="">Shopping Cart</a>        
+      </nav>     
+    </div>
+  </div>
+  <nav
+    class="bg-blue py-6 px-4 fixed z-1 md:relative top-0 bottom-0 z-50 shadow-md md:shadow-none w-64 md:w-full transition-all delay-200"
+    [ngClass]="{ 'left-0': isToggle, '-left-full md:left-0': !isToggle }"
+  >
+    <a (click)="toggleValue()" class="absolute right-5 top-5 cursor-pointer">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 612.02 612.04"
+        class="w-5 h-5 fill-black"
+      >
+        <path
+          d="M397.49,306,593.07,110.43A64.69,64.69,0,1,0,501.59,19L306,214.55,110.43,19A64.69,64.69,0,0,0,19,110.46L214.53,306,19,501.61a64.69,64.69,0,0,0,91.48,91.48L306,397.51,501.59,593.09a64.69,64.69,0,1,0,91.48-91.48Z"
+        />
+      </svg>
+    </a>
+    <ul class="w-full flex justify-center flex-col md:flex-row gap-6">
+      <li>
+        <a href="" class="block">Home</a>
+      </li>
+      <li>
+        <a href="" class="block">Sound Packs</a>
+      </li>
+      <li>
+        <a href="" class="block">Stories Audio Books</a>
+      </li>
+      <li>
+        <a href="" class="block">Kids Audio Books</a>
+      </li>
+      <li>
+        <a href="" class="block">Adult Audio Books</a>
+      </li>
+      <li>
+        <a href="" class="block">Contact Us</a>
+      </li>
+    </ul>
+  </nav>
+</header>

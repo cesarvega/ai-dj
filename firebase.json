@@ -28,5 +28,51 @@
         "destination": "/index.html"
       }
     ]
-  }]
+  },
+  {
+    "target": "qr-code-linq",
+    "public": "dist/elevated-tech-ng/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  {
+    "target": "elevatebooks",
+    "public": "dist/elevated-tech-ng/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  {
+    "target": "elevate-tech-ai-essential-sounds-pro",
+    "public": "dist/elevated-tech-ng/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+]
 }
