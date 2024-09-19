@@ -13,6 +13,7 @@ export const environment = {
   provider: 'ai',
   booksActionsUrl: 'assets/db/books.json',
   imagesActionsUrl: 'assets/db/images.json',
+  websiteUrl:'https://raw-sample.web.app/'
 };
 // src/environments/supabase.config.ts
 export const supabaseConfig = {

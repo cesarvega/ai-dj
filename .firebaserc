@@ -1,7 +1,7 @@
 {
   "projects": {
     "default": "books-ec62b",
-    "prod": "books-ec62b",
+    "prod": "clientes-1870f",
     "ai-sound": "ai-sound-60a1a",
     "book": "books-ec62b",
     "audio": "ai-sound-60a1a"
@@ -39,6 +39,13 @@
         ],
         "elevatebooks": [
           "elevatebooks"
+        ]
+      }
+    },
+    "clientes-1870f": {
+      "hosting": {
+        "valet-parking": [
+          "valet-parking"
         ]
       }
     }

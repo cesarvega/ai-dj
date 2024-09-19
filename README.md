@@ -39,3 +39,13 @@ ng build --configuration=production
 firebase target:apply hosting elevate-tech-ai-essential-sounds-pro elevate-tech-ai-essential-sounds-pro
 
 firebase deploy --only hosting:elevate-tech-ai-essential-sounds-pro  
+
+// VALET
+
+firebase use --add // to change the project
+
+ng build --configuration=production
+
+firebase target:apply hosting valet-parking valet-parking
+
+firebase deploy --only hosting:valet-parking  
