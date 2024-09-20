@@ -5,4 +5,5 @@ export type {BookChapter} from "./book";
 export type {Book} from "./book"; 
 export type {User} from "./user";
 export type {AppState} from './appState'
+export type {OmniLocation } from './omniLocations'
 // export type {BookStore} from "./book"; 

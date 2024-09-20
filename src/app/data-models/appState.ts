@@ -6,5 +6,6 @@ export type AppState = {
     selectedBookDetailStatus: boolean | null,
     selectedBookDetail: Book | null,
     donateValue: number,
-    userLogued: User | null
+    userLogued: User | null,
+    omniLocations: any | null
 }

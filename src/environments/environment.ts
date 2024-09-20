@@ -13,7 +13,8 @@ export const environment = {
   provider: 'ai',
   booksActionsUrl: 'assets/db/books.json',
   imagesActionsUrl: 'assets/db/images.json',
-  websiteUrl:'https://raw-sample.web.app/'
+  websiteUrl:'https://buy.stripe.com/7sI9BgdCo6bh4WkeV3',
+  apiUrl: 'https://api.rawg.io/api',
 };
 // src/environments/supabase.config.ts
 export const supabaseConfig = {

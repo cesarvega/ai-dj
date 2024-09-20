@@ -8,6 +8,7 @@ export const environment = {
   bookRealStatePaymentUrl: 'https://buy.stripe.com/cN27t89m89nt88wdQR',//$5000 pesos
   booksActionsUrl: 'assets/db/books.json',
   imagesActionsUrl: 'assets/db/images.json',
+  apiUrl: 'https://api.rawg.io/api',
 };
 // src/environments/supabase.config.ts
 export const supabaseConfig = {

@@ -4,7 +4,7 @@ import { signalStore,
          withMethods, 
          withComputed
          } from '@ngrx/signals';
-import { Album, Book, User, AppState} from '@app/data-models';
+import { Album, Book, User, AppState, OmniLocation } from '@app/data-models';
 import { withStorageSync } from './storage-ai-sync';
 import { albums,books } from '@app/data';
 
@@ -14,7 +14,8 @@ const initialState: AppState = {
   selectedBookDetail: null,
   selectedBookDetailStatus: null,
   donateValue: 0,
-  userLogued: null
+  userLogued: null,
+  omniLocations: null,
 }
 
 export const AiStore = signalStore(
@@ -47,10 +48,9 @@ export const AiStore = signalStore(
     },
     logoutUser(): void{
       patchState(store, {userLogued: null})
+    },
+    updateLocations(locations: OmniLocation[]): void {
+      patchState(store, { omniLocations: locations });
     }
-    //)
-    // updateOrder(order: 'asc' | 'desc'): void {
-    //   patchState(store, (state) => ({ filter: { ...state.filter, order } }));
-    // },
   }))
 );
