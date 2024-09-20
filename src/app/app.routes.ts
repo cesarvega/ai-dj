@@ -4,6 +4,7 @@ import { QrCodeLocationComponent } from './qr-code-location/qr-code-location.com
 import { TicketManagementComponent } from './ticket-management/ticket-management.component';
 import { CustomerSessionFormComponent } from './customer-session-form/customer-session-form.component';
 import { LocationsManagementComponent } from './locations-management/locations-management.component';
+import { SessionManagementComponent } from './session-management/session-management.component';
 
 export const routes: Routes = [
   {
@@ -17,6 +18,10 @@ export const routes: Routes = [
   {
     path: 'locations',
     component: LocationsManagementComponent,
+  },
+  {
+    path: 'session',
+    component: SessionManagementComponent,
   },
   {
     path: 'session',

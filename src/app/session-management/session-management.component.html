@@ -1,0 +1,36 @@
+<div class="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-md p-6">
+      <img src="assets/logo.png" alt="Logo" class="mx-auto mb-4 h-16">
+      <h2 class="text-2xl font-semibold text-center mb-6">Welcome!</h2>
+      <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="w-full mb-4">
+          <mat-label>Description</mat-label>
+          <input matInput formControlName="description" type="text">
+          <mat-error *ngIf="description.invalid && description.touched">
+            Name is required.
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="w-full mb-4">
+          <mat-label>keycode</mat-label>
+          <input matInput formControlName="licensePlate" type="text">
+          <mat-error *ngIf="licensePlate.invalid && licensePlate.touched">
+            License Plate is required and should contain only letters and numbers.
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="w-full mb-4">
+          <mat-label>Phone Number</mat-label>
+          <input matInput formControlName="phoneNumber" type="text">
+          <mat-error *ngIf="phoneNumber.invalid && phoneNumber.touched">
+            Phone number is required and should be at least 10 digits.
+          </mat-error>
+        </mat-form-field> 
+  
+        <button mat-raised-button color="primary" type="submit" class="w-full" [disabled]="customerForm.invalid">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+  
