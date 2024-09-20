@@ -1,36 +1,76 @@
-<div class="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
-    <div class="w-full max-w-md bg-white rounded-lg shadow-md p-6">
-      <img src="assets/logo.png" alt="Logo" class="mx-auto mb-4 h-16">
-      <h2 class="text-2xl font-semibold text-center mb-6">Welcome!</h2>
-      <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="outline" class="w-full mb-4">
-          <mat-label>Description</mat-label>
-          <input matInput formControlName="description" type="text">
-          <mat-error *ngIf="description.invalid && description.touched">
-            Name is required.
-          </mat-error>
-        </mat-form-field>
+<div class="max-w-md mx-auto bg-white p-8 border border-gray-300 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold mb-6 text-center">Create Session</h2>    
+    
+    <div class="border-t border-gray-300 my-4"></div>
+    
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="keycode">
+              KeyCode:
+            </label>
+            <input 
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+              formControlName="keycode"
+              id="keycode" 
+              type="text" 
+              placeholder="Enter KeyCode" 
+              required>
+              <p class="alert" *ngIf="keycode?.invalid && (keycode?.dirty || keycode?.touched)">
+                The keycode field is required
+              </p>
+        </div> 
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
+                Description:
+            </label>
+            <input 
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+            formControlName="description"
+            id="description" 
+            type="text" 
+            placeholder="Enter Description" 
+            required>
+            <p class="alert" *ngIf="description?.invalid && (description?.dirty || description?.touched)">
+                The description field is required
+            </p>
+        </div> 
   
-        <mat-form-field appearance="outline" class="w-full mb-4">
-          <mat-label>keycode</mat-label>
-          <input matInput formControlName="licensePlate" type="text">
-          <mat-error *ngIf="licensePlate.invalid && licensePlate.touched">
-            License Plate is required and should contain only letters and numbers.
-          </mat-error>
-        </mat-form-field>
-  
-        <mat-form-field appearance="outline" class="w-full mb-4">
-          <mat-label>Phone Number</mat-label>
-          <input matInput formControlName="phoneNumber" type="text">
-          <mat-error *ngIf="phoneNumber.invalid && phoneNumber.touched">
-            Phone number is required and should be at least 10 digits.
-          </mat-error>
-        </mat-form-field> 
-  
-        <button mat-raised-button color="primary" type="submit" class="w-full" [disabled]="customerForm.invalid">
-          Submit
-        </button>
-      </form>
-    </div>
-  </div>
-  
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">
+                Phone:
+            </label>
+            <input 
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+            formControlName="phone"
+            id="phone" 
+            type="tel" 
+            placeholder="(123) 456-7890">
+        </div>   
+
+        <!-- Campo select para ciudades -->
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="locations">
+                Location:
+            </label>
+            <select 
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                formControlName="locations"
+                id="locations"
+                required>
+                <option value="">Select a Location</option>
+                <option value="07bbe24e-78ed-4712-a2b3-40b941666788">OSSOBUCO/RESTAURANT</option>
+                <option value="0ed3851d-7093-4cb7-85bc-a268d5f6dc8b">ASTRA RESTAURANT / BAR</option>
+                <option value="123343f4-c61c-42c6-a1bf-ddb8fd3764d2">BUENA VISTA</option>
+            </select>
+            <p class="alert" *ngIf="locations?.invalid && (locations?.dirty || locations?.touched)">
+                Please select a location.
+            </p>
+        </div>
+
+        <div class="flex items-center justify-between">
+            <button class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" [ngClass]="{'disabled':registerForm.invalid}" [disabled]="registerForm.invalid">
+                Save and Continue
+            </button>
+        </div>
+    </form>  
+</div>

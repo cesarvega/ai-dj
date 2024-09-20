@@ -18,9 +18,11 @@ export class ValetService {
   readonly aiStore = inject(AiStore);
   private baseUrl = environment.apiUrl;
   private get_all_locations: string
+  private create_session: string
 
   constructor(private http: HttpClient) {
     this.get_all_locations = '/locations'
+    this.create_session = '/sessions'
   }
 
   // Locations CRUD Operations
@@ -28,6 +30,10 @@ export class ValetService {
   // GET /locations - Retrieve all locations
   getAllLocations(): Observable<any> {
     return this.http.get(`${this.baseUrl}${this.get_all_locations}`, httpOptions);
+  }
+
+  createSession(body: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}${this.create_session}`,body, httpOptions);
   }
 
   // getLocations(): void {
