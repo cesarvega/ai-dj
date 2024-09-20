@@ -1,15 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MatInput } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { SupabaseService } from '@app/services/supabase.service';
 
 
 @Component({
   selector: 'app-form-sample-products',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, MatInputModule],
+  imports: [ReactiveFormsModule, CommonModule, MatInput, MatButtonModule, MatInputModule, MatFormFieldModule],
   templateUrl: './form-sample-products.component.html',
-  styleUrls: ['./form-sample-products.component.scss'],
+
 })
 export class FormSampleProductsComponent {
   basicInfo : FormGroup
@@ -25,13 +29,21 @@ export class FormSampleProductsComponent {
   benefitsForm:FormGroup;
   chapters: FormArray;
   chaptersForm: FormGroup;
-  
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:3970426649.
-  constructor(private fb: FormBuilder){
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:4269790677.
+  imageUrl: string | null = null;
+  pitchEs: string | null = null;
+  pitchEn: string | null = null;
+  previewEs: string | null = null;
+  previewEn: string | null = null;
+  english: boolean =false
+  spanish :boolean= false
+  test: string=""
+  constructor(
+    private fb: FormBuilder,
+    private supabaseService: SupabaseService
+    ){
     this.basicInfo = this.fb.group({
-      id: ['1234', Validators.required],
-      typeProduct: ['book', Validators.required],
+      id: ['', Validators.required],
+      typeProduct: ['', Validators.required],
       urlPitchEng: ['', Validators.required],
       urlPitchEsp: ['', Validators.required],
       urlPreviewEsp: ['', Validators.required],
@@ -52,7 +64,8 @@ export class FormSampleProductsComponent {
   this.price= this.fb.group({
     current: ['', Validators.required],
     original: ['', Validators.required],
-    currency: ['', Validators.required]
+    currency: ['', Validators.required],
+    dateOffert:['', Validators.required],
   })
   this.offert= this.fb.group({
     es: ['', Validators.required],
@@ -64,9 +77,9 @@ export class FormSampleProductsComponent {
     link: ['', Validators.required]
   })
   this.color = this.fb.group({
-    primary: ['#4A148C', Validators.required],
-    secondary: ['#FF69B4', Validators.required],
-    tertiary: ['#8E24AA', Validators.required]
+    primary: ['', Validators.required],
+    secondary: ['', Validators.required],
+    tertiary: ['', Validators.required]
   });
   this.featuresForm = this.fb.group({
     features: this.fb.array([])  // Initialize the FormArray
@@ -82,6 +95,55 @@ export class FormSampleProductsComponent {
   this.benefits = this.fb.array([]);
   this.chapters= this.fb.array([])
 
+}
+
+
+
+onFileSelected(event: Event, type:string): void {
+  const input = event.target as HTMLInputElement;
+  if (input.files && input.files[0]) {
+    const file = input.files[0];
+    this.supabaseService.uploadImage(file).then((url) => {
+      if (url) {
+
+        if(type === 'previewEs'){
+          this.previewEs = url;
+        }
+        if(type === 'pitchEs'){
+          this.pitchEs= url;
+        }
+         if(type === 'previewEn'){
+          this.previewEn = url;
+        }
+        if(type === 'pitchEn'){
+        this.pitchEn = url;
+        }
+        if(type==='image'){
+          this.imageUrl = url;
+        }
+
+
+      }
+    });
+  }
+}
+
+onSubmitsendProductData(product: string): void {
+  this.supabaseService.sendProductData(product)
+
+}
+
+
+
+
+
+onCheckbox1Change(event: any): void {
+  this.spanish = event.target.checked;
+}
+
+// Manejador del segundo checkbox
+onCheckbox2Change(event: any): void {
+  this.english = event.target.checked;
 }
  // Getter for convenience
  get featuresArray(): FormArray {
@@ -109,7 +171,7 @@ addBenefit(): void {
   this.benefitsArray.push(this.fb.group({
     title_en: ['', Validators.required],
     title_es: ['', Validators.required],
-    
+
   }));
 }
  addChapter(): void {
@@ -154,7 +216,17 @@ combinedData.basicInfo.haveBenefits=true
 if(this.chaptersArray.length > 0 ){
 combinedData.basicInfo.haveChapters=true
 }
-  console.log(combinedData);
+combinedData.basicInfo.imageUrl = this.imageUrl;
+combinedData.basicInfo.urlPitchEng = this.pitchEn;
+combinedData.basicInfo.urlPitchEsp = this.pitchEs;
+combinedData.basicInfo.urlPreviewEsp = this.previewEs;
+combinedData.basicInfo.urlPreviewEng = this.previewEn
+
+ // console.log(combinedData);
+ // console.log(this.imageUrl)
+ // this.test= JSON.stringify(combinedData)
+  this.onSubmitsendProductData(JSON.stringify(combinedData))
+
 }
 
 
