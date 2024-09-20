@@ -6,6 +6,7 @@ import { Ticket } from '@app/models/ticket';
 import { ValetService } from '@app/services/valet.service';
 import { AiStore } from '@app/store/ai.store';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ticket-management',
@@ -24,7 +25,7 @@ export class TicketManagementComponent implements OnInit {
   locations: any;
   tickets: Ticket[] = [];
 
-  constructor(private valetService: ValetService,private http: HttpClient) { }
+  constructor(private valetService: ValetService,private http: HttpClient , private router: Router) { }
 
   ngOnInit(): void {
     this.loadAllTickets();
@@ -37,10 +38,17 @@ export class TicketManagementComponent implements OnInit {
     });
   }
 
+  ticketDetails(ticket: Ticket): void {
+    this.aiStore.updateTicketDetails(ticket);
+    this.router.navigate(['details']);
+  }
+
+
   loadAllTickets(): void {
     this.valetService.getAllTickets().subscribe({
       next: data => {
         this.tickets = data;
+        this.aiStore.updateTickets(this.tickets);
         console.log('Tickets loaded:', this.tickets);
       },
       error: error => {
@@ -50,6 +58,7 @@ export class TicketManagementComponent implements OnInit {
         console.log('Finished loading tickets.');
       }
     });
+    console.log("tickets", this.tickets);
   }
   
   viewTicket(id: string): void {
@@ -67,28 +76,28 @@ export class TicketManagementComponent implements OnInit {
     });
   }
   
-  addTicket(): void {
-    const newTicket: Ticket = {
-      vehicleNumber: 'ABC123',
-      driverName: 'John Doe',
-      parkingSpot: 'P1',
-      entryTime: new Date()
-      // Add other fields as necessary
-    };
+  // addTicket(): void {
+  //   const newTicket: Ticket = {
+  //     vehicleNumber: 'ABC123',
+  //     driverName: 'John Doe',
+  //     parkingSpot: 'P1',
+  //     entryTime: new Date()
+  //     // Add other fields as necessary
+  //   };
   
-    this.valetService.createTicket(newTicket).subscribe({
-      next: ticket => {
-        console.log('Ticket created:', ticket);
-        this.loadAllTickets(); // Refresh the list
-      },
-      error: error => {
-        console.error('Error creating ticket:', error);
-      },
-      complete: () => {
-        console.log('Finished creating ticket.');
-      }
-    });
-  }
+  //   this.valetService.createTicket(newTicket).subscribe({
+  //     next: ticket => {
+  //       console.log('Ticket created:', ticket);
+  //       this.loadAllTickets(); // Refresh the list
+  //     },
+  //     error: error => {
+  //       console.error('Error creating ticket:', error);
+  //     },
+  //     complete: () => {
+  //       console.log('Finished creating ticket.');
+  //     }
+  //   });
+  // }
   
   editTicket(id: string): void {
     // Uncomment this line and comment the next line if you have a Ticket interface

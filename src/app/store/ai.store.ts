@@ -7,6 +7,7 @@ import { signalStore,
 import { Album, Book, User, AppState, OmniLocation } from '@app/data-models';
 import { withStorageSync } from './storage-ai-sync';
 import { albums,books } from '@app/data';
+import { Ticket } from '@app/models/ticket';
 
 const initialState: AppState = {
   albums: albums,
@@ -16,6 +17,8 @@ const initialState: AppState = {
   donateValue: 0,
   userLogued: null,
   omniLocations: null,
+  tickets:  null,
+  ticketDetails:null
 }
 
 export const AiStore = signalStore(
@@ -27,6 +30,12 @@ export const AiStore = signalStore(
   withMethods((store) => ({
     clearStore(){
       patchState(store, initialState);
+    },
+    updateTickets(tickets: Ticket[]): void {
+      patchState(store, {tickets: tickets});
+    },
+    updateTicketDetails(ticket: Ticket): void {
+      patchState(store, {ticketDetails: ticket});
     },
     updateAlbums(albums: Album[]): void {
       patchState(store, {albums: albums});

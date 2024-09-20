@@ -1,32 +1,33 @@
 <div class="container mx-auto p-4">
-    <div
-      class="flex space-x-4 overflow-x-auto md:flex-nowrap flex-wrap md:space-x-4 md:space-y-0 space-y-4"
-    >
-      <div
-        *ngFor="let location of locations"
-        class="flex-none md:w-80 w-full"
-      >
-        <mat-card class="h-full">
-          <mat-card-header>
-            <mat-card-title>{{ location.name }}</mat-card-title>
-            <mat-card-subtitle>{{ location.address }}</mat-card-subtitle>
-          </mat-card-header>
-          <img
-            mat-card-image
-            [src]="location.qrCode"
-            width="200"
-            alt="{{ location.name }}"
-          />
-          <mat-card-content>
-            <p>Price: ${{ location.price / 100 }}</p>
-            <p>Working Hours: {{ location.workingHourFrom }} - {{ location.workingHourTo }}</p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-button color="primary">View Details</button>
-            <button mat-button color="accent">Book Now</button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
-    </div>
+    <table class="table-auto table-fixed w-full border-collapse border border-gray-300">
+      <thead>
+        <tr class="bg-gray-200">
+          <th class="border border-gray-300 p-2">Valet</th>
+          <th class="border border-gray-300 p-2">Client</th>
+          <th class="border border-gray-300 p-2">License Plate</th>
+          <th class="border border-gray-300 p-2">Pay Type</th>
+          <th class="border border-gray-300 p-2">Amount Total</th>
+          <th class="border border-gray-300 p-2">Status</th>
+          <th class="border border-gray-300 p-2">Payment Status</th>
+          <th class="border border-gray-300 p-2">Location</th>
+          <th class="border border-gray-300 p-2">Phone</th>
+          <th class="border border-gray-300 p-2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ticket of tickets" class="hover:bg-gray-100">
+          <td class="border border-gray-300 p-2 whitespace-normal break-words overflow-hidden">{{ ticket.user_firstname }}</td>
+          <td class="border border-gray-300 p-2 whitespace-normal break-words overflow-hidden">{{ ticket.name }}</td>
+          <td class="border border-gray-300 p-2 whitespace-normal break-words overflow-hidden">{{ ticket.license_plate }}</td>
+          <td class="border border-gray-300 p-2 whitespace-normal break-words overflow-hidden">{{ ticket.pay_type }}</td>
+          <td class="border border-gray-300 p-2 whitespace-normal break-words overflow-hidden">{{ ticket.amount_total }}</td>
+          <td class="border border-gray-300 p-2 whitespace-normal break-words overflow-hidden">{{ ticket.status }}</td>
+          <td class="border border-gray-300 p-2 whitespace-normal break-words overflow-hidden">{{ ticket.payment_status }}</td>
+          <td class="border border-gray-300 p-2 whitespace-normal break-words overflow-hidden">{{ ticket.location_name}}</td>
+          <td class="border border-gray-300 p-2 whitespace-normal break-words overflow-hidden">{{ ticket.phone }}</td>
+          <td class="border border-gray-300 p-2 whitespace-normal break-words overflow-hidden" (click)="ticketDetails(ticket)">More info</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
   

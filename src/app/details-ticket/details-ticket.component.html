@@ -1,0 +1,103 @@
+<!-- details-ticket.component.html -->
+
+<div class="container mx-auto p-6">
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <!-- Encabezado del Ticket -->
+      <h2 class="text-2xl font-semibold mb-4 text-gray-800">Detalles del Ticket</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Información General del Ticket -->
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700">Información del Ticket</h3>
+          <div class="space-y-2">
+            <div class="flex">
+              <span class="font-medium w-40 text-gray-600">ID del Ticket:</span>
+              <span class="text-gray-800">{{ ticketDetails?.id || 'N/A' }}</span>
+            </div>
+            <div class="flex">
+              <span class="font-medium w-40 text-gray-600">Tipo de Pago:</span>
+              <span class="text-gray-800">{{ ticketDetails?.pay_type }}</span>
+            </div>
+            <div class="flex">
+              <span class="font-medium w-40 text-gray-600">Monto Total:</span>
+              <span class="text-gray-800"><a >{{ticketDetails?.amount_total }}</a>{{ ticketDetails?.currency }}</span>
+            </div>
+            <div class="flex">
+              <span class="font-medium w-40 text-gray-600">Estado del Pago:</span>
+              <span class="text-gray-800 capitalize">{{ ticketDetails?.status }}</span>
+            </div>
+            <div class="flex">
+              <span class="font-medium w-40 text-gray-600">Estado de Pago:</span>
+              <span class="text-gray-800 capitalize">{{ ticketDetails?.payment_status }}</span>
+            </div>
+            <div class="flex">
+              <span class="font-medium w-40 text-gray-600">Modo de Pago:</span>
+              <span class="text-gray-800 capitalize">{{ ticketDetails?.mode }}</span>
+            </div>
+            <div class="flex">
+              <span class="font-medium w-40 text-gray-600">ID de Sesión:</span>
+              <span class="text-gray-800">{{ ticketDetails?.session_id }}</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Información del Usuario -->
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700">Información del Usuario</h3>
+          <div class="space-y-2">
+            <div class="flex">
+              <span class="font-medium w-40 text-gray-600">ID del Usuario:</span>
+              <span class="text-gray-800">{{ ticketDetails?.user_id }}</span>
+            </div>
+            <div class="flex">
+              <span class="font-medium w-40 text-gray-600">Rol del Usuario:</span>
+              <span class="text-gray-800 capitalize">{{ ticketDetails?.user_role }}</span>
+            </div>
+            <div class="flex">
+              <span class="font-medium w-40 text-gray-600">Nombre:</span>
+              <span class="text-gray-800">{{ ticketDetails?.user_firstname }} {{ ticketDetails?.user_lastname }}</span>
+            </div>
+            <div class="flex">
+              <span class="font-medium w-40 text-gray-600">Email:</span>
+              <span class="text-gray-800">{{ ticketDetails?.email }}</span>
+            </div>
+            <div class="flex">
+              <span class="font-medium w-40 text-gray-600">Teléfono:</span>
+              <span class="text-gray-800">{{ ticketDetails?.phone || 'N/A' }}</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Información de la Ubicación -->
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700">Información de la Ubicación</h3>
+          <div class="space-y-2">
+            <div class="flex">
+              <span class="font-medium w-40 text-gray-600">ID de la Ubicación:</span>
+              <span class="text-gray-800">{{ ticketDetails?.location_id }}</span>
+            </div>
+            <div class="flex">
+              <span class="font-medium w-40 text-gray-600">Nombre del Lugar:</span>
+              <span class="text-gray-800">{{ ticketDetails?.location_name }}</span>
+            </div>
+            <div class="flex">
+              <span class="font-medium w-40 text-gray-600">Dirección:</span>
+              <span class="text-gray-800">{{ ticketDetails?.location_address }}</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Información del Vehículo -->
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700">Información del Vehículo</h3>
+          <div class="space-y-2">
+            <div class="flex">
+              <span class="font-medium w-40 text-gray-600">Placa del Vehículo:</span>
+              <span class="text-gray-800">{{ ticketDetails?.license_plate }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

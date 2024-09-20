@@ -1,4 +1,5 @@
 import { Album, Book, User} from '@app/data-models';
+import { Ticket } from '@app/models/ticket';
 
 export type AppState = {
     albums: Album[] | null,
@@ -7,5 +8,7 @@ export type AppState = {
     selectedBookDetail: Book | null,
     donateValue: number,
     userLogued: User | null,
-    omniLocations: any | null
+    omniLocations: any | null,
+    tickets: Ticket[] | null
+    ticketDetails: Ticket| null
 }
