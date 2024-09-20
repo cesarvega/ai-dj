@@ -17,14 +17,17 @@ const httpOptions = {
 export class ValetService {
   readonly aiStore = inject(AiStore);
   private baseUrl = environment.apiUrl;
+  private get_all_locations: string
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.get_all_locations = '/locations'
+  }
 
   // Locations CRUD Operations
 
   // GET /locations - Retrieve all locations
   getAllLocations(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/locations`, httpOptions);
+    return this.http.get(`${this.baseUrl}${this.get_all_locations}`, httpOptions);
   }
 
   // getLocations(): void {

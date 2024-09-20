@@ -14,7 +14,8 @@ export const environment = {
   booksActionsUrl: 'assets/db/books.json',
   imagesActionsUrl: 'assets/db/images.json',
   websiteUrl:'https://buy.stripe.com/7sI9BgdCo6bh4WkeV3',
-  apiUrl: 'https://api.rawg.io/api',
+  // apiUrl: 'https://api.rawg.io/api',
+  apiUrl: 'https://backend-omniparking-1.onrender.com'
 };
 // src/environments/supabase.config.ts
 export const supabaseConfig = {
