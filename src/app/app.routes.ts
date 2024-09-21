@@ -5,6 +5,7 @@ import { TicketManagementComponent } from './ticket-management/ticket-management
 import { CustomerSessionFormComponent } from './customer-session-form/customer-session-form.component';
 import { LocationsManagementComponent } from './locations-management/locations-management.component';
 import {DetailsTicketComponent }from './details-ticket/details-ticket.component';
+import { SessionManagementComponent } from './session-management/session-management.component';
 
 export const routes: Routes = [
   {
@@ -21,8 +22,12 @@ export const routes: Routes = [
   },
   {
     path: 'session',
-    component: CustomerSessionFormComponent,
+    component: SessionManagementComponent,
   },
+  // {
+  //   path: 'session',
+  //   component: CustomerSessionFormComponent,
+  // },
   {
     path: 'details',
     component: DetailsTicketComponent,

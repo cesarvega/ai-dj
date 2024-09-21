@@ -1,36 +1,22 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,ts,scss}"],
+  darkMode: 'class', // Mantén esto
+  content: [
+    "./src/**/*.{html,ts}",
+  ],
   theme: {
     extend: {
-      fontFamily: {
-        HolidaysHomework: ['Holidays-Homework', 'sans-serif'], // Aquí defines tu fuente
-      },
       colors: {
-        blue: {
-          DEFAULT: "#00FFFC",
-          300: "#D1D5DB",
-          500: "#6B7280",
+        // Define tus colores personalizados aquí si lo deseas
+        dark: {
+          background: '#1a202c',
+          text: '#a0aec0',
         },
-        red: {
-          500: "#EF4444",
+        light: {
+          background: '#ffffff',
+          text: '#2d3748',
         },
-        gray: {
-          300: "#D1D5DB",
-          500: "#6B7280",
-        },
-        themeColor: "#077194",
-      },
-      fontFamily: {
-        roboto: ["Roboto", "sans-serif"],
-        abel: ["Abel", "sans-serif"],
-      },
-      backgroundImage: {
-        wCollection: "url('/assets/images/women-collections.webp')",
-        mCollection: "url('/assets/images/mens-collections.webp')",
       },
     },
-    // No necesitas duplicar colores como `black`, `white`, `yellow`, etc.
   },
   plugins: [require('daisyui'),],
 };
