@@ -15,17 +15,19 @@ import { authGuard } from './guards/auth.guard';
 import { FormSampleProductsComponent } from './book-store/landing-sample-universal/form-sample-products/form-sample-products.component';
 import {LandingSampleUniversalComponent} from './book-store/landing-sample-universal/landing-sample-universal.component';
 import { guestGuard } from './guards/guest.guard';
+import { HomePgComponent } from './home-pg/home-pg.component';
+import { ScoreAppComponent } from './score-app/score-app.component';
 
 
 export const routes: Routes = [
-  // {
-  //   path: 'home',
-  //   component: HomePgComponent,
-  // },
-  // {
-  //   path: 'score',
-  //   component: ScoreAppComponent,
-  // },
+  {
+    path: 'home',
+    component: HomePgComponent,
+  },
+  {
+    path: 'score',
+    component: ScoreAppComponent,
+  },
  
   // {
    //  path: 'details-book',
@@ -49,11 +51,11 @@ export const routes: Routes = [
 
   // { path: 'link', component: LinkSelectorComponent },
 
-   { path: 'store', component: LandingPgComponent,canActivate: [authGuard]},
+   { path: 'store', component: LandingPgComponent,},
 
   {path:'sample/:id', component: LandingSampleUniversalComponent},
   {path:'form', component: FormSampleProductsComponent},
-  { path: '**', redirectTo: 'subscribtion' } 
+  { path: '**', redirectTo: 'home' } 
 
 
 ];
